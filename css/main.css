@@ -187,7 +187,7 @@ th {
 body {
   position: relative;
   font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
-  font-size: 14px;
+  font-size: 1em;
   line-height: 2;
   color: #555;
   background: #eee;
@@ -217,7 +217,7 @@ h6 {
   padding: 0;
   font-weight: bold;
   line-height: 1.5;
-  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: Georgia, sans;
 }
 h2,
 h3,
@@ -487,14 +487,14 @@ pre,
   overflow: auto;
   margin: 20px 0;
   padding: 0;
-  font-size: 13px;
+  font-size: 14px;
   color: #4d4d4c;
   background: #f7f7f7;
   line-height: 1.6;
 }
 pre,
 code {
-  font-family: consolas, Menlo, "PingFang SC", "Microsoft YaHei", monospace;
+  font-family: Consolas;
 }
 code {
   padding: 2px 4px;
@@ -502,7 +502,7 @@ code {
   color: #555;
   background: #eee;
   border-radius: 3px;
-  font-size: 13px;
+  font-size: 14px;
 }
 pre {
   padding: 10px;
@@ -1240,7 +1240,7 @@ pre .javascript .function {
 .post-body .figure .caption {
   margin: -20px auto 15px;
   text-align: center;
-  font-size: 14px;
+  font-size: 1em;
   color: #999;
   font-weight: bold;
   line-height: 1;
@@ -1730,6 +1730,28 @@ pre .javascript .function {
 .post-body blockquote p:hover {
   color: #24762e;
 }
+.post-body h1,
+h2,
+h3 {
+  border-bottom: none;
+  transition: 0.5s all;
+}
+.post-body h1:hover,
+h2:hover,
+h3:hover {
+  color: #b5ca4d;
+}
+.post-body h4,
+h5,
+h6 {
+  border-bottom: none;
+  transition: 0.5s all;
+}
+.post-body h4:hover,
+h5:hover,
+h6:hover {
+  color: #c176c5;
+}
 .my_post_copyright {
   width: 85%;
   max-width: 45em;
@@ -1865,7 +1887,7 @@ pre .javascript .function {
   height: auto;
   border: 1px solid #eee;
   border-radius: 50%;
-  transition: 5s all;
+  transition: 2s all;
 }
 .site-author-image:hover {
   transform: rotate(360deg);
@@ -1950,7 +1972,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #8275db;
+  background: #ffa6ba;
 }
 .links-of-blogroll {
   font-size: 13px;
