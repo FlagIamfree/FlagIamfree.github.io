@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Pwn安全," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Iamfree Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="项目介绍这是笔者从GITHUB上找的简单PHP程序(用于学习) 这是一个可 增删查 的用户数据管理  数据库连接代码:先介绍一下数据库的表结构：  123456&amp;lt;?php    $pdo = new PDO(&apos;mysql:host=localhost;dbname=data&apos;,&apos;root&apos;,&apos;root&apos;); //PDO(PHP访问数据库定义了一个轻量级的、一致性的接口，它提供了一个数据访问抽">
+<meta name="keywords" content="Pwn安全">
+<meta property="og:type" content="article">
+<meta property="og:title" content="test">
+<meta property="og:url" content="127.0.0.1/2018/05/22/test/index.html">
+<meta property="og:site_name" content="Iamfree Blog">
+<meta property="og:description" content="项目介绍这是笔者从GITHUB上找的简单PHP程序(用于学习) 这是一个可 增删查 的用户数据管理  数据库连接代码:先介绍一下数据库的表结构：  123456&amp;lt;?php    $pdo = new PDO(&apos;mysql:host=localhost;dbname=data&apos;,&apos;root&apos;,&apos;root&apos;); //PDO(PHP访问数据库定义了一个轻量级的、一致性的接口，它提供了一个数据访问抽">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://static.zybuluo.com/1kbfree/4z5de16ziysrio7dqad9u1ow/image_1cc2vfnu31qpg1a1j1fob13be3ejm.png">
+<meta property="og:image" content="http://static.zybuluo.com/1kbfree/jgp8ljt3m0adp7i8ty1kkdr2/image_1cc3136er1ru31m9si1chlcue21t.png">
+<meta property="og:image" content="http://static.zybuluo.com/1kbfree/bepqcvepabcym10rq7qnksgz/image_1cc30pp7sd2s1qr7198mul41vig1g.png">
+<meta property="og:image" content="http://static.zybuluo.com/1kbfree/sc0wogf37jngd8cpysvke01r/image_1cc3s3mnp9ma7luult1egp1rk19.png">
+<meta property="og:image" content="http://static.zybuluo.com/1kbfree/snrsn6lp951qha73mz3fbdpa/image_1cc57auk9gkn62o16121cad1bau9.png">
+<meta property="og:image" content="http://static.zybuluo.com/1kbfree/h9iti01jywhmby5a3x4n8h3o/image_1cc57donr1leu1i341t1r1479fafm.png">
+<meta property="og:image" content="http://static.zybuluo.com/1kbfree/79lf8bu5wdylyn1rmkhrzgu9/image_1cc57nvhn1dml1u0910ko1sccv4213.png">
+<meta property="og:updated_time" content="2018-05-23T07:49:03.396Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="test">
+<meta name="twitter:description" content="项目介绍这是笔者从GITHUB上找的简单PHP程序(用于学习) 这是一个可 增删查 的用户数据管理  数据库连接代码:先介绍一下数据库的表结构：  123456&amp;lt;?php    $pdo = new PDO(&apos;mysql:host=localhost;dbname=data&apos;,&apos;root&apos;,&apos;root&apos;); //PDO(PHP访问数据库定义了一个轻量级的、一致性的接口，它提供了一个数据访问抽">
+<meta name="twitter:image" content="http://static.zybuluo.com/1kbfree/4z5de16ziysrio7dqad9u1ow/image_1cc2vfnu31qpg1a1j1fob13be3ejm.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="127.0.0.1/2018/05/22/test/"/>
+
+
+
+
+
+<script>
+    (function () {
+        if ('') {
+            if (prompt('请输入文章密码') !== '') {
+                alert('密码错误！');
+                if (history.length === 1) {
+                    location.replace("http://xxxxxxx.xxx"); // 这里替换成你的首页
+                } else {
+                    history.back();
+                }
+            }
+        }
+    })();
+</script>
+  <title>test | Iamfree Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Iamfree Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">十年寒窗如一日，一举成名天下知</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="127.0.0.1/2018/05/22/test/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Iamfree">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/mylogo.png"> 
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Iamfree Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">test</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-22T23:59:58+08:00">
+                2018-05-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h2><p>这是笔者从GITHUB上找的简单PHP程序(用于学习)</p>
+<p><img src="http://static.zybuluo.com/1kbfree/4z5de16ziysrio7dqad9u1ow/image_1cc2vfnu31qpg1a1j1fob13be3ejm.png" alt="image_1cc2vfnu31qpg1a1j1fob13be3ejm.png-72.6kB"><br><strong>这是一个可 增删查 的用户数据管理</strong></p>
+<hr>
+<h2 id="数据库连接代码"><a href="#数据库连接代码" class="headerlink" title="数据库连接代码:"></a>数据库连接代码:</h2><p><strong>先介绍一下数据库的表结构：</strong></p>
+<p><img src="http://static.zybuluo.com/1kbfree/jgp8ljt3m0adp7i8ty1kkdr2/image_1cc3136er1ru31m9si1chlcue21t.png" alt="image_1cc3136er1ru31m9si1chlcue21t.png-24.4kB"></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    $pdo = <span class="keyword">new</span> PDO(<span class="string">'mysql:host=localhost;dbname=data'</span>,<span class="string">'root'</span>,<span class="string">'root'</span>); <span class="comment">//PDO(PHP访问数据库定义了一个轻量级的、一致性的接口，它提供了一个数据访问抽象层，这样，无论使用什么数据库，都可以通过一致的函数执行查询和获取数据，比如mysql有limit，MSSQL没有limit，pdo会自动转换)</span></span><br><span class="line">    $pdo-&gt;exec(<span class="string">'set names utf8'</span>); <span class="comment">//设置编码</span></span><br><span class="line">    $pdo-&gt;setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC); <span class="comment">//设置默认结果集模式为关联数组</span></span><br><span class="line">    $pdo-&gt;setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION); <span class="comment">//修改报错模式</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="其中的PDO是"><a href="#其中的PDO是" class="headerlink" title="其中的PDO是:"></a>其中的PDO是:</h3><p><em>PDO(PHP访问数据库定义了一个轻量级的、一致性的接口，它提供了一个数据访问抽象层，这样，无论使用什么数据库，都可以通过一致的函数执行查询和获取数据，比如mysql有limit，MSSQL没有limit，pdo会自动转换)</em></p>
+<p><strong>PDO好处：</strong></p>
+<ol>
+<li>更换数据库时取得极大便利(从A数据库换成其他数据库可以不需要修改查询的代码，因为PDO帮我实现了)</li>
+<li>更换数据库时取得极大便利</li>
+</ol>
+<h2 id="首页代码："><a href="#首页代码：" class="headerlink" title="首页代码："></a>首页代码：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php </span><br><span class="line">    include &apos;config.inc.php&apos;; //包含连接数据库的代码</span><br><span class="line"></span><br><span class="line">    $len = 10; //每页展现10条数据</span><br><span class="line">    $page = !empty($_GET[&quot;page&quot;]) ? $_GET[&quot;page&quot;] : 1;//三元表达式，表示如果$_GET[&apos;page&apos;]为空时，默认值为1</span><br><span class="line"></span><br><span class="line">    $sqlTotal = &quot;select count(Id) from t1&quot;; // SQL语句。意思是查询t1表中的Id字段个数</span><br><span class="line">    $smtTotal = $pdo-&gt;prepare($sqlTotal); //准备要执行的SQL语句并返回一个 PDOStatement 对象(PHP 5 &gt;= 5.1.0, PECL pdo &gt;= 0.1.0)</span><br><span class="line">    echo &quot;&lt;strong&gt;\$sqlTotal:&lt;/strong&gt;&quot;;</span><br><span class="line">    print_r($smtTotal);</span><br><span class="line">    echo &quot;&lt;br /&gt;&quot;;</span><br><span class="line"></span><br><span class="line">    echo &quot;&lt;strong&gt;execute():&lt;/strong&gt;&quot;;</span><br><span class="line">    print_r($smtTotal-&gt;execute());</span><br><span class="line">    $tot = $smtTotal-&gt;fetchColumn();    //总记录数</span><br><span class="line">    echo &quot;&lt;br /&gt;&quot;;</span><br><span class="line"></span><br><span class="line">    echo &quot;&lt;strong&gt;\$tot:&lt;/strong&gt;&quot;;</span><br><span class="line">    print_r($tot);</span><br><span class="line">    echo &quot;&lt;br /&gt;&quot;;</span><br><span class="line"></span><br><span class="line">    $pages = ceil($tot/$len);   //总页数</span><br><span class="line">    echo &quot;&lt;strong&gt;\$pages:&lt;/strong&gt;&quot;;</span><br><span class="line">    print_r($pages);</span><br><span class="line">    ... ...(省略，先讲解一下这段代码的用法)</span><br></pre></td></tr></table></figure>
+<p><img src="http://static.zybuluo.com/1kbfree/bepqcvepabcym10rq7qnksgz/image_1cc30pp7sd2s1qr7198mul41vig1g.png" alt="image_1cc30pp7sd2s1qr7198mul41vig1g.png-34.8kB"></p>
+<blockquote>
+<p>可以看看我写的PDO的<a href="https://www.zybuluo.com/1kbfree/note/1128672" target="_blank" rel="noopener">文章</a>(别夸我，谁让我是爱学习的好孩子)</p>
+</blockquote>
+<h3 id="首页的代码我统统写了注释："><a href="#首页的代码我统统写了注释：" class="headerlink" title="首页的代码我统统写了注释："></a>首页的代码我统统写了注释：</h3><p><img src="http://static.zybuluo.com/1kbfree/sc0wogf37jngd8cpysvke01r/image_1cc3s3mnp9ma7luult1egp1rk19.png" alt="image_1cc3s3mnp9ma7luult1egp1rk19.png-178.8kB"></p>
+<h2 id="更改用户数据代码："><a href="#更改用户数据代码：" class="headerlink" title="更改用户数据代码："></a>更改用户数据代码：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">/* </span><br><span class="line">    思路:先获取对应的数据，然后返回到输入框，如果我们选择提交，表单就会发送的数据就会更改到数据库里，实现更改内容</span><br><span class="line">*/</span><br><span class="line">    </span><br><span class="line">    &lt;?php</span><br><span class="line">include &apos;config.inc.php&apos;;</span><br><span class="line">$Id = $_GET[&quot;Id&quot;]; //获取GET请求过来的Id值</span><br><span class="line"></span><br><span class="line">$sql = &quot;select * from t1 where Id=?&quot;; //SQL语句的查询</span><br><span class="line">$smt = $pdo-&gt;prepare($sql); //给SQL语句做标记</span><br><span class="line">$smt-&gt;bindValue(1,$Id); //想成是给上面的?改成$Id变量的值</span><br><span class="line">$smt-&gt;execute(); //执行SQL语句</span><br><span class="line"></span><br><span class="line">$row = $smt-&gt;fetch(); //接收SQL语句查询到的结果</span><br><span class="line"></span><br><span class="line">?&gt;</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;update&lt;/title&gt;</span><br><span class="line">    &lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;bower_components/jquery/dist/jquery.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;bower_components/bootstrap/dist/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;bower_components/bootstrap/dist/css/bootstrap.min.css&quot;&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div class=&quot;container&quot;&gt;</span><br><span class="line">    &lt;h1 class=&quot;page-header&quot;&gt;</span><br><span class="line">        &lt;a href=&quot;index.php&quot; class=&quot;btn btn-warning&quot;&gt;查看用户&lt;/a&gt;</span><br><span class="line">        &lt;a href=&quot;&quot; class=&quot;btn btn-primary&quot;&gt;修改用户&lt;/a&gt;</span><br><span class="line">    &lt;/h1&gt;</span><br><span class="line">    &lt;form action=&quot;act.php?act=update&amp;Id=&lt;?php echo $Id;?&gt;&quot; method=&quot;post&quot;&gt; &lt;!-- act页面实现的修改功能，这里只需要传入要修改的Id值就可以更改此Id中对应的数据 --&gt;</span><br><span class="line">        &lt;div class=&quot;form-group&quot;&gt;</span><br><span class="line">            &lt;label&gt;新用户名:&lt;/label&gt;</span><br><span class="line">            &lt;input type=&quot;text&quot; class=&quot;form-control&quot; name=&quot;Name&quot; value=&lt;?php echo &quot;&#123;$row[&apos;Name&apos;]&#125;&quot;;//把查询到的数据的Name返回到输入框中，这样子我们就可以实现修改功能 ?&gt;</span><br><span class="line">            &gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;form-group&quot;&gt;</span><br><span class="line">            &lt;label&gt;新密码:&lt;/label&gt;</span><br><span class="line">            &lt;input type=&quot;text&quot; class=&quot;form-control&quot; name=&quot;Pwd&quot; value=</span><br><span class="line">            &lt;?php echo &quot;&#123;$row[&apos;Pwd&apos;]&#125;&quot;; //同上?&gt;</span><br><span class="line">            &gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;form-group&quot;&gt;</span><br><span class="line">            &lt;input type=&quot;submit&quot; class=&quot;btn btn-primary&quot;&gt;</span><br><span class="line">            &lt;input type=&quot;reset&quot; class=&quot;btn btn-danger&quot;&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/form&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="插入数据代码："><a href="#插入数据代码：" class="headerlink" title="插入数据代码："></a>插入数据代码：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;add&lt;/title&gt;</span><br><span class="line">    &lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;bower_components/jquery/dist/jquery.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;bower_components/bootstrap/dist/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;bower_components/bootstrap/dist/css/bootstrap.min.css&quot;&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;container&quot;&gt;</span><br><span class="line">        &lt;h1 class=&quot;page-header&quot;&gt;</span><br><span class="line">            &lt;a href=&quot;index.php&quot; class=&quot;btn btn-warning&quot;&gt;查看用户&lt;/a&gt;</span><br><span class="line">            &lt;a href=&quot;&quot; class=&quot;btn btn-primary&quot;&gt;添加用户&lt;/a&gt;</span><br><span class="line">        &lt;/h1&gt;</span><br><span class="line">        &lt;form action=&quot;act.php?act=insert&quot; method=&quot;post&quot;&gt; &lt;!-- act.php页面实现了插入功能，所以这里我们只需要把内容提交到act.php就可以完成插入内容 --&gt;</span><br><span class="line">            &lt;div class=&quot;form-group&quot;&gt;</span><br><span class="line">                &lt;label&gt;用户名:&lt;/label&gt;</span><br><span class="line">                &lt;input type=&quot;text&quot; class=&quot;form-control&quot; name=&quot;Name&quot;&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;form-group&quot;&gt;</span><br><span class="line">                &lt;label&gt;密码:&lt;/label&gt;</span><br><span class="line">                &lt;input type=&quot;text&quot; class=&quot;form-control&quot; name=&quot;Pwd&quot;&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;form-group&quot;&gt;</span><br><span class="line">                &lt;input type=&quot;submit&quot; class=&quot;btn btn-primary&quot;&gt;</span><br><span class="line">                &lt;input type=&quot;reset&quot; class=&quot;btn btn-danger&quot;&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/form&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="删除功能代码"><a href="#删除功能代码" class="headerlink" title="删除功能代码:"></a>删除功能代码:</h2><p><strong>删除页面代码也在首页(index.php)里实现的</strong><br><img src="http://static.zybuluo.com/1kbfree/snrsn6lp951qha73mz3fbdpa/image_1cc57auk9gkn62o16121cad1bau9.png" alt="image_1cc57auk9gkn62o16121cad1bau9.png-104.5kB"><br><em>一般我们删除操作是需要十分谨慎的，因为数据一旦删除是无法恢复的，那么如果用户不小心点到了按钮，我们就应该提醒他是否要删除。</em></p>
+<p><img src="http://static.zybuluo.com/1kbfree/h9iti01jywhmby5a3x4n8h3o/image_1cc57donr1leu1i341t1r1479fafm.png" alt="image_1cc57donr1leu1i341t1r1479fafm.png-36kB"><br><em>可以看到这里有一个class是delete，然后看到下面有一段提醒是否执行删除的JS代码：</em><br><img src="http://static.zybuluo.com/1kbfree/79lf8bu5wdylyn1rmkhrzgu9/image_1cc57nvhn1dml1u0910ko1sccv4213.png" alt="image_1cc57nvhn1dml1u0910ko1sccv4213.png-48.6kB"></p>
+<h2 id="最后我们看看act-php的代码："><a href="#最后我们看看act-php的代码：" class="headerlink" title="最后我们看看act.php的代码："></a>最后我们看看act.php的代码：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php </span><br><span class="line">    include &apos;config.inc.php&apos;; //包含PDO链接数据库代码</span><br><span class="line"></span><br><span class="line">    $act = $_GET[&quot;act&quot;]; //获取GET请求过来的act值，来实现增、删、改。</span><br><span class="line"></span><br><span class="line">    if($act == &apos;delete&apos;)&#123; //如果是选择删除</span><br><span class="line">        $Id = $_GET[&quot;Id&quot;]; //获取GET请求过来的ID</span><br><span class="line">        $sql = &quot;delete from t1 where Id=?&quot;; //这是SQL语句的删除</span><br><span class="line">        $smt = $pdo-&gt;prepare($sql); //给SQL语句做标记</span><br><span class="line">        $smt-&gt;bindValue(1,$Id); //绑定一个值到用作预处理的 SQL 语句中的对应命名占位符或问号占位符</span><br><span class="line">    if($smt-&gt;execute())&#123; //判断是否执行成功，如果执行成功返回的是1</span><br><span class="line">            echo &quot;&lt;script&gt;location=&apos;index.php&apos;&lt;/script&gt;&quot;; //执行成功就跳转到首页(index.php)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    if($act == &apos;insert&apos;)&#123; //如果是选择插入</span><br><span class="line">        $Name = $_POST[&quot;Name&quot;]; //获取POST请求的Name值</span><br><span class="line">        $Pwd = $_POST[&quot;Pwd&quot;]; //获取POST请求的Pwd值</span><br><span class="line">        $sql = &quot;insert into t1(Name,Pwd) values(&apos;&#123;$Name&#125;&apos;,&apos;&#123;$Pwd&#125;&apos;)&quot;; //这是SQL语句的插入</span><br><span class="line">        $smt = $pdo-&gt;prepare($sql); //给SQL语句做标记</span><br><span class="line">        if($smt-&gt;execute())&#123; //判断是否执行成功</span><br><span class="line">            echo &quot;&lt;script&gt;location=&apos;index.php&apos;&lt;/script&gt;&quot;; //执行成功就跳转到首页(index.php)</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line">    /*如果act=update和id=x，那么就执行修改的SQL语句，修改条件(where)是Id=x*/</span><br><span class="line">    if($act == &apos;update&apos;)&#123; //如果是更改</span><br><span class="line">        $Id = $_GET[&quot;Id&quot;]; //获取GET请求的Id值</span><br><span class="line">        $Name = $_POST[&quot;Name&quot;]; //获取POST的Name值</span><br><span class="line">        $Pwd = $_POST[&quot;Pwd&quot;]; //获取POST请求的Pwd值</span><br><span class="line">        $sql = &quot;update t1 set Name=&apos;&#123;$Name&#125;&apos;,Pwd=&apos;&#123;$Pwd&#125;&apos; where Id=&#123;$Id&#125;&quot;; //这是SQL语句的更改</span><br><span class="line">        $smt = $pdo-&gt;prepare($sql); //给SQL语句做标记</span><br><span class="line">        if($smt-&gt;execute())&#123; //判断是否执行成功</span><br><span class="line">            echo &quot;&lt;script&gt;location=&apos;index.php&apos;&lt;/script&gt;&quot;; //如果执行成功就跳转到首页(index.php)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"> ?&gt;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    <div>
+      
+        
+      
+    </div>
+    
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>您是否会因为钱多而感到困惑,害怕自己花不完,别担心我来帮你解决( 点击下面打赏即可解决您的困惑 )。</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/mylogo.png" alt="Iamfree 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/mylogo.png" alt="Iamfree 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <div>
+      
+        <div> 
+
+	 
+		<div style="text-align:center;color: #C5B9B9;font-size:14px;">
+			---------------本文结束<i class="fa fa-angellist"></i>感谢您的阅读，喜欢我们的话就加入我们吧~---------------
+		</div> 
+	 
+
+</div>
+
+      
+    </div>
+    
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Pwn安全/" rel="tag"><i class="fa fa-tag"></i> Pwn安全</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/22/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/22/Pwn安全/" rel="prev" title="xxx存在漏洞">
+                xxx存在漏洞 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/mylogo.png"
+                alt="Iamfree" />
+            
+              <p class="site-author-name" itemprop="name">Iamfree</p>
+              <p class="site-description motion-element" itemprop="description">一个有梦想的技术热爱狂</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/yourname" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.qq.com" target="_blank" title="QQ">
+                      
+                        <i class="fa fa-fw fa-qq"></i>QQ</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.weixin.com" target="_blank" title="微信">
+                      
+                        <i class="fa fa-fw fa-weixin"></i>微信</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.baidu.com" target="_blank" title="QQ群">
+                      
+                        <i class="fa fa-fw fa-qq"></i>QQ群</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://baidu.com/" title="百度" target="_blank">百度</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://baidu.com/" title="QQ" target="_blank">QQ</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://baidu.com/" title="微博" target="_blank">微博</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#项目介绍"><span class="nav-number">1.</span> <span class="nav-text">项目介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库连接代码"><span class="nav-number">2.</span> <span class="nav-text">数据库连接代码:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#其中的PDO是"><span class="nav-number">2.1.</span> <span class="nav-text">其中的PDO是:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#首页代码："><span class="nav-number">3.</span> <span class="nav-text">首页代码：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#首页的代码我统统写了注释："><span class="nav-number">3.1.</span> <span class="nav-text">首页的代码我统统写了注释：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更改用户数据代码："><span class="nav-number">4.</span> <span class="nav-text">更改用户数据代码：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插入数据代码："><span class="nav-number">5.</span> <span class="nav-text">插入数据代码：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除功能代码"><span class="nav-number">6.</span> <span class="nav-text">删除功能代码:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最后我们看看act-php的代码："><span class="nav-number">7.</span> <span class="nav-text">最后我们看看act.php的代码：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Iamfree</span>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
