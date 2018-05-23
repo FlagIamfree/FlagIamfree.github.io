@@ -1713,14 +1713,15 @@ pre .javascript .function {
   font-family: UKIJ Ekran;
 }
 .post-body p a {
-  color: #345;
+  color: #0593d3;
   border-bottom: none;
+  border-bottom: 1px solid #0593d3;
   transition: 0.5s all;
-  text-decoration: underline;
 }
 .post-body p a:hover {
-  color: #f00;
-  text-decoration: none;
+  color: #fc6423;
+  border-bottom: none;
+  border-bottom: 1px solid #fc6423;
 }
 .post-body blockquote p {
   border-bottom: none;
@@ -1949,7 +1950,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #c4a137;
+  background: #d669ff;
 }
 .links-of-blogroll {
   font-size: 13px;
