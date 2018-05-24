@@ -1757,7 +1757,7 @@ h6 {
 .post-body h4:hover,
 h5:hover,
 h6:hover {
-  color: #c176c5;
+  color: #868686;
 }
 .my_post_copyright {
   width: 85%;
@@ -1980,7 +1980,7 @@ h6:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #08ff3e;
+  background: #ffffcf;
 }
 .links-of-blogroll {
   font-size: 13px;
