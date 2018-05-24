@@ -1739,7 +1739,14 @@ h3 {
 .post-body h1:hover,
 h2:hover,
 h3:hover {
-  color: #b5ca4d;
+  color: #000;
+}
+.post-body strong {
+  border-bottom: none;
+  transition: 0.5s all;
+}
+.post-body strong:hover {
+  text-decoration: underline;
 }
 .post-body h4,
 h5,
@@ -1973,7 +1980,7 @@ h6:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #3dff3b;
+  background: #8549d2;
 }
 .links-of-blogroll {
   font-size: 13px;
