@@ -1980,7 +1980,7 @@ h6:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #eec7f9;
+  background: #f0ffa1;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3230,14 +3230,17 @@ pre {
   -webkit-box-shadow: 0 0 10px rgba(202,203,203,0.5);
   -moz-box-shadow: 0 0 10px rgba(202,203,204,0.5);
 }
-a img {
+p a img {
   transition: 1s;
 }
-a img:hover {
+p a img:hover {
   border: #909090 1px solid;
   background: #fff;
   color: #333;
-  box-shadow: -1px 1px 10px 6px #909090;
+  box-shadow: -1px 1px 10px 4px #909090;
+}
+ul li:hover {
+  color: Blue;
 }
 :active,
 * {
