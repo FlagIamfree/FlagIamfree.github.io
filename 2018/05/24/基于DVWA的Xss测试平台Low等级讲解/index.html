@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="代码审计,PHP,Dvwa," />
 
 
 
@@ -88,20 +88,26 @@
 
 
 
-<meta name="description" content="404  *{margin:0;padding:0;outline:none;font-family:\5FAE\8F6F\96C5\9ED1,宋体;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-khtml-user-select:none;user-select:none;cursor:defau">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Iamfree Blog">
-<meta property="og:url" content="127.0.0.1/404.html">
+<meta name="description" content="Dvwa是一个网站渗透测试演练平台，里面包括了Xss攻击,Sql注入攻击，Csrf漏洞、文件上传漏洞、命令注入漏洞等，而且每个漏洞都分为Low(低等级)、Medium( 中等级 )、High( 高等级 )、Impossible( 没漏洞等级 ) 下载过程和安装过程网上可以找到我就不讲解了。 首先将Dvwa等级设置成Low:  开始Xss漏洞讲解Xss反射型：当输入hello在输入框点击Submit">
+<meta name="keywords" content="代码审计,PHP,Dvwa">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于DVWA的Xss测试平台Low等级讲解">
+<meta property="og:url" content="127.0.0.1/2018/05/24/基于DVWA的Xss测试平台Low等级讲解/index.html">
 <meta property="og:site_name" content="Iamfree Blog">
-<meta property="og:description" content="404  *{margin:0;padding:0;outline:none;font-family:\5FAE\8F6F\96C5\9ED1,宋体;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-khtml-user-select:none;user-select:none;cursor:defau">
+<meta property="og:description" content="Dvwa是一个网站渗透测试演练平台，里面包括了Xss攻击,Sql注入攻击，Csrf漏洞、文件上传漏洞、命令注入漏洞等，而且每个漏洞都分为Low(低等级)、Medium( 中等级 )、High( 高等级 )、Impossible( 没漏洞等级 ) 下载过程和安装过程网上可以找到我就不讲解了。 首先将Dvwa等级设置成Low:  开始Xss漏洞讲解Xss反射型：当输入hello在输入框点击Submit">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://7xowaa.com1.z0.glb.clouddn.com/back.jpg">
-<meta property="og:image" content="http://7xowaa.com1.z0.glb.clouddn.com/404.png">
-<meta property="og:updated_time" content="2018-05-22T19:42:20.379Z">
+<meta property="og:image" content="http://static.zybuluo.com/1kbfree/xhlnfqib3ib7m5jpq5s0k9us/image_1ce8m63q6g1s5ab1ef51ilf92m9.png">
+<meta property="og:image" content="http://static.zybuluo.com/1kbfree/bzktsumqyk5cl12z0z15nojx/image_1ce8mao1la4233k77t19h21v82m.png">
+<meta property="og:image" content="http://static.zybuluo.com/1kbfree/28z6tmahfg6x1z7reai804j1/image_1ce8n2a0ijtjgs8iitt4a1ou09.png">
+<meta property="og:image" content="http://static.zybuluo.com/1kbfree/hl67ru1a4l4ltyvhi82dj0bw/image_1ce8naell1jlrkv6s1214dh7n7m.png">
+<meta property="og:image" content="http://static.zybuluo.com/1kbfree/n875b1a8nh9rciqc7w66vxku/image_1ce8nikp01hm91qse12112ra2802p.png">
+<meta property="og:image" content="http://static.zybuluo.com/1kbfree/3y12i2skpud63a1qgec93sxz/image_1ce8nph771gbkh9n1v6q16p41ho736.png">
+<meta property="og:image" content="http://static.zybuluo.com/1kbfree/piy4p2lkq0h81v0d1u4y5mb7/image_1ce8nug1jgbj1iib1hl91ii51vic3j.png">
+<meta property="og:updated_time" content="2018-05-24T09:35:57.109Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Iamfree Blog">
-<meta name="twitter:description" content="404  *{margin:0;padding:0;outline:none;font-family:\5FAE\8F6F\96C5\9ED1,宋体;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-khtml-user-select:none;user-select:none;cursor:defau">
-<meta name="twitter:image" content="http://7xowaa.com1.z0.glb.clouddn.com/back.jpg">
+<meta name="twitter:title" content="基于DVWA的Xss测试平台Low等级讲解">
+<meta name="twitter:description" content="Dvwa是一个网站渗透测试演练平台，里面包括了Xss攻击,Sql注入攻击，Csrf漏洞、文件上传漏洞、命令注入漏洞等，而且每个漏洞都分为Low(低等级)、Medium( 中等级 )、High( 高等级 )、Impossible( 没漏洞等级 ) 下载过程和安装过程网上可以找到我就不讲解了。 首先将Dvwa等级设置成Low:  开始Xss漏洞讲解Xss反射型：当输入hello在输入框点击Submit">
+<meta name="twitter:image" content="http://static.zybuluo.com/1kbfree/xhlnfqib3ib7m5jpq5s0k9us/image_1ce8m63q6g1s5ab1ef51ilf92m9.png">
 
 
 
@@ -131,7 +137,7 @@
 
 
 
-  <link rel="canonical" href="127.0.0.1/404.html"/>
+  <link rel="canonical" href="127.0.0.1/2018/05/24/基于DVWA的Xss测试平台Low等级讲解/"/>
 
 
 
@@ -161,7 +167,7 @@
   daovoice('update');
   </script>
 
-  <title> | Iamfree Blog</title>
+  <title>基于DVWA的Xss测试平台Low等级讲解 | Iamfree Blog</title>
   
 
 
@@ -321,77 +327,321 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="127.0.0.1/2018/05/24/基于DVWA的Xss测试平台Low等级讲解/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Iamfree">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/mylogo.png"> 
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Iamfree Blog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline"></h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <!DOCTYPE HTML>
-<html>
-<head>
-<meta charset="utf-8">
-<title>404</title>
-<style>
-*{margin:0;padding:0;outline:none;font-family:\5FAE\8F6F\96C5\9ED1,宋体;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-khtml-user-select:none;user-select:none;cursor:default;font-weight:lighter;}
-.center{margin:0 auto;}
-.whole{width:100%;height:100%;line-height:100%;position:fixed;bottom:0;left:0;z-index:-1000;overflow:hidden;}
-.whole img{width:100%;height:100%;}
-.mask{width:100%;height:100%;position:absolute;top:0;left:0;background:#000;opacity:0.6;filter:alpha(opacity=60);}
-.b{width:100%;text-align:center;height:400px;position:absolute;top:50%;margin-top:-230px}.a{width:150px;height:50px;margin-top:30px}.a a{display:block;float:left;width:150px;height:50px;background:#fff;text-align:center;line-height:50px;font-size:18px;border-radius:25px;color:#333}.a a:hover{color:#000;box-shadow:#fff 0 0 20px}
-p{color:#fff;margin-top:40px;font-size:24px;}
-#num{margin:0 5px;font-weight:bold;}
-</style>
-<script type="text/javascript">
-	var num=4;
-	function redirect(){
-		num--;
-		document.getElementById("num").innerHTML=num;
-		if(num<0){
-			document.getElementById("num").innerHTML=0;
-			location.href="https://iTimeTraveler.github.io";
-			}
-		}
-	setInterval("redirect()", 1000);
-</script>
-</head>
-
-<body onload="redirect();">
-<div class="whole">
-	<img src="http://7xowaa.com1.z0.glb.clouddn.com/back.jpg">
-    <div class="mask"></div>
-</div>
-<div class="b">
-		<img src="http://7xowaa.com1.z0.glb.clouddn.com/404.png" class="center">
-		<p>
-			暂时未能找到您查找的页面<br>
-			可能输入的网址错误或此页面不存在<br>
-            <span id="num"></span>秒后自动跳转到主页
-		</p>
-	</div>
-
-</body>
-</html>       
+          <h1 class="post-title" itemprop="name headline">基于DVWA的Xss测试平台Low等级讲解</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-24T17:34:46+08:00">
+                2018-05-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web攻防/" itemprop="url" rel="index">
+                    <span itemprop="name">Web攻防</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/05/24/基于DVWA的Xss测试平台Low等级讲解/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/05/24/基于DVWA的Xss测试平台Low等级讲解/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">本章浏览数 <i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  419
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <div class="note primary"><p>Dvwa是一个网站渗透测试演练平台，里面包括了Xss攻击,Sql注入攻击，Csrf漏洞、文件上传漏洞、命令注入漏洞等，而且每个漏洞都分为<code>Low(低等级)、Medium( 中等级 )、High( 高等级 )、Impossible( 没漏洞等级 )</code></p></div>
+<p>下载过程和安装过程网上可以找到我就不讲解了。</p>
+<h3 id="首先将Dvwa等级设置成Low"><a href="#首先将Dvwa等级设置成Low" class="headerlink" title="首先将Dvwa等级设置成Low:"></a>首先将<code>Dvwa</code>等级设置成<code>Low</code>:</h3><p><img src="http://static.zybuluo.com/1kbfree/xhlnfqib3ib7m5jpq5s0k9us/image_1ce8m63q6g1s5ab1ef51ilf92m9.png" alt="image_1ce8m63q6g1s5ab1ef51ilf92m9.png-135.5kB"></p>
+<hr>
+<h2 id="开始Xss漏洞讲解"><a href="#开始Xss漏洞讲解" class="headerlink" title="开始Xss漏洞讲解"></a>开始Xss漏洞讲解</h2><h3 id="Xss反射型："><a href="#Xss反射型：" class="headerlink" title="Xss反射型："></a>Xss反射型：</h3><p><img src="http://static.zybuluo.com/1kbfree/bzktsumqyk5cl12z0z15nojx/image_1ce8mao1la4233k77t19h21v82m.png" alt="image_1ce8mao1la4233k77t19h21v82m.png-203.8kB"><br><em>当输入<code>hello</code>在输入框点击Submit后，会输出一个<code>Hello iamfree</code>，那么我们来看看这是如何实现的</em></p>
+<h4 id="实现的代码："><a href="#实现的代码：" class="headerlink" title="实现的代码："></a>实现的代码：</h4><p><img src="http://static.zybuluo.com/1kbfree/28z6tmahfg6x1z7reai804j1/image_1ce8n2a0ijtjgs8iitt4a1ou09.png" alt="image_1ce8n2a0ijtjgs8iitt4a1ou09.png-147.4kB"><br><em>因为这是<code>Low</code>级别的，所以我们可以清楚的看见这里没有做任何过滤，我们只需要输入一串而已的Js代码就可以实现盗取别人Cookie，做钓鱼之类的功能，下面我来简单的演示一下~</em></p>
+<p>输入<code>&lt;img src=x onerror=alert(&#39;iamfree&#39;)&gt;</code>后，Url变成<code>http://127.0.0.1/dvwa/vulnerabilities/xss_r/?name=%3Cimg+src%3Dx+onerror%3Dalert%28%27iamfree%27%29%3E#</code>，效果:<br><img src="http://static.zybuluo.com/1kbfree/hl67ru1a4l4ltyvhi82dj0bw/image_1ce8naell1jlrkv6s1214dh7n7m.png" alt="image_1ce8naell1jlrkv6s1214dh7n7m.png-130.1kB"></p>
+<div class="note warning"><p><code>&lt;img src=x onerror=alert(&#39;iamfree&#39;)&gt;</code>的src表示img图片的地址，可以是本地也可以是Url形式;onerror的意思是如果图片没有正常显示的话就会执行<code>=</code>后面的代码，因为这里<code>src=x</code>而<code>x</code>是不存在的，所以无法显示，就会报错了~</p></div>
+<h3 id="如何防御"><a href="#如何防御" class="headerlink" title="如何防御"></a>如何防御</h3><p><strong>这里的话防御很简单的，只需要一个函数即可：</strong><br><img src="http://static.zybuluo.com/1kbfree/n875b1a8nh9rciqc7w66vxku/image_1ce8nikp01hm91qse12112ra2802p.png" alt="image_1ce8nikp01hm91qse12112ra2802p.png-53.3kB"></p>
+<p><strong>继续访问刚才的Url(<code>http://127.0.0.1/dvwa/vulnerabilities/xss_r/?name=%3Cimg+src%3Dx+onerror%3Dalert%28%27iamfree%27%29%3E#</code>)，看看是否有效:</strong><br><img src="http://static.zybuluo.com/1kbfree/3y12i2skpud63a1qgec93sxz/image_1ce8nph771gbkh9n1v6q16p41ho736.png" alt="image_1ce8nph771gbkh9n1v6q16p41ho736.png-175.7kB"><br><em>成功的防止了Xss反射型攻击了~</em></p>
+<h3 id="htmlspecialchars函数的官方解释"><a href="#htmlspecialchars函数的官方解释" class="headerlink" title="htmlspecialchars函数的官方解释:"></a>htmlspecialchars函数的官方解释:</h3><p><img src="http://static.zybuluo.com/1kbfree/piy4p2lkq0h81v0d1u4y5mb7/image_1ce8nug1jgbj1iib1hl91ii51vic3j.png" alt="image_1ce8nug1jgbj1iib1hl91ii51vic3j.png-137.1kB"></p>
+<blockquote class="blockquote-center"><p>十年寒窗无人问，一举成名天下知<br>                            – Cai_Team</p>
+</blockquote>
+
       
     </div>
     
     
     
+
+    
+
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/05/24/基于DVWA的Xss测试平台Low等级讲解/">基于DVWA的Xss测试平台Low等级讲解</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 Iamfree 的个人博客">Iamfree</a></p>
+  <p><span>发布时间:</span>2018年05月24日 - 17:05</p>
+  <p><span>最后更新:</span>2018年05月24日 - 17:05</p>
+  <p><span>原始链接:</span><a href="/2018/05/24/基于DVWA的Xss测试平台Low等级讲解/" title="基于DVWA的Xss测试平台Low等级讲解">127.0.0.1/2018/05/24/基于DVWA的Xss测试平台Low等级讲解/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="127.0.0.1/2018/05/24/基于DVWA的Xss测试平台Low等级讲解/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span> 转载请保留原文链接及作者,感谢！！！。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+	});
+    });  
+</script>
+
+      
+    </div>
+    
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>您是否会因为钱多而感到困惑,害怕自己花不完,别担心我来帮你解决( 点击下面打赏即可解决您的困惑 )。</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/mylogo.png" alt="Iamfree 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/mylogo.png" alt="Iamfree 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <div>
+      
+        <div> 
+
+	 
+		<div style="text-align:center;color: #C5B9B9;font-size:14px;">
+			---------------本文结束<i class="fa fa-angellist"></i>感谢您的阅读，喜欢我们的话就加入我们吧~---------------
+		</div> 
+	 
+
+</div>
+
+      
+    </div>
+    
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/代码审计/" rel="tag"><i class="fa fa-tag"></i> 代码审计</a>
+          
+            <a href="/tags/PHP/" rel="tag"><i class="fa fa-tag"></i> PHP</a>
+          
+            <a href="/tags/Dvwa/" rel="tag"><i class="fa fa-tag"></i> Dvwa</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/24/某CTF赛的一处代码简单讲解/" rel="next" title="某CTF赛的一处代码简单讲解">
+                <i class="fa fa-chevron-left"></i> 某CTF赛的一处代码简单讲解
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
   </div>
 
 
@@ -427,8 +677,17 @@ p{color:#fff;margin-top:40px;font-size:24px;}
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -549,6 +808,22 @@ p{color:#fff;margin-top:40px;font-size:24px;}
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#首先将Dvwa等级设置成Low"><span class="nav-number">1.</span> <span class="nav-text">首先将Dvwa等级设置成Low:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开始Xss漏洞讲解"><span class="nav-number"></span> <span class="nav-text">开始Xss漏洞讲解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Xss反射型："><span class="nav-number">1.</span> <span class="nav-text">Xss反射型：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#实现的代码："><span class="nav-number">1.1.</span> <span class="nav-text">实现的代码：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何防御"><span class="nav-number">2.</span> <span class="nav-text">如何防御</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#htmlspecialchars函数的官方解释"><span class="nav-number">3.</span> <span class="nav-text">htmlspecialchars函数的官方解释:</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

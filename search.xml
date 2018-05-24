@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[基于DVWA的Xss测试平台Low等级讲解]]></title>
+    <url>%2F2018%2F05%2F24%2F%E5%9F%BA%E4%BA%8EDVWA%E7%9A%84Xss%E6%B5%8B%E8%AF%95%E5%B9%B3%E5%8F%B0Low%E7%AD%89%E7%BA%A7%E8%AE%B2%E8%A7%A3%2F</url>
+    <content type="text"><![CDATA[Dvwa是一个网站渗透测试演练平台，里面包括了Xss攻击,Sql注入攻击，Csrf漏洞、文件上传漏洞、命令注入漏洞等，而且每个漏洞都分为Low(低等级)、Medium( 中等级 )、High( 高等级 )、Impossible( 没漏洞等级 ) 下载过程和安装过程网上可以找到我就不讲解了。 首先将Dvwa等级设置成Low: 开始Xss漏洞讲解Xss反射型：当输入hello在输入框点击Submit后，会输出一个Hello iamfree，那么我们来看看这是如何实现的 实现的代码：因为这是Low级别的，所以我们可以清楚的看见这里没有做任何过滤，我们只需要输入一串而已的Js代码就可以实现盗取别人Cookie，做钓鱼之类的功能，下面我来简单的演示一下~ 输入&lt;img src=x onerror=alert(&#39;iamfree&#39;)&gt;后，Url变成http://127.0.0.1/dvwa/vulnerabilities/xss_r/?name=%3Cimg+src%3Dx+onerror%3Dalert%28%27iamfree%27%29%3E#，效果: &lt;img src=x onerror=alert(&#39;iamfree&#39;)&gt;的src表示img图片的地址，可以是本地也可以是Url形式;onerror的意思是如果图片没有正常显示的话就会执行=后面的代码，因为这里src=x而x是不存在的，所以无法显示，就会报错了~ 如何防御这里的话防御很简单的，只需要一个函数即可： 继续访问刚才的Url(http://127.0.0.1/dvwa/vulnerabilities/xss_r/?name=%3Cimg+src%3Dx+onerror%3Dalert%28%27iamfree%27%29%3E#)，看看是否有效:成功的防止了Xss反射型攻击了~ htmlspecialchars函数的官方解释: 十年寒窗无人问，一举成名天下知 – Cai_Team]]></content>
+      <categories>
+        <category>Web攻防</category>
+      </categories>
+      <tags>
+        <tag>代码审计</tag>
+        <tag>PHP</tag>
+        <tag>Dvwa</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[某CTF赛的一处代码简单讲解]]></title>
     <url>%2F2018%2F05%2F24%2F%E6%9F%90CTF%E8%B5%9B%E7%9A%84%E4%B8%80%E5%A4%84%E4%BB%A3%E7%A0%81%E7%AE%80%E5%8D%95%E8%AE%B2%E8%A7%A3%2F</url>
     <content type="text"><![CDATA[此篇文章只是给里面的代码处做一下详细的讲解~原文地址:loudong.360.cn/School/content/id/285 CTF线下赛中一处代码( 红色区域处 )，现在就是来讲解这个的~ 讲解开始:首先看一下我写的这个代码:123456789101112131415function e( $str )&#123; if ( is_array( $str ) )&#123; //如果是列表~ echo "&lt;pre&gt;"; var_dump( $str ); &#125;else &#123; echo $str ; &#125;&#125;$mylist = [ 'ctrl' =&gt; ( !empty($_GET['p']) ? $_GET['p'] : 'blog' ) , //ctrl的value值：如果get请求的p值不为空，那么就返回get请求的p值，否者返回blog 'template' =&gt; ( !empty($_GET['t']) ? $_GET['t'] : 'pc' ) //template的value值：如果get请求的t值不为空，那么就返回get请求的t值，否者返回pc\];e( $mylist ); 这里的!empty($_GET[&#39;p&#39;]) ? $_GET[&#39;p&#39;] : &#39;blog&#39;是三元表达式，详细用法我也在代码处讲解过了 实验一下代码功能：如果没有添加任何值的话，默认的就是ctrl的值为blog,template的值为pc 我们传递一下GET请求的p值和GET请求的t值: 如果你们觉得这篇文章有点水的话… 那也确实是，哈哈哈(太基础)，但是我只是想来做一篇文章来摆设摆设~ 十年寒窗如一日，一举成名天下知 – cai_team]]></content>
@@ -8,8 +21,8 @@
         <category>Web攻防</category>
       </categories>
       <tags>
-        <tag>PHP</tag>
         <tag>代码审计</tag>
+        <tag>PHP</tag>
       </tags>
   </entry>
 </search>
