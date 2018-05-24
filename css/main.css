@@ -1980,7 +1980,7 @@ h6:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ffa6ff;
+  background: #ffd7ff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3227,8 +3227,17 @@ pre {
 }
 .post {
   padding: 10px;
-  -webkit-box-shadow: 0 0 5px rgba(202,203,203,0.5);
-  -moz-box-shadow: 0 0 5px rgba(202,203,204,0.5);
+  -webkit-box-shadow: 0 0 10px rgba(202,203,203,0.5);
+  -moz-box-shadow: 0 0 10px rgba(202,203,204,0.5);
+}
+a img {
+  transition: 1s;
+}
+a img:hover {
+  border: #909090 1px solid;
+  background: #fff;
+  color: #333;
+  box-shadow: -1px 1px 10px 6px #909090;
 }
 :active,
 * {
