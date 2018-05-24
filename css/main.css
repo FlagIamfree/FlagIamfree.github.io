@@ -1888,9 +1888,10 @@ h6:hover {
   border: 1px solid #eee;
   border-radius: 50%;
   transition: 2s all;
+  transform: rotate(18deg);
 }
 .site-author-image:hover {
-  transform: rotate(360deg);
+  transform: rotate(378deg);
 }
 .site-author-name {
   margin: 0;
@@ -1972,7 +1973,7 @@ h6:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ad793d;
+  background: #40bb4e;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3221,4 +3222,8 @@ pre {
   padding: 10px;
   -webkit-box-shadow: 0 0 5px rgba(202,203,203,0.5);
   -moz-box-shadow: 0 0 5px rgba(202,203,204,0.5);
+}
+:active,
+* {
+  cursor: url("http://om8u46rmb.bkt.clouddn.com/sword1.ico"), auto !important;
 }
