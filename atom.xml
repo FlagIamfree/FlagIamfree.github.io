@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Iamfree Blog</title>
+  <title>Cai_Team</title>
   
   <subtitle>十年寒窗如一日，一举成名天下知</subtitle>
   <link href="/atom.xml" rel="self"/>
@@ -10,7 +10,7 @@
   <id>127.0.0.1/</id>
   
   <author>
-    <name>Iamfree</name>
+    <name>Cai_Team</name>
     
   </author>
   
