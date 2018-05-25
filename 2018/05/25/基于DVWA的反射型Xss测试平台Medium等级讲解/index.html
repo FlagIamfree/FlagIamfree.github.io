@@ -97,7 +97,7 @@
 <meta property="og:description" content="这是继上节课基于DVWA的Xss测试平台Low等级讲解的中等级  首先，我们把等级设置为Medium 上节课讲了如何设置这里就不再讲了 查看Medium源代码: 点开后是这样的： 代码：1234567891011121314&amp;lt;?phpheader (&quot;X-XSS-Protection: 0&quot;);// Is there any input?if( array_key_exists( &quot;nam">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://static.zybuluo.com/1kbfree/cyqg7gtnfpcxqu1sq0pudr4d/image_1ce8ondhr16098qa13sv103llu940.png">
-<meta property="og:updated_time" content="2018-05-25T03:36:26.722Z">
+<meta property="og:updated_time" content="2018-05-25T03:43:11.510Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于DVWA的反射型Xss测试平台Medium等级讲解">
 <meta name="twitter:description" content="这是继上节课基于DVWA的Xss测试平台Low等级讲解的中等级  首先，我们把等级设置为Medium 上节课讲了如何设置这里就不再讲了 查看Medium源代码: 点开后是这样的： 代码：1234567891011121314&amp;lt;?phpheader (&quot;X-XSS-Protection: 0&quot;);// Is there any input?if( array_key_exists( &quot;nam">
@@ -431,7 +431,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  484
+                  517
                 </span>
               
 
@@ -459,7 +459,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://static.zybuluo.com/1kbfree/cyqg7gtnfpcxqu1sq0pudr4d/image_1ce8ondhr16098qa13sv103llu940.png" rel="gallery_cjhlf0gyu0001j8ui4po2mtdo"
+                 href="http://static.zybuluo.com/1kbfree/cyqg7gtnfpcxqu1sq0pudr4d/image_1ce8ondhr16098qa13sv103llu940.png" rel="gallery_cjhlf8oxs0003poui000ec0ji"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://static.zybuluo.com/1kbfree/cyqg7gtnfpcxqu1sq0pudr4d/image_1ce8ondhr16098qa13sv103llu940.png" itemprop="contentUrl"/>
               </a>
@@ -490,6 +490,9 @@
 <h3 id="如何防御"><a href="#如何防御" class="headerlink" title="如何防御"></a>如何防御</h3><p>其实防御的方法也和上篇一样，但还有一个也很棒的方法哟。<br><img src="http://static.zybuluo.com/1kbfree/gqffm3fwqdt4k6vs7pmzer9u/image_1cealoccsqkbaqe36k11o114j23n.png" alt="image_1cealoccsqkbaqe36k11o114j23n.png-92.4kB"></p>
 <p>代码:<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">header (<span class="string">"X-XSS-Protection: 0"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Is there any input?</span></span><br><span class="line"><span class="keyword">if</span>( array_key_exists( <span class="string">"name"</span>, $_GET ) &amp;&amp; $_GET[ <span class="string">'name'</span> ] != <span class="keyword">NULL</span> ) &#123;</span><br><span class="line">    <span class="comment">// Get input</span></span><br><span class="line">    <span class="comment">// $name = str_replace( '&lt;script&gt;', 'xss', $_GET[ 'name' ] );</span></span><br><span class="line">    <span class="keyword">foreach</span> ( $_GET <span class="keyword">as</span> $key =&gt; $value ) &#123; <span class="comment">//把$_GET数组里的值分成$key和$value</span></span><br><span class="line">        $name = $_GET[ $key ] = htmlspecialchars( $value ); <span class="comment">//把$_GET数组中$key对应的$value值html实例化，并且赋值给$name变量</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Feedback for end user</span></span><br><span class="line">    $html .= <span class="string">"&lt;pre&gt;Hello $&#123;name&#125;&lt;/pre&gt;"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p><img src="http://static.zybuluo.com/1kbfree/a5wvesn1t9741djg96556kmi/image_1ceall6lr1hh9v331eodlhs1a9t2q.png" alt="image_1ceall6lr1hh9v331eodlhs1a9t2q.png-75.9kB"></p>
+<h4 id="防御方法2："><a href="#防御方法2：" class="headerlink" title="防御方法2："></a>防御方法2：</h4><p><img src="http://static.zybuluo.com/1kbfree/l0deuo57o271iokpaxa2nq9x/image_1ceam2i9s1v1m18m8be116tn1vpn4n.png" alt="image_1ceam2i9s1v1m18m8be116tn1vpn4n.png-93.1kB"></p>
+<p>只需要加上一条<code>preg_replace( &#39;/&lt;(.*)s(.*)c(.*)r(.*)i(.*)p(.*)t/i&#39;, &#39;&#39;, $_GET[ &#39;name&#39; ] )</code>，这也是<code>high</code>等级的防御方法</p>
+<p><img src="http://static.zybuluo.com/1kbfree/z03p7xg6vp5riplabe5q7ti5/image_1ceam65gk1rn8140916so14nf1rfd54.png" alt="image_1ceam65gk1rn8140916so14nf1rfd54.png-64.4kB"></p>
 <blockquote class="blockquote-center"><p>十年寒窗无人问，一举成名天下知<br>                            – Cai_Team</p>
 </blockquote>
 
@@ -846,7 +849,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看Medium源代码"><span class="nav-number">1.</span> <span class="nav-text">查看Medium源代码:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#看懂代码后，如何利用呢"><span class="nav-number">2.</span> <span class="nav-text">看懂代码后，如何利用呢?</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#先来输入-lt-script-gt-后看看是否为空"><span class="nav-number">2.1.</span> <span class="nav-text">先来输入&lt;script&gt;后看看是否为空:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#绕过方法1："><span class="nav-number">2.2.</span> <span class="nav-text">绕过方法1：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何防御"><span class="nav-number">3.</span> <span class="nav-text">如何防御</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看Medium源代码"><span class="nav-number">1.</span> <span class="nav-text">查看Medium源代码:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#看懂代码后，如何利用呢"><span class="nav-number">2.</span> <span class="nav-text">看懂代码后，如何利用呢?</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#先来输入-lt-script-gt-后看看是否为空"><span class="nav-number">2.1.</span> <span class="nav-text">先来输入&lt;script&gt;后看看是否为空:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#绕过方法1："><span class="nav-number">2.2.</span> <span class="nav-text">绕过方法1：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何防御"><span class="nav-number">3.</span> <span class="nav-text">如何防御</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#防御方法2："><span class="nav-number">3.1.</span> <span class="nav-text">防御方法2：</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -893,7 +896,7 @@ var jiathis_config={
 
 <div class="theme-info">
   <div class="powered-by"></div> 
-  <span class="post-count">博客文章字数共 3.0k 哟~</span>
+  <span class="post-count">博客文章字数共 3.1k 哟~</span>
 </div>
 
 
