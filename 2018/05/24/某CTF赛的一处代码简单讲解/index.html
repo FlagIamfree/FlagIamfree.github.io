@@ -88,19 +88,19 @@
 
 
 
-<meta name="description" content="此篇文章只是给里面的代码处做一下详细的讲解~原文地址:loudong.360.cn/School/content/id/285  CTF线下赛中一处代码( 红色区域处 )，现在就是来讲解这个的~ 讲解开始:首先看一下我写的这个代码:123456789101112131415function e( $str )&amp;#123;    if ( is_array( $str ) )&amp;#123; //如果是">
+<meta name="description" content="此篇文章只是给里面的代码处做一下详细的讲解~原文地址:loudong.360.cn/School/content/id/285">
 <meta name="keywords" content="代码审计,PHP,CTF">
 <meta property="og:type" content="article">
 <meta property="og:title" content="某CTF赛的一处代码简单讲解">
 <meta property="og:url" content="127.0.0.1/2018/05/24/某CTF赛的一处代码简单讲解/index.html">
 <meta property="og:site_name" content="Iamfree Blog">
-<meta property="og:description" content="此篇文章只是给里面的代码处做一下详细的讲解~原文地址:loudong.360.cn/School/content/id/285  CTF线下赛中一处代码( 红色区域处 )，现在就是来讲解这个的~ 讲解开始:首先看一下我写的这个代码:123456789101112131415function e( $str )&amp;#123;    if ( is_array( $str ) )&amp;#123; //如果是">
+<meta property="og:description" content="此篇文章只是给里面的代码处做一下详细的讲解~原文地址:loudong.360.cn/School/content/id/285">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://static.zybuluo.com/1kbfree/04j4c5eahqbp6ppmp0hnp0hc/CTF_LOGO.jpg">
-<meta property="og:updated_time" content="2018-05-25T02:30:20.026Z">
+<meta property="og:updated_time" content="2018-05-25T06:53:30.960Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="某CTF赛的一处代码简单讲解">
-<meta name="twitter:description" content="此篇文章只是给里面的代码处做一下详细的讲解~原文地址:loudong.360.cn/School/content/id/285  CTF线下赛中一处代码( 红色区域处 )，现在就是来讲解这个的~ 讲解开始:首先看一下我写的这个代码:123456789101112131415function e( $str )&amp;#123;    if ( is_array( $str ) )&amp;#123; //如果是">
+<meta name="twitter:description" content="此篇文章只是给里面的代码处做一下详细的讲解~原文地址:loudong.360.cn/School/content/id/285">
 <meta name="twitter:image" content="http://static.zybuluo.com/1kbfree/04j4c5eahqbp6ppmp0hnp0hc/CTF_LOGO.jpg">
 
 
@@ -459,7 +459,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://static.zybuluo.com/1kbfree/04j4c5eahqbp6ppmp0hnp0hc/CTF_LOGO.jpg" rel="gallery_cjhlfiuv00007fkuifpgsc3an"
+                 href="http://static.zybuluo.com/1kbfree/04j4c5eahqbp6ppmp0hnp0hc/CTF_LOGO.jpg" rel="gallery_cjhlmqrn500074ouiliazqcte"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://static.zybuluo.com/1kbfree/04j4c5eahqbp6ppmp0hnp0hc/CTF_LOGO.jpg" itemprop="contentUrl"/>
               </a>
@@ -474,6 +474,7 @@
       
         <blockquote class="blockquote-center"><p>此篇文章只是给里面的代码处做一下详细的讲解~<br>原文地址:loudong.360.cn/School/content/id/285</p>
 </blockquote>
+<a id="more"></a>
 <p>CTF线下赛中一处代码( 红色区域处 )，现在就是来讲解这个的~<br><img src="http://static.zybuluo.com/1kbfree/utarpdc4wsivh5yzlnihpacr/image_1ce8hrduq1kqieu7kt57qo17mj9.png" alt="image_1ce8hrduq1kqieu7kt57qo17mj9.png-33.3kB"></p>
 <h2 id="讲解开始"><a href="#讲解开始" class="headerlink" title="讲解开始:"></a>讲解开始:</h2><p>首先看一下我写的这个代码:<br><img src="http://static.zybuluo.com/1kbfree/d2mpfibd3nhui8m27fbu41yo/image_1ce8htj9h1i8l11pqbhu1tun16s8m.png" alt="image_1ce8htj9h1i8l11pqbhu1tun16s8m.png-99.2kB"><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">e</span><span class="params">( $str )</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> ( is_array( $str ) )&#123; <span class="comment">//如果是列表~</span></span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"&lt;pre&gt;"</span>;</span><br><span class="line">        var_dump( $str );</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123; </span><br><span class="line">        <span class="keyword">echo</span> $str ;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$mylist = [ </span><br><span class="line">    <span class="string">'ctrl'</span> =&gt; ( !<span class="keyword">empty</span>($_GET[<span class="string">'p'</span>]) ? $_GET[<span class="string">'p'</span>] : <span class="string">'blog'</span> ) , <span class="comment">//ctrl的value值：如果get请求的p值不为空，那么就返回get请求的p值，否者返回blog</span></span><br><span class="line">    <span class="string">'template'</span> =&gt; ( !<span class="keyword">empty</span>($_GET[<span class="string">'t'</span>]) ? $_GET[<span class="string">'t'</span>] : <span class="string">'pc'</span> ) <span class="comment">//template的value值：如果get请求的t值不为空，那么就返回get请求的t值，否者返回pc\</span></span><br><span class="line">];</span><br><span class="line"></span><br><span class="line">e( $mylist );</span><br></pre></td></tr></table></figure></p>
 <div class="note primary"><p>这里的<code>!empty($_GET[&#39;p&#39;]) ? $_GET[&#39;p&#39;] : &#39;blog&#39;</code>是三元表达式，详细用法我也在代码处讲解过了</p></div>
@@ -513,7 +514,7 @@
   
 
   <p><span>发布时间:</span>2018年05月24日 - 16:05</p>
-  <p><span>最后更新:</span>2018年05月25日 - 10:05</p>
+  <p><span>最后更新:</span>2018年05月25日 - 14:05</p>
   <p><span>原始链接:</span><a href="/2018/05/24/某CTF赛的一处代码简单讲解/" title="某CTF赛的一处代码简单讲解">127.0.0.1/2018/05/24/某CTF赛的一处代码简单讲解/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="127.0.0.1/2018/05/24/某CTF赛的一处代码简单讲解/"  aria-label="复制成功！"></i></span>
   </p>
@@ -882,7 +883,7 @@ var jiathis_config={
 
 <div class="theme-info">
   <div class="powered-by"></div> 
-  <span class="post-count">博客文章字数共 3.1k 哟~</span>
+  <span class="post-count">博客文章字数共 3.0k 哟~</span>
 </div>
 
 
