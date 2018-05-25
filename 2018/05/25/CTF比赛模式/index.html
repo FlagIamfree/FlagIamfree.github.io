@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="代码审计,PHP,Dvwa,渗透测试," />
+  <meta name="keywords" content="转载文章,CTF," />
 
 
 
@@ -88,20 +88,18 @@
 
 
 
-<meta name="description" content="Dvwa是一个网站渗透测试演练平台，里面包括了Xss攻击,Sql注入攻击，Csrf漏洞、文件上传漏洞、命令注入漏洞等，而且每个漏洞都分为Low(低等级)、Medium( 中等级 )、High( 高等级 )、Impossible( 没漏洞等级 )">
-<meta name="keywords" content="代码审计,PHP,Dvwa,渗透测试">
+<meta name="description" content="目前主要的CTF比赛模式如下">
+<meta name="keywords" content="转载文章,CTF">
 <meta property="og:type" content="article">
-<meta property="og:title" content="基于DVWA的反射型Xss测试平台Low等级讲解">
-<meta property="og:url" content="127.0.0.1/2018/05/24/基于DVWA的Xss测试平台Low等级讲解/index.html">
+<meta property="og:title" content="CTF比赛模式">
+<meta property="og:url" content="127.0.0.1/2018/05/25/CTF比赛模式/index.html">
 <meta property="og:site_name" content="Iamfree Blog">
-<meta property="og:description" content="Dvwa是一个网站渗透测试演练平台，里面包括了Xss攻击,Sql注入攻击，Csrf漏洞、文件上传漏洞、命令注入漏洞等，而且每个漏洞都分为Low(低等级)、Medium( 中等级 )、High( 高等级 )、Impossible( 没漏洞等级 )">
+<meta property="og:description" content="目前主要的CTF比赛模式如下">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://static.zybuluo.com/1kbfree/cyqg7gtnfpcxqu1sq0pudr4d/image_1ce8ondhr16098qa13sv103llu940.png">
-<meta property="og:updated_time" content="2018-05-25T06:53:32.520Z">
+<meta property="og:updated_time" content="2018-05-25T08:46:48.360Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="基于DVWA的反射型Xss测试平台Low等级讲解">
-<meta name="twitter:description" content="Dvwa是一个网站渗透测试演练平台，里面包括了Xss攻击,Sql注入攻击，Csrf漏洞、文件上传漏洞、命令注入漏洞等，而且每个漏洞都分为Low(低等级)、Medium( 中等级 )、High( 高等级 )、Impossible( 没漏洞等级 )">
-<meta name="twitter:image" content="http://static.zybuluo.com/1kbfree/cyqg7gtnfpcxqu1sq0pudr4d/image_1ce8ondhr16098qa13sv103llu940.png">
+<meta name="twitter:title" content="CTF比赛模式">
+<meta name="twitter:description" content="目前主要的CTF比赛模式如下">
 
 
 
@@ -131,7 +129,7 @@
 
 
 
-  <link rel="canonical" href="127.0.0.1/2018/05/24/基于DVWA的Xss测试平台Low等级讲解/"/>
+  <link rel="canonical" href="127.0.0.1/2018/05/25/CTF比赛模式/"/>
 
 
 
@@ -161,7 +159,7 @@
   daovoice('update');
   </script>
 
-  <title>基于DVWA的反射型Xss测试平台Low等级讲解 | Iamfree Blog</title>
+  <title>CTF比赛模式 | Iamfree Blog</title>
   
 
 
@@ -333,7 +331,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="127.0.0.1/2018/05/24/基于DVWA的Xss测试平台Low等级讲解/">
+    <link itemprop="mainEntityOfPage" href="127.0.0.1/2018/05/25/CTF比赛模式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Iamfree">
@@ -350,7 +348,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">基于DVWA的反射型Xss测试平台Low等级讲解</h1>
+          <h1 class="post-title" itemprop="name headline">CTF比赛模式</h1>
         
 
         <div class="post-meta">
@@ -362,8 +360,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-24T17:34:46+08:00">
-                2018-05-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-25T16:38:38+08:00">
+                2018-05-25
               </time>
             
 
@@ -385,8 +383,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Web攻防/" itemprop="url" rel="index">
-                    <span itemprop="name">Web攻防</span>
+                  <a href="/categories/CTF/" itemprop="url" rel="index">
+                    <span itemprop="name">CTF</span>
                   </a>
                 </span>
 
@@ -403,8 +401,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/05/24/基于DVWA的Xss测试平台Low等级讲解/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/05/24/基于DVWA的Xss测试平台Low等级讲解/" itemprop="commentCount"></span>
+                <a href="/2018/05/25/CTF比赛模式/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/05/25/CTF比赛模式/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -431,7 +429,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  472
+                  422
                 </span>
               
 
@@ -454,37 +452,12 @@
 
       
       
-        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
-          
-          
-            <div class="post-gallery-row">
-              <a class="post-gallery-img fancybox"
-                 href="http://static.zybuluo.com/1kbfree/cyqg7gtnfpcxqu1sq0pudr4d/image_1ce8ondhr16098qa13sv103llu940.png" rel="gallery_cjhlq637z0002t4uikmu0v50s"
-                 itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
-                <img src="http://static.zybuluo.com/1kbfree/cyqg7gtnfpcxqu1sq0pudr4d/image_1ce8ondhr16098qa13sv103llu940.png" itemprop="contentUrl"/>
-              </a>
-            
-          
-
-          
-          </div>
-        </div>
-      
 
       
-        <div class="note primary"><p>Dvwa是一个网站渗透测试演练平台，里面包括了Xss攻击,Sql注入攻击，Csrf漏洞、文件上传漏洞、命令注入漏洞等，而且每个漏洞都分为<code>Low(低等级)、Medium( 中等级 )、High( 高等级 )、Impossible( 没漏洞等级 )</code></p></div>
-<a id="more"></a>
-<p>下载过程和安装过程网上可以找到我就不讲解了。</p>
-<h3 id="首先将Dvwa等级设置成Low"><a href="#首先将Dvwa等级设置成Low" class="headerlink" title="首先将Dvwa等级设置成Low:"></a>首先将<code>Dvwa</code>等级设置成<code>Low</code>:</h3><p><img src="http://static.zybuluo.com/1kbfree/xhlnfqib3ib7m5jpq5s0k9us/image_1ce8m63q6g1s5ab1ef51ilf92m9.png" alt="image_1ce8m63q6g1s5ab1ef51ilf92m9.png-135.5kB"></p>
-<hr>
-<h2 id="开始Xss漏洞讲解"><a href="#开始Xss漏洞讲解" class="headerlink" title="开始Xss漏洞讲解"></a>开始Xss漏洞讲解</h2><h3 id="Xss反射型："><a href="#Xss反射型：" class="headerlink" title="Xss反射型："></a>Xss反射型：</h3><p><img src="http://static.zybuluo.com/1kbfree/bzktsumqyk5cl12z0z15nojx/image_1ce8mao1la4233k77t19h21v82m.png" alt="image_1ce8mao1la4233k77t19h21v82m.png-203.8kB"><br><em>当输入<code>hello</code>在输入框点击Submit后，会输出一个<code>Hello iamfree</code>，那么我们来看看这是如何实现的</em></p>
-<h4 id="实现的代码："><a href="#实现的代码：" class="headerlink" title="实现的代码："></a>实现的代码：</h4><p><img src="http://static.zybuluo.com/1kbfree/28z6tmahfg6x1z7reai804j1/image_1ce8n2a0ijtjgs8iitt4a1ou09.png" alt="image_1ce8n2a0ijtjgs8iitt4a1ou09.png-147.4kB"><br><em>因为这是<code>Low</code>级别的，所以我们可以清楚的看见这里没有做任何过滤，我们只需要输入一串而已的Js代码就可以实现盗取别人Cookie，做钓鱼之类的功能，下面我来简单的演示一下~</em></p>
-<p>输入<code>&lt;img src=x onerror=alert(&#39;iamfree&#39;)&gt;</code>后，Url变成<code>http://127.0.0.1/dvwa/vulnerabilities/xss_r/?name=%3Cimg+src%3Dx+onerror%3Dalert%28%27iamfree%27%29%3E#</code>，效果:<br><img src="http://static.zybuluo.com/1kbfree/hl67ru1a4l4ltyvhi82dj0bw/image_1ce8naell1jlrkv6s1214dh7n7m.png" alt="image_1ce8naell1jlrkv6s1214dh7n7m.png-130.1kB"></p>
-<div class="note warning"><p><code>&lt;img src=x onerror=alert(&#39;iamfree&#39;)&gt;</code>的src表示img图片的地址，可以是本地也可以是Url形式;onerror的意思是如果图片没有正常显示的话就会执行<code>=</code>后面的代码，因为这里<code>src=x</code>而<code>x</code>是不存在的，所以无法显示，就会报错了~</p></div>
-<h3 id="如何防御"><a href="#如何防御" class="headerlink" title="如何防御"></a>如何防御</h3><p><strong>这里的话防御很简单的，只需要一个函数即可：</strong><br><img src="http://static.zybuluo.com/1kbfree/n875b1a8nh9rciqc7w66vxku/image_1ce8nikp01hm91qse12112ra2802p.png" alt="image_1ce8nikp01hm91qse12112ra2802p.png-53.3kB"></p>
-<p><strong>防御代码:</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">header (<span class="string">"X-XSS-Protection: 0"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Is there any input?</span></span><br><span class="line"><span class="keyword">if</span>( array_key_exists( <span class="string">"name"</span>, $_GET ) &amp;&amp; $_GET[ <span class="string">'name'</span> ] != <span class="keyword">NULL</span> ) &#123;</span><br><span class="line">    <span class="comment">// Feedback for end user</span></span><br><span class="line">    <span class="comment">// 防御的反射Xss</span></span><br><span class="line">    $name = htmlspecialchars($_GET[<span class="string">'name'</span>]);</span><br><span class="line">    $html .= <span class="string">'&lt;pre&gt;Hello '</span> . $name . <span class="string">'&lt;/pre&gt;'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p><strong>继续访问刚才的Url(<code>http://127.0.0.1/dvwa/vulnerabilities/xss_r/?name=%3Cimg+src%3Dx+onerror%3Dalert%28%27iamfree%27%29%3E#</code>)，看看是否有效:</strong><br><img src="http://static.zybuluo.com/1kbfree/3y12i2skpud63a1qgec93sxz/image_1ce8nph771gbkh9n1v6q16p41ho736.png" alt="image_1ce8nph771gbkh9n1v6q16p41ho736.png-175.7kB"><br><em>成功的防止了Xss反射型攻击了~</em></p>
-<h3 id="htmlspecialchars函数的官方解释"><a href="#htmlspecialchars函数的官方解释" class="headerlink" title="htmlspecialchars函数的官方解释:"></a>htmlspecialchars函数的官方解释:</h3><p><img src="http://static.zybuluo.com/1kbfree/piy4p2lkq0h81v0d1u4y5mb7/image_1ce8nug1jgbj1iib1hl91ii51vic3j.png" alt="image_1ce8nug1jgbj1iib1hl91ii51vic3j.png-137.1kB"></p>
+        <h2 id="目前主要的CTF比赛模式如下"><a href="#目前主要的CTF比赛模式如下" class="headerlink" title="目前主要的CTF比赛模式如下"></a>目前主要的CTF比赛模式如下</h2><a id="more"></a>
+<h3 id="一、解题模式（Jeopardy）"><a href="#一、解题模式（Jeopardy）" class="headerlink" title="一、解题模式（Jeopardy）"></a>一、解题模式（Jeopardy）</h3><p>在解题模式CTF赛制中，参赛队伍可以通过互联网或者现场网络参与比赛，比赛以解决网络安全技术挑战题目的分值和时间来排名，通常用于在线选拔赛，比赛一般会持续48小时及以上。题目类型主要包含逆向分析、漏洞挖掘与利用、移动安全、Web安全、密码、取证、隐写、编程、流量分析等等类别。</p>
+<h3 id="二、攻防模式（Attack-Defense）"><a href="#二、攻防模式（Attack-Defense）" class="headerlink" title="二、攻防模式（Attack-Defense）"></a>二、攻防模式（Attack-Defense）</h3><p>在攻防模式CTF赛制中，参赛队伍在网络空间互相进行攻击和防守，挖掘网络服务漏洞并攻击对手服务来得分，修补自身服务漏洞进行防御来避免丢分。攻防模式CTF赛制可以实时通过得分反映出比赛情况，最终也以得分直接分出胜负。这种赛制一般在线下举行，在这种赛制中，不仅仅是比拼参赛队员的智力和技术，也比拼体力（因为比赛一般都会持续48小时及以上），同时也比拼团队之间的分工配合与合作。</p>
+<h3 id="三、混合模式（Mix）"><a href="#三、混合模式（Mix）" class="headerlink" title="三、混合模式（Mix）"></a>三、混合模式（Mix）</h3><p>结合了解题模式与攻防模式的CTF赛制，比如参赛队伍通过解题可以获取一些初始分数，然后通过攻防对抗进行得分增减的零和游戏，最终以得分高低分出胜负。采用混合模式CTF赛制的典型代表如iCTF国际CTF竞赛。(改自<a href="https://link.zhihu.com/?target=http%3A//baike.baidu.com/subview/2735962/16211061.htm" target="_blank" rel="noopener">ctf（夺旗赛）</a>)</p>
 <blockquote class="blockquote-center"><p>十年寒窗无人问，一举成名天下知<br>                            – Cai_Team</p>
 </blockquote>
 
@@ -505,7 +478,7 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2018/05/24/基于DVWA的Xss测试平台Low等级讲解/">基于DVWA的反射型Xss测试平台Low等级讲解</a></p>
+  <p><span>本文标题:</span><a href="/2018/05/25/CTF比赛模式/">CTF比赛模式</a></p>
 
   
       <p><span>文章作者:</span><a href="/" title="访问 Iamfree 的博客">Iamfree</a></p>
@@ -516,10 +489,10 @@
   
   
 
-  <p><span>发布时间:</span>2018年05月24日 - 17:05</p>
-  <p><span>最后更新:</span>2018年05月25日 - 14:05</p>
-  <p><span>原始链接:</span><a href="/2018/05/24/基于DVWA的Xss测试平台Low等级讲解/" title="基于DVWA的反射型Xss测试平台Low等级讲解">127.0.0.1/2018/05/24/基于DVWA的Xss测试平台Low等级讲解/</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="127.0.0.1/2018/05/24/基于DVWA的Xss测试平台Low等级讲解/"  aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2018年05月25日 - 16:05</p>
+  <p><span>最后更新:</span>2018年05月25日 - 16:05</p>
+  <p><span>原始链接:</span><a href="/2018/05/25/CTF比赛模式/" title="CTF比赛模式">127.0.0.1/2018/05/25/CTF比赛模式/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="127.0.0.1/2018/05/25/CTF比赛模式/"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span>暂时请不要转载,感谢！！！</p>  
 </div>
@@ -592,13 +565,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/代码审计/" rel="tag"><i class="fa fa-tag"></i> 代码审计</a>
+            <a href="/tags/转载文章/" rel="tag"><i class="fa fa-tag"></i> 转载文章</a>
           
-            <a href="/tags/PHP/" rel="tag"><i class="fa fa-tag"></i> PHP</a>
-          
-            <a href="/tags/Dvwa/" rel="tag"><i class="fa fa-tag"></i> Dvwa</a>
-          
-            <a href="/tags/渗透测试/" rel="tag"><i class="fa fa-tag"></i> 渗透测试</a>
+            <a href="/tags/CTF/" rel="tag"><i class="fa fa-tag"></i> CTF</a>
           
         </div>
       
@@ -611,8 +580,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/24/某CTF赛的一处代码简单讲解/" rel="next" title="某CTF赛的一处代码简单讲解">
-                <i class="fa fa-chevron-left"></i> 某CTF赛的一处代码简单讲解
+              <a href="/2018/05/25/CTF如何入门/" rel="next" title="CTF如何入门">
+                <i class="fa fa-chevron-left"></i> CTF如何入门
               </a>
             
           </div>
@@ -620,10 +589,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/24/简单的用户管理分析/" rel="prev" title="简单的用户管理分析">
-                简单的用户管理分析 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -845,7 +810,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#首先将Dvwa等级设置成Low"><span class="nav-number">1.</span> <span class="nav-text">首先将Dvwa等级设置成Low:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开始Xss漏洞讲解"><span class="nav-number"></span> <span class="nav-text">开始Xss漏洞讲解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Xss反射型："><span class="nav-number">1.</span> <span class="nav-text">Xss反射型：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#实现的代码："><span class="nav-number">1.1.</span> <span class="nav-text">实现的代码：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何防御"><span class="nav-number">2.</span> <span class="nav-text">如何防御</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#htmlspecialchars函数的官方解释"><span class="nav-number">3.</span> <span class="nav-text">htmlspecialchars函数的官方解释:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目前主要的CTF比赛模式如下"><span class="nav-number">1.</span> <span class="nav-text">目前主要的CTF比赛模式如下</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、解题模式（Jeopardy）"><span class="nav-number">1.1.</span> <span class="nav-text">一、解题模式（Jeopardy）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、攻防模式（Attack-Defense）"><span class="nav-number">1.2.</span> <span class="nav-text">二、攻防模式（Attack-Defense）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、混合模式（Mix）"><span class="nav-number">1.3.</span> <span class="nav-text">三、混合模式（Mix）</span></a></li></ol></li></ol></div>
             
 
           </div>
