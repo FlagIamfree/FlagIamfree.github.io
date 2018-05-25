@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="代码审计,PHP,Dvwa," />
+  <meta name="keywords" content="代码审计,PHP,Dvwa,渗透测试," />
 
 
 
@@ -89,17 +89,17 @@
 
 
 <meta name="description" content="Dvwa是一个网站渗透测试演练平台，里面包括了Xss攻击,Sql注入攻击，Csrf漏洞、文件上传漏洞、命令注入漏洞等，而且每个漏洞都分为Low(低等级)、Medium( 中等级 )、High( 高等级 )、Impossible( 没漏洞等级 ) 下载过程和安装过程网上可以找到我就不讲解了。 首先将Dvwa等级设置成Low:  开始Xss漏洞讲解Xss反射型：当输入hello在输入框点击Submit">
-<meta name="keywords" content="代码审计,PHP,Dvwa">
+<meta name="keywords" content="代码审计,PHP,Dvwa,渗透测试">
 <meta property="og:type" content="article">
-<meta property="og:title" content="基于DVWA的Xss测试平台Low等级讲解">
+<meta property="og:title" content="基于DVWA的反射型Xss测试平台Low等级讲解">
 <meta property="og:url" content="127.0.0.1/2018/05/24/基于DVWA的Xss测试平台Low等级讲解/index.html">
 <meta property="og:site_name" content="Iamfree Blog">
 <meta property="og:description" content="Dvwa是一个网站渗透测试演练平台，里面包括了Xss攻击,Sql注入攻击，Csrf漏洞、文件上传漏洞、命令注入漏洞等，而且每个漏洞都分为Low(低等级)、Medium( 中等级 )、High( 高等级 )、Impossible( 没漏洞等级 ) 下载过程和安装过程网上可以找到我就不讲解了。 首先将Dvwa等级设置成Low:  开始Xss漏洞讲解Xss反射型：当输入hello在输入框点击Submit">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://static.zybuluo.com/1kbfree/cyqg7gtnfpcxqu1sq0pudr4d/image_1ce8ondhr16098qa13sv103llu940.png">
-<meta property="og:updated_time" content="2018-05-24T16:18:55.605Z">
+<meta property="og:updated_time" content="2018-05-25T02:40:07.044Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="基于DVWA的Xss测试平台Low等级讲解">
+<meta name="twitter:title" content="基于DVWA的反射型Xss测试平台Low等级讲解">
 <meta name="twitter:description" content="Dvwa是一个网站渗透测试演练平台，里面包括了Xss攻击,Sql注入攻击，Csrf漏洞、文件上传漏洞、命令注入漏洞等，而且每个漏洞都分为Low(低等级)、Medium( 中等级 )、High( 高等级 )、Impossible( 没漏洞等级 ) 下载过程和安装过程网上可以找到我就不讲解了。 首先将Dvwa等级设置成Low:  开始Xss漏洞讲解Xss反射型：当输入hello在输入框点击Submit">
 <meta name="twitter:image" content="http://static.zybuluo.com/1kbfree/cyqg7gtnfpcxqu1sq0pudr4d/image_1ce8ondhr16098qa13sv103llu940.png">
 
@@ -161,7 +161,7 @@
   daovoice('update');
   </script>
 
-  <title>基于DVWA的Xss测试平台Low等级讲解 | Iamfree Blog</title>
+  <title>基于DVWA的反射型Xss测试平台Low等级讲解 | Iamfree Blog</title>
   
 
 
@@ -350,7 +350,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">基于DVWA的Xss测试平台Low等级讲解</h1>
+          <h1 class="post-title" itemprop="name headline">基于DVWA的反射型Xss测试平台Low等级讲解</h1>
         
 
         <div class="post-meta">
@@ -459,7 +459,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://static.zybuluo.com/1kbfree/cyqg7gtnfpcxqu1sq0pudr4d/image_1ce8ondhr16098qa13sv103llu940.png" rel="gallery_cjhlcbgw50001mkuixu7j6ktj"
+                 href="http://static.zybuluo.com/1kbfree/cyqg7gtnfpcxqu1sq0pudr4d/image_1ce8ondhr16098qa13sv103llu940.png" rel="gallery_cjhlezxlt0001csui9x6g20ae"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://static.zybuluo.com/1kbfree/cyqg7gtnfpcxqu1sq0pudr4d/image_1ce8ondhr16098qa13sv103llu940.png" itemprop="contentUrl"/>
               </a>
@@ -504,7 +504,7 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2018/05/24/基于DVWA的Xss测试平台Low等级讲解/">基于DVWA的Xss测试平台Low等级讲解</a></p>
+  <p><span>本文标题:</span><a href="/2018/05/24/基于DVWA的Xss测试平台Low等级讲解/">基于DVWA的反射型Xss测试平台Low等级讲解</a></p>
 
   
       <p><span>文章作者:</span><a href="/" title="访问 Iamfree 的博客">Iamfree</a></p>
@@ -516,8 +516,8 @@
   
 
   <p><span>发布时间:</span>2018年05月24日 - 17:05</p>
-  <p><span>最后更新:</span>2018年05月25日 - 00:05</p>
-  <p><span>原始链接:</span><a href="/2018/05/24/基于DVWA的Xss测试平台Low等级讲解/" title="基于DVWA的Xss测试平台Low等级讲解">127.0.0.1/2018/05/24/基于DVWA的Xss测试平台Low等级讲解/</a>
+  <p><span>最后更新:</span>2018年05月25日 - 10:05</p>
+  <p><span>原始链接:</span><a href="/2018/05/24/基于DVWA的Xss测试平台Low等级讲解/" title="基于DVWA的反射型Xss测试平台Low等级讲解">127.0.0.1/2018/05/24/基于DVWA的Xss测试平台Low等级讲解/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="127.0.0.1/2018/05/24/基于DVWA的Xss测试平台Low等级讲解/"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span>暂时请不要转载,感谢！！！</p>  
@@ -596,6 +596,8 @@
             <a href="/tags/PHP/" rel="tag"><i class="fa fa-tag"></i> PHP</a>
           
             <a href="/tags/Dvwa/" rel="tag"><i class="fa fa-tag"></i> Dvwa</a>
+          
+            <a href="/tags/渗透测试/" rel="tag"><i class="fa fa-tag"></i> 渗透测试</a>
           
         </div>
       
@@ -730,7 +732,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -741,7 +743,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -752,7 +754,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -889,7 +891,7 @@ var jiathis_config={
 
 <div class="theme-info">
   <div class="powered-by"></div> 
-  <span class="post-count">博客文章字数共 2.5k 哟~</span>
+  <span class="post-count">博客文章字数共 3.0k 哟~</span>
 </div>
 
 
