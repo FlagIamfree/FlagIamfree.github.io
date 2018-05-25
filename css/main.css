@@ -1886,20 +1886,6 @@ h6:hover {
 .sidebar-toggle-line:first-child {
   margin-top: 0;
 }
-.site-author-image {
-  display: block;
-  margin: 0 auto;
-  padding: 2px;
-  max-width: 120px;
-  height: auto;
-  border: 1px solid #eee;
-  border-radius: 50%;
-  transition: 2s all;
-  transform: rotate(18deg);
-}
-.site-author-image:hover {
-  transform: rotate(378deg);
-}
 .site-author-name {
   margin: 0;
   text-align: center;
@@ -1980,7 +1966,7 @@ h6:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #044bff;
+  background: #60f106;
 }
 .links-of-blogroll {
   font-size: 13px;
