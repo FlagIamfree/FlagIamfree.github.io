@@ -270,11 +270,11 @@
       <category term="Web攻防" scheme="127.0.0.1/categories/Web%E6%94%BB%E9%98%B2/"/>
     
     
+      <category term="CTF" scheme="127.0.0.1/tags/CTF/"/>
+    
       <category term="代码审计" scheme="127.0.0.1/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/"/>
     
       <category term="PHP" scheme="127.0.0.1/tags/PHP/"/>
-    
-      <category term="CTF" scheme="127.0.0.1/tags/CTF/"/>
     
   </entry>
   
