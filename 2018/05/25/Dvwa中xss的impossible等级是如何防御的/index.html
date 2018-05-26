@@ -88,18 +88,20 @@
 
 
 
-<meta name="description" content="十年寒窗无人问，一举成名天下知                            – Cai_Team">
+<meta name="description" content="在之前分别讲了Dvwa的Xss测试的Low、Medium、High等级，这节课就深入的来讲impossible如何防御的( 其实之前文章也有讲过，不详细，这节课就深入的来讲解一下 )">
 <meta name="keywords" content="代码审计,PHP,Dvwa,渗透测试,Xss">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Dvwa中xss的impossible等级是如何防御的">
 <meta property="og:url" content="127.0.0.1/2018/05/25/Dvwa中xss的impossible等级是如何防御的/index.html">
 <meta property="og:site_name" content="Cai_Team">
-<meta property="og:description" content="十年寒窗无人问，一举成名天下知                            – Cai_Team">
+<meta property="og:description" content="在之前分别讲了Dvwa的Xss测试的Low、Medium、High等级，这节课就深入的来讲impossible如何防御的( 其实之前文章也有讲过，不详细，这节课就深入的来讲解一下 )">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-25T14:06:56.641Z">
+<meta property="og:image" content="http://static.zybuluo.com/1kbfree/vtqmjw3a53vyf8ufiqmcfyqp/image_1ceedl0k014q31p679jjdirhte9.png">
+<meta property="og:updated_time" content="2018-05-26T15:15:07.894Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Dvwa中xss的impossible等级是如何防御的">
-<meta name="twitter:description" content="十年寒窗无人问，一举成名天下知                            – Cai_Team">
+<meta name="twitter:description" content="在之前分别讲了Dvwa的Xss测试的Low、Medium、High等级，这节课就深入的来讲impossible如何防御的( 其实之前文章也有讲过，不详细，这节课就深入的来讲解一下 )">
+<meta name="twitter:image" content="http://static.zybuluo.com/1kbfree/vtqmjw3a53vyf8ufiqmcfyqp/image_1ceedl0k014q31p679jjdirhte9.png">
 
 
 
@@ -413,7 +415,7 @@
 
           
             <span class="post-meta-divider">|</span>
-            <span class="page-pv">俺的浏览数 <i class="fa fa-file-o"></i>
+            <span class="page-pv">本文浏览数 <i class="fa fa-file-o"></i>
             <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次~
             </span>
           
@@ -429,7 +431,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  15
+                  568
                 </span>
               
 
@@ -452,11 +454,79 @@
 
       
       
+        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+          
+          
+            <div class="post-gallery-row">
+              <a class="post-gallery-img fancybox"
+                 href="http://static.zybuluo.com/1kbfree/vtqmjw3a53vyf8ufiqmcfyqp/image_1ceedl0k014q31p679jjdirhte9.png" rel="gallery_cjhnjevzz0006w4ui6uwhze6x"
+                 itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
+                <img src="http://static.zybuluo.com/1kbfree/vtqmjw3a53vyf8ufiqmcfyqp/image_1ceedl0k014q31p679jjdirhte9.png" itemprop="contentUrl"/>
+              </a>
+            
+          
+
+          
+          </div>
+        </div>
+      
 
       
-        <a id="more"></a>
+        <blockquote>
+<p>在之前分别讲了Dvwa的Xss测试的<code>Low</code>、<code>Medium</code>、<code>High</code>等级，这节课就深入的来讲<code>impossible</code>如何防御的( 其实之前文章也有讲过，不详细，这节课就深入的来讲解一下 )</p>
+</blockquote>
+<a id="more"></a>
+<p>老套路，直接看源码:<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Is there any input?</span></span><br><span class="line"><span class="keyword">if</span>( array_key_exists( <span class="string">"name"</span>, $_GET ) &amp;&amp; $_GET[ <span class="string">'name'</span> ] != <span class="keyword">NULL</span> ) &#123;</span><br><span class="line">    <span class="comment">// Check Anti-CSRF token</span></span><br><span class="line">    checkToken( $_REQUEST[ <span class="string">'user_token'</span> ], $_SESSION[ <span class="string">'session_token'</span> ], <span class="string">'index.php'</span> );</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Get input</span></span><br><span class="line">    $name = htmlspecialchars( $_GET[ <span class="string">'name'</span> ] );</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Feedback for end user</span></span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"&lt;pre&gt;Hello $&#123;name&#125;&lt;/pre&gt;"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Generate Anti-CSRF token</span></span><br><span class="line">generateSessionToken();</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
+<div class="note danger"><p>这段代码中的<code>checkToken()</code>函数是用于防御<code>Csrf</code>攻击的，先不用管，我们先来看看这个<code>htmlspecialchars()</code>函数</p></div>
+<h1 id="官方解释"><a href="#官方解释" class="headerlink" title="官方解释"></a>官方解释</h1><div class="note primary"><p>htmlspecialchars — 将特殊字符转换为 HTML 实体</p></div>
+<h3 id="执行转换"><a href="#执行转换" class="headerlink" title="执行转换"></a><center>执行转换</center></h3><table>
+<thead>
+<tr>
+<th style="text-align:center">字符</th>
+<th style="text-align:center">替换后</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">&amp; （和号）</td>
+<td style="text-align:center">成为 <code>&amp;amp;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">“ （双引号）</td>
+<td style="text-align:center">成为 <code>&amp;quot;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">‘ （单引号）</td>
+<td style="text-align:center">成为 <code>&#39;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">&lt; （小于）</td>
+<td style="text-align:center">成为 <code>&amp;lt;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">> （大于）</td>
+<td style="text-align:center">成为 <code>&amp;gt;</code></td>
+</tr>
+</tbody>
+</table>
+<h1 id="开始操作"><a href="#开始操作" class="headerlink" title="开始操作"></a>开始操作</h1><h2 id="未过滤"><a href="#未过滤" class="headerlink" title="未过滤"></a>未过滤</h2><p>先看一段代码简单的代码：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;title&gt;Demo&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    <span class="meta">&lt;?php</span></span><br><span class="line">        $name = $_GET[<span class="string">'name'</span>];</span><br><span class="line">    <span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line">    &lt;h1&gt;你好，<span class="meta">&lt;?php</span> <span class="keyword">echo</span> $name;<span class="meta">?&gt;</span>&lt;/h1&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>访问<code>http://127.0.0.1/myphp/demo.php?name=1</code>:</p>
+<p><img src="http://static.zybuluo.com/1kbfree/al7qk4pjqlion3hbqsw4ierb/image_1ceefa1be1bbm1rnk1mnt1jn019nc9.png" alt="image_1ceefa1be1bbm1rnk1mnt1jn019nc9.png-86.4kB"></p>
+<p>访问<code>http://127.0.0.1/myphp/demo.php?name=&lt;img src=x&gt;</code>:</p>
+<p><img src="http://static.zybuluo.com/1kbfree/au5kj4jajtjmra5kiy2c0jft/image_1ceefbiqtarl1pcuc268a01lm7m.png" alt="image_1ceefbiqtarl1pcuc268a01lm7m.png-33.9kB"><br><em>可见，这个是存在Xss的，那么我们用<code>htmlspecialchars</code>函数来过滤~</em></p>
+<h2 id="过滤"><a href="#过滤" class="headerlink" title="过滤"></a>过滤</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;title&gt;Demo&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    <span class="meta">&lt;?php</span></span><br><span class="line">        $name = $_GET[<span class="string">'name'</span>];</span><br><span class="line">        $name = htmlspecialchars( $name );</span><br><span class="line">    <span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line">    &lt;h1&gt;你好，<span class="meta">&lt;?php</span> <span class="keyword">echo</span> $name;<span class="meta">?&gt;</span>&lt;/h1&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>继续访问<code>http://127.0.0.1/myphp/demo.php?name=&lt;img src=x&gt;</code>:</p>
+<p><img src="http://static.zybuluo.com/1kbfree/80yqz9yz6403402w5i9qx44q/image_1ceefgvqvh1ta2riv01papfcb13.png" alt="image_1ceefgvqvh1ta2riv01papfcb13.png-34.8kB"></p>
+<p><em>看到这里，你们就会好奇了，为什么会直接把输入的内容输出出来，而不是以代码被解析？我们打开审查元素看一看(F12)</em></p>
+<p><img src="http://static.zybuluo.com/1kbfree/vk4ukytvdztquz76v0qr25zf/image_1ceefjr3mik51606kc21ete15ct1g.png" alt="image_1ceefjr3mik51606kc21ete15ct1g.png-31.9kB"><br><em>我们可以发现这里是把<code>&lt;</code>变成了<code>&amp;lt;</code>,把’&gt;’变成了<code>&amp;gt;</code>，从而导致了代码只会原样输出而不会当成代码来编译</em></p>
+<p>如果你还困惑的，我再给你看一段代码:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Demo<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>你好，&amp;lt;img src=x&amp;gt;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span> <span class="comment">&lt;!-- 注意看这里 --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>访问<code>http://127.0.0.1/myphp/demo.php</code>:</p>
+<p><img src="http://static.zybuluo.com/1kbfree/eeeo1h0i9gjlamr1ctt17uud/image_1ceefpck81ibnca2re9bvb1tpd1t.png" alt="image_1ceefpck81ibnca2re9bvb1tpd1t.png-74kB"></p>
+<div class="note success"><p>Dvwa演练平台的Xss反射型部分撒花完结~</p></div>
 <blockquote class="blockquote-center"><p>十年寒窗无人问，一举成名天下知<br>                            – Cai_Team</p>
 </blockquote>
+
       
     </div>
     
@@ -486,7 +556,7 @@
   
 
   <p><span>发布时间:</span>2018年05月25日 - 21:05</p>
-  <p><span>最后更新:</span>2018年05月25日 - 22:05</p>
+  <p><span>最后更新:</span>2018年05月26日 - 23:05</p>
   <p><span>原始链接:</span><a href="/2018/05/25/Dvwa中xss的impossible等级是如何防御的/" title="Dvwa中xss的impossible等级是如何防御的">127.0.0.1/2018/05/25/Dvwa中xss的impossible等级是如何防御的/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="127.0.0.1/2018/05/25/Dvwa中xss的impossible等级是如何防御的/"  aria-label="复制成功！"></i></span>
   </p>
@@ -675,8 +745,17 @@ var jiathis_config={
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -695,7 +774,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -798,6 +877,22 @@ var jiathis_config={
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#官方解释"><span class="nav-number">1.</span> <span class="nav-text">官方解释</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#执行转换"><span class="nav-number">1.0.1.</span> <span class="nav-text">执行转换</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开始操作"><span class="nav-number">2.</span> <span class="nav-text">开始操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#未过滤"><span class="nav-number">2.1.</span> <span class="nav-text">未过滤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#过滤"><span class="nav-number">2.2.</span> <span class="nav-text">过滤</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -838,7 +933,7 @@ var jiathis_config={
 
 <div class="theme-info">
   <div class="powered-by"></div> 
-  <span class="post-count">博客文章字数共 7.8k 哟~</span>
+  <span class="post-count">博客文章字数共 8.5k 哟~</span>
 </div>
 
 

@@ -1966,7 +1966,7 @@ h6:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #03ff06;
+  background: #39ffe4;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3310,13 +3310,14 @@ p a img:hover {
   color: #333;
   box-shadow: -1px 1px 10px 4px #909090;
 }
-ul li:hover {
-  color: Blue;
-}
 :active,
 * {
   cursor: url("http://om8u46rmb.bkt.clouddn.com/sword2.ico"), auto !important;
 }
 :active {
   cursor: url("http://om8u46rmb.bkt.clouddn.com/sword1.ico"), auto !important;
+}
+ol li:hover,
+ul li:hover {
+  color: #000;
 }

@@ -88,16 +88,19 @@
 
 
 
-<meta name="description" content="一支有梦想的技术团队">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Cai_Team">
-<meta property="og:url" content="127.0.0.1/tags/Dvwa/index.html">
+<meta name="description" content="渗透的本质是信息搜集，而信息搜集整理为后续的情报跟进提供了强大的保证。  从上面那句话中，可见信息收集是多么的重要，因此，Nmap成为渗透中不可少的神器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nmap使用笔记">
+<meta property="og:url" content="127.0.0.1/2018/05/26/Nmap使用笔记/index.html">
 <meta property="og:site_name" content="Cai_Team">
-<meta property="og:description" content="一支有梦想的技术团队">
+<meta property="og:description" content="渗透的本质是信息搜集，而信息搜集整理为后续的情报跟进提供了强大的保证。  从上面那句话中，可见信息收集是多么的重要，因此，Nmap成为渗透中不可少的神器">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://static.zybuluo.com/1kbfree/7vlmz6o47dxpegq3ku60zv97/image_1ceed10qb1ebk1k4912ih1jhd2r3m.png">
+<meta property="og:updated_time" content="2018-05-26T15:15:33.678Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Cai_Team">
-<meta name="twitter:description" content="一支有梦想的技术团队">
+<meta name="twitter:title" content="Nmap使用笔记">
+<meta name="twitter:description" content="渗透的本质是信息搜集，而信息搜集整理为后续的情报跟进提供了强大的保证。  从上面那句话中，可见信息收集是多么的重要，因此，Nmap成为渗透中不可少的神器">
+<meta name="twitter:image" content="http://static.zybuluo.com/1kbfree/7vlmz6o47dxpegq3ku60zv97/image_1ceed10qb1ebk1k4912ih1jhd2r3m.png">
 
 
 
@@ -127,7 +130,7 @@
 
 
 
-  <link rel="canonical" href="127.0.0.1/tags/Dvwa/"/>
+  <link rel="canonical" href="127.0.0.1/2018/05/26/Nmap使用笔记/"/>
 
 
 
@@ -135,8 +138,8 @@
 
 <script>
     (function () {
-        if ('') {
-            if (prompt('请输入文章密码') !== '') {
+        if ('nodo') {
+            if (prompt('请输入文章密码') !== 'nodo') {
                 alert('大哥你好，这是内部文件，如果没有密码请不要访问，感谢~');
                 if (history.length === 1) {
                     location.replace("https://flagiamfree.github.io/"); //首页
@@ -157,7 +160,7 @@
   daovoice('update');
   </script>
 
-  <title>标签: Dvwa | Cai_Team</title>
+  <title>Nmap使用笔记 | Cai_Team</title>
   
 
 
@@ -177,7 +180,7 @@
     
   
 
-  <div class="container sidebar-position-right ">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -315,138 +318,317 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block tag">
-
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>Dvwa<small>标签</small>
-        </h1>
-      </div>
-
-      
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="127.0.0.1/2018/05/26/Nmap使用笔记/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/cai_font.png"> 
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cai_Team">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/05/25/Dvwa中xss的impossible等级是如何防御的/" itemprop="url">
-              
-                <span itemprop="name">Dvwa中xss的impossible等级是如何防御的</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Nmap使用笔记</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-25T21:59:43+08:00"
-              content="2018-05-25" >
-          05-25
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-26T21:45:04+08:00">
+                2018-05-26
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/05/26/Nmap使用笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/05/26/Nmap使用笔记/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">本文浏览数 <i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次~
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  152
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
+      
+        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+          
+          
+            <div class="post-gallery-row">
+              <a class="post-gallery-img fancybox"
+                 href="http://static.zybuluo.com/1kbfree/7vlmz6o47dxpegq3ku60zv97/image_1ceed10qb1ebk1k4912ih1jhd2r3m.png" rel="gallery_cjhnjew010007w4uiem4g2d3a"
+                 itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
+                <img src="http://static.zybuluo.com/1kbfree/7vlmz6o47dxpegq3ku60zv97/image_1ceed10qb1ebk1k4912ih1jhd2r3m.png" itemprop="contentUrl"/>
+              </a>
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/05/25/基于DVWA的反射型Xss测试平台high等级讲解/" itemprop="url">
-              
-                <span itemprop="name">基于DVWA的反射型Xss测试平台high等级讲解</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-25T21:52:36+08:00"
-              content="2018-05-25" >
-          05-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+          
+          </div>
+        </div>
+      
 
       
-        
+        <blockquote class="blockquote-center"><p>渗透的本质是信息搜集，而信息搜集整理为后续的情报跟进提供了强大的保证。</p>
+</blockquote>
+<p>从上面那句话中，可见信息收集是多么的重要，因此，<code>Nmap</code>成为渗透中不可少的神器</p>
+<a id="more"></a>
+<h1 id="Nmap在网络扫描中常见作用"><a href="#Nmap在网络扫描中常见作用" class="headerlink" title="Nmap在网络扫描中常见作用:"></a>Nmap在网络扫描中常见作用:</h1><ol>
+<li>查看存活的主机</li>
+<li>扫描目标主机开放端口</li>
+<li>鉴定安全过滤机制</li>
+<li>识别目标主机的操作系统</li>
+<li>查看目标主机的服务banner</li>
+<li>利用脚本扫描漏洞</li>
+</ol>
+<blockquote class="blockquote-center"><p>十年寒窗无人问，一举成名天下知<br>                            – Cai_Team</p>
+</blockquote>
+      
+    </div>
+    
+    
+    
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/05/25/基于DVWA的反射型Xss测试平台Medium等级讲解/" itemprop="url">
-              
-                <span itemprop="name">基于DVWA的反射型Xss测试平台Medium等级讲解</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-25T10:27:24+08:00"
-              content="2018-05-25" >
-          05-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+    <div>
       
         
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/05/26/Nmap使用笔记/">Nmap使用笔记</a></p>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+      <p><span>文章作者:</span><a href="/" title="访问 Iamfree 的博客">Iamfree</a></p>
+      
+          <p><span>作者QQ:</span>1900065568</p>
+      
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/05/24/基于DVWA的Xss测试平台Low等级讲解/" itemprop="url">
-              
-                <span itemprop="name">基于DVWA的反射型Xss测试平台Low等级讲解</span>
-              
-            </a>
-        
-      </h2>
+  
+  
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-24T17:34:46+08:00"
-              content="2018-05-24" >
-          05-24
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+  <p><span>发布时间:</span>2018年05月26日 - 21:05</p>
+  <p><span>最后更新:</span>2018年05月26日 - 23:05</p>
+  <p><span>原始链接:</span><a href="/2018/05/26/Nmap使用笔记/" title="Nmap使用笔记">127.0.0.1/2018/05/26/Nmap使用笔记/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="127.0.0.1/2018/05/26/Nmap使用笔记/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span>暂时请不要转载,感谢！！！</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+	});
+    });  
+</script>
 
       
     </div>
+    
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持写有质量的原创文章，如果您觉得质量不错的话就点击下面按钮打赏我们把~</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
 
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/mylogo.png" alt=" 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/mylogo.png" alt=" 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <div>
+      
+        <div> 
+
+	 
+		<div style="text-align:center;color: #C5B9B9;font-size:14px;">
+			---------------本文结束<i class="fa fa-angellist"></i>感谢您的阅读，喜欢我们的话就加入我们吧~---------------
+		</div> 
+	 
+
+</div>
+
+      
+    </div>
+    
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/26/PHP函数记录/" rel="next" title="PHP函数记录">
+                <i class="fa fa-chevron-left"></i> PHP函数记录
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
 
 
           </div>
@@ -454,6 +636,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -474,8 +663,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -596,6 +794,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Nmap在网络扫描中常见作用"><span class="nav-number">1.</span> <span class="nav-text">Nmap在网络扫描中常见作用:</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -774,6 +988,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
