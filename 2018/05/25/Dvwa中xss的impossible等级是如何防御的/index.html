@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="转载文章,CTF," />
+  <meta name="keywords" content="代码审计,PHP,Dvwa,渗透测试,Xss," />
 
 
 
@@ -88,18 +88,18 @@
 
 
 
-<meta name="description" content="希望你抱着学习和提高的目的进入CTF坑，不要一味为了比赛而比赛迷失其中，勿忘初心，方能始终，与君共勉：）">
-<meta name="keywords" content="转载文章,CTF">
+<meta name="description" content="十年寒窗无人问，一举成名天下知                            – Cai_Team">
+<meta name="keywords" content="代码审计,PHP,Dvwa,渗透测试,Xss">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CTF如何入门">
-<meta property="og:url" content="127.0.0.1/2018/05/25/CTF如何入门/index.html">
+<meta property="og:title" content="Dvwa中xss的impossible等级是如何防御的">
+<meta property="og:url" content="127.0.0.1/2018/05/25/Dvwa中xss的impossible等级是如何防御的/index.html">
 <meta property="og:site_name" content="Cai_Team">
-<meta property="og:description" content="希望你抱着学习和提高的目的进入CTF坑，不要一味为了比赛而比赛迷失其中，勿忘初心，方能始终，与君共勉：）">
+<meta property="og:description" content="十年寒窗无人问，一举成名天下知                            – Cai_Team">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-25T13:51:14.672Z">
+<meta property="og:updated_time" content="2018-05-25T14:06:56.641Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CTF如何入门">
-<meta name="twitter:description" content="希望你抱着学习和提高的目的进入CTF坑，不要一味为了比赛而比赛迷失其中，勿忘初心，方能始终，与君共勉：）">
+<meta name="twitter:title" content="Dvwa中xss的impossible等级是如何防御的">
+<meta name="twitter:description" content="十年寒窗无人问，一举成名天下知                            – Cai_Team">
 
 
 
@@ -129,7 +129,7 @@
 
 
 
-  <link rel="canonical" href="127.0.0.1/2018/05/25/CTF如何入门/"/>
+  <link rel="canonical" href="127.0.0.1/2018/05/25/Dvwa中xss的impossible等级是如何防御的/"/>
 
 
 
@@ -159,7 +159,7 @@
   daovoice('update');
   </script>
 
-  <title>CTF如何入门 | Cai_Team</title>
+  <title>Dvwa中xss的impossible等级是如何防御的 | Cai_Team</title>
   
 
 
@@ -331,7 +331,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="127.0.0.1/2018/05/25/CTF如何入门/">
+    <link itemprop="mainEntityOfPage" href="127.0.0.1/2018/05/25/Dvwa中xss的impossible等级是如何防御的/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -348,7 +348,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">CTF如何入门</h1>
+          <h1 class="post-title" itemprop="name headline">Dvwa中xss的impossible等级是如何防御的</h1>
         
 
         <div class="post-meta">
@@ -360,7 +360,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-25T16:20:03+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-25T21:59:43+08:00">
                 2018-05-25
               </time>
             
@@ -383,8 +383,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CTF/" itemprop="url" rel="index">
-                    <span itemprop="name">CTF</span>
+                  <a href="/categories/Web攻防/" itemprop="url" rel="index">
+                    <span itemprop="name">Web攻防</span>
                   </a>
                 </span>
 
@@ -401,8 +401,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/05/25/CTF如何入门/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/05/25/CTF如何入门/" itemprop="commentCount"></span>
+                <a href="/2018/05/25/Dvwa中xss的impossible等级是如何防御的/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/05/25/Dvwa中xss的impossible等级是如何防御的/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -429,7 +429,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,050
+                  15
                 </span>
               
 
@@ -454,108 +454,8 @@
       
 
       
-        <div class="note info"><p>希望你抱着学习和提高的目的进入CTF坑，不要一味为了比赛而比赛迷失其中，勿忘初心，方能始终，与君共勉：）</p></div>
-<a id="more"></a>
-<h2 id="题目类型"><a href="#题目类型" class="headerlink" title="题目类型"></a>题目类型</h2><ul>
-<li>Web</li>
-<li>Crypto</li>
-<li>PWN</li>
-<li>Misc<ul>
-<li>stego</li>
-<li>forensic</li>
-<li>…</li>
-</ul>
-</li>
-<li>Reverse</li>
-<li>PPC(Professonal ProgramCoder)</li>
-</ul>
-<p>国际比赛：DEFCON资格赛<br>国内比赛：XCTF联赛</p>
-<h2 id="打CTF的意义"><a href="#打CTF的意义" class="headerlink" title="打CTF的意义"></a>打CTF的意义</h2><ul>
-<li>思维能力</li>
-<li>快速学习能力</li>
-<li>技术能力</li>
-<li>如何入门</li>
-<li>编程语言基础（C语言、汇编语言、大部分脚本语言）</li>
-<li>数学基础（算法、密码学）</li>
-<li>脑洞大开、并落地（天马行空的想象、推理解密）</li>
-<li>体力耐力（通宵熬夜不睡觉，学习新技术、突破难关，结果不重要，过程很重要）</li>
-</ul>
-<h2 id="如何学"><a href="#如何学" class="headerlink" title="如何学?"></a>如何学?</h2><ul>
-<li>恶补基础知识</li>
-<li>从脑洞开始</li>
-<li>从基础题出发<ul>
-<li>单、双点知识 </li>
-</ul>
-</li>
-<li>学习信息安全专业知识</li>
-<li>锻炼体力耐力</li>
-</ul>
-<h3 id="学之前的思考"><a href="#学之前的思考" class="headerlink" title="学之前的思考"></a>学之前的思考</h3><h4 id="分析赛题情况"><a href="#分析赛题情况" class="headerlink" title="分析赛题情况"></a>分析赛题情况</h4><ul>
-<li>Crypto偏重对数学、算法的学习</li>
-<li>Web偏重发散思惟、对技巧沉淀、快速搜索能力的挑战，漏洞点几类</li>
-<li>Misc则更为复杂：隐写类、图片数据分析、数据还原、流量分析、大数据</li>
-</ul>
-<h4 id="分析自身兴趣"><a href="#分析自身兴趣" class="headerlink" title="分析自身兴趣"></a>分析自身兴趣</h4><ul>
-<li>PWN+Re+Crypto随机搭配</li>
-<li>Web+Misc组合</li>
-<li>精力有限先从一两个方向做起</li>
-</ul>
-<h4 id="如何恶补知识"><a href="#如何恶补知识" class="headerlink" title="如何恶补知识"></a>如何恶补知识</h4><ul>
-<li>linux、组原、OS、网络协议分析</li>
-<li>二进制：IDA工具使用，f5插件、OD、逆向工程、密码学、缓冲区溢出</li>
-</ul>
-<h4 id="推荐书籍"><a href="#推荐书籍" class="headerlink" title="推荐书籍"></a>推荐书籍</h4><ul>
-<li>RE for Beginners(逆向工程入门。德国)</li>
-<li>IDA PRO权威指南</li>
-<li>揭秘家用路由器0day漏洞挖掘技术</li>
-<li>自己动手写操作系统</li>
-<li>黑客攻防技术宝典：系统实战篇</li>
-<li>web：网络安全、内网渗透、数据库安全、OWASPTOP10</li>
-<li>Web应用安全权威指南。日本！！！宏观</li>
-<li>Web前端黑客技术揭秘——总结、吃透则直线上升、核心技术点都包含</li>
-<li>黑客秘籍-渗透测试使用指南</li>
-<li>黑客攻防技术宝典：web实战篇</li>
-<li>代码审计：企业级web代码安全架构</li>
-</ul>
-<h3 id="如何成为一个赛棍"><a href="#如何成为一个赛棍" class="headerlink" title="如何成为一个赛棍"></a>如何成为一个赛棍</h3><h4 id="从基础题目出发"><a href="#从基础题目出发" class="headerlink" title="从基础题目出发"></a>从基础题目出发</h4><ul>
-<li><a href="http://ctf.idf.cn" target="_blank" rel="noopener">http://ctf.idf.cn</a> idf实验室，非常基础，单点知识，挫败感较小</li>
-<li><a href="http://www.ichunqiu.com" target="_blank" rel="noopener">www.ichunqiu.com</a> 线下线上题目复现</li>
-<li><a href="http://oj.xctf.org.cn" target="_blank" rel="noopener">http://oj.xctf.org.cn</a> xctf历年题目，较难</li>
-<li><a href="http://www.wechall.net/challs" target="_blank" rel="noopener">www.wechall.net/challs</a> 非常入门的国外CTF 入门网站 国内安全大牛出发点，可首选</li>
-<li><a href="http://canyouhack.it" target="_blank" rel="noopener">http://canyouhack.it</a> 非常入门，涉及一些移动安全</li>
-<li><a href="http://microcorruption.com/login" target="_blank" rel="noopener">http://microcorruption.com/login</a> 很酷炫，游戏化，二进制方向</li>
-<li><a href="http://smashthestack.org/" target="_blank" rel="noopener">http://smashthestack.org/</a> war game 非常简洁的内容 ssh连入即玩</li>
-<li><a href="http://overthewire.org/wargames" target="_blank" rel="noopener">http://overthewire.org/wargames</a> 老牌wargame,国内资料较多，WP: <a href="http://drops.wooyun.org/author/litao3rd" target="_blank" rel="noopener">http://drops.wooyun.org/author/litao3rd</a></li>
-<li><a href="http://exploit-exercises.com" target="_blank" rel="noopener">http://exploit-exercises.com</a> 老牌wargame，国内资料较多</li>
-<li><a href="http://pwnable.kr/play.php" target="_blank" rel="noopener">http://pwnable.kr/play.php</a> 100题左右，较基础</li>
-<li><a href="http://ctf.moonsos.com/pentest/index.php" target="_blank" rel="noopener">http://ctf.moonsos.com/pentest/index.php</a> web安全核心技术点</li>
-<li><a href="http://prompt.ml/0" target="_blank" rel="noopener">http://prompt.ml/0</a> xss 国外测试平台,不考核对错，自己尝试</li>
-<li><a href="http://redtiger.labs.overthewire.org" target="_blank" rel="noopener">http://redtiger.labs.overthewire.org</a> sql注入挑战赛</li>
-</ul>
-<h3 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h3><ul>
-<li>burp、ida</li>
-<li><a href="https://github.com/truongkma/ctf-tools" target="_blank" rel="noopener">https://github.com/truongkma/ctf-tools</a></li>
-<li><a href="https://github.com/P1kachu/v0lt" target="_blank" rel="noopener">https://github.com/P1kachu/v0lt</a></li>
-<li><a href="https://github.com/zardus/ctf-tools" target="_blank" rel="noopener">https://github.com/zardus/ctf-tools</a></li>
-<li><a href="https://github.com/TUCTF/Tools" target="_blank" rel="noopener">https://github.com/TUCTF/Tools</a></li>
-</ul>
-<blockquote>
-<p>以练促赛、以赛养练：都参与，不在乎名次，看多个WP，对比，重视思路，复现过程，寻找相关题目。<br>以练促赛：选择一场已经存在WP的比赛<br>以赛养练：参加一场最新的CTF，名次不重要，赛后要吃透，猜测作者怎么想，跟着作者想法走<br><a href="https://ctftime.org/" target="_blank" rel="noopener">https://ctftime.org/</a> 国际比赛<br><a href="http://www.xctf.org.cn/" target="_blank" rel="noopener">http://www.xctf.org.cn/</a> 国内比赛</p>
-</blockquote>
-<h2 id="组建团队"><a href="#组建团队" class="headerlink" title="组建团队:"></a>组建团队:</h2><h3 id="强力成员画像"><a href="#强力成员画像" class="headerlink" title="强力成员画像"></a>强力成员画像</h3><ul>
-<li>思维跳跃：灵活、不钻牛角尖</li>
-<li>专注：遇到问题不放弃直到解决</li>
-<li>耐力：可以一昼夜不睡觉地研究技术</li>
-<li>团队精神：责任、凝聚（相信将来总会得第一）、分享（先富带动后富）</li>
-<li>有以上三条为强力成员，四条可为队长</li>
-</ul>
-<h3 id="组建团队要解决的问题"><a href="#组建团队要解决的问题" class="headerlink" title="组建团队要解决的问题"></a>组建团队要解决的问题</h3><ul>
-<li>新人招募：如何评判新人潜力</li>
-<li>队员培养：如何快速培养队伍能力</li>
-<li>梯队有序：如何建立梯队层级</li>
-<li>纪律严格：如何拒绝无团队精神的成员</li>
-</ul>
-<blockquote class="blockquote-center"><p>坚持不懈，相信未来我们一定会成为第一的！<br>十年寒窗无人问，一举成名天下知！<br>                            – Cai_Team</p>
+        <a id="more"></a>
+<blockquote class="blockquote-center"><p>十年寒窗无人问，一举成名天下知<br>                            – Cai_Team</p>
 </blockquote>
       
     </div>
@@ -574,7 +474,7 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2018/05/25/CTF如何入门/">CTF如何入门</a></p>
+  <p><span>本文标题:</span><a href="/2018/05/25/Dvwa中xss的impossible等级是如何防御的/">Dvwa中xss的impossible等级是如何防御的</a></p>
 
   
       <p><span>文章作者:</span><a href="/" title="访问 Iamfree 的博客">Iamfree</a></p>
@@ -585,10 +485,10 @@
   
   
 
-  <p><span>发布时间:</span>2018年05月25日 - 16:05</p>
-  <p><span>最后更新:</span>2018年05月25日 - 21:05</p>
-  <p><span>原始链接:</span><a href="/2018/05/25/CTF如何入门/" title="CTF如何入门">127.0.0.1/2018/05/25/CTF如何入门/</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="127.0.0.1/2018/05/25/CTF如何入门/"  aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2018年05月25日 - 21:05</p>
+  <p><span>最后更新:</span>2018年05月25日 - 22:05</p>
+  <p><span>原始链接:</span><a href="/2018/05/25/Dvwa中xss的impossible等级是如何防御的/" title="Dvwa中xss的impossible等级是如何防御的">127.0.0.1/2018/05/25/Dvwa中xss的impossible等级是如何防御的/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="127.0.0.1/2018/05/25/Dvwa中xss的impossible等级是如何防御的/"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span>暂时请不要转载,感谢！！！</p>  
 </div>
@@ -661,9 +561,15 @@
       
         <div class="post-tags">
           
-            <a href="/tags/转载文章/" rel="tag"><i class="fa fa-tag"></i> 转载文章</a>
+            <a href="/tags/代码审计/" rel="tag"><i class="fa fa-tag"></i> 代码审计</a>
           
-            <a href="/tags/CTF/" rel="tag"><i class="fa fa-tag"></i> CTF</a>
+            <a href="/tags/PHP/" rel="tag"><i class="fa fa-tag"></i> PHP</a>
+          
+            <a href="/tags/Dvwa/" rel="tag"><i class="fa fa-tag"></i> Dvwa</a>
+          
+            <a href="/tags/渗透测试/" rel="tag"><i class="fa fa-tag"></i> 渗透测试</a>
+          
+            <a href="/tags/Xss/" rel="tag"><i class="fa fa-tag"></i> Xss</a>
           
         </div>
       
@@ -676,8 +582,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/25/基于DVWA的反射型Xss测试平台Medium等级讲解/" rel="next" title="基于DVWA的反射型Xss测试平台Medium等级讲解">
-                <i class="fa fa-chevron-left"></i> 基于DVWA的反射型Xss测试平台Medium等级讲解
+              <a href="/2018/05/25/基于DVWA的反射型Xss测试平台high等级讲解/" rel="next" title="基于DVWA的反射型Xss测试平台high等级讲解">
+                <i class="fa fa-chevron-left"></i> 基于DVWA的反射型Xss测试平台high等级讲解
               </a>
             
           </div>
@@ -686,8 +592,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/25/CTF比赛模式/" rel="prev" title="CTF比赛模式">
-                CTF比赛模式 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/05/26/PHP函数记录/" rel="prev" title="PHP函数记录">
+                PHP函数记录 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -769,17 +675,8 @@ var jiathis_config={
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -900,22 +797,6 @@ var jiathis_config={
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目类型"><span class="nav-number">1.</span> <span class="nav-text">题目类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#打CTF的意义"><span class="nav-number">2.</span> <span class="nav-text">打CTF的意义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何学"><span class="nav-number">3.</span> <span class="nav-text">如何学?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#学之前的思考"><span class="nav-number">3.1.</span> <span class="nav-text">学之前的思考</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分析赛题情况"><span class="nav-number">3.1.1.</span> <span class="nav-text">分析赛题情况</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分析自身兴趣"><span class="nav-number">3.1.2.</span> <span class="nav-text">分析自身兴趣</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何恶补知识"><span class="nav-number">3.1.3.</span> <span class="nav-text">如何恶补知识</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#推荐书籍"><span class="nav-number">3.1.4.</span> <span class="nav-text">推荐书籍</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何成为一个赛棍"><span class="nav-number">3.2.</span> <span class="nav-text">如何成为一个赛棍</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#从基础题目出发"><span class="nav-number">3.2.1.</span> <span class="nav-text">从基础题目出发</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工具"><span class="nav-number">3.3.</span> <span class="nav-text">工具</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组建团队"><span class="nav-number">4.</span> <span class="nav-text">组建团队:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#强力成员画像"><span class="nav-number">4.1.</span> <span class="nav-text">强力成员画像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组建团队要解决的问题"><span class="nav-number">4.2.</span> <span class="nav-text">组建团队要解决的问题</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

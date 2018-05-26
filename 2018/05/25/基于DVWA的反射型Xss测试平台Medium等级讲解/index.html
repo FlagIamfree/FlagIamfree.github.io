@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="代码审计,PHP,Dvwa,渗透测试," />
+  <meta name="keywords" content="代码审计,PHP,Dvwa,渗透测试,Xss," />
 
 
 
@@ -89,7 +89,7 @@
 
 
 <meta name="description" content="这是继上节课[基于DVWA的Xss测试平台Low等级讲解]的中等级">
-<meta name="keywords" content="代码审计,PHP,Dvwa,渗透测试">
+<meta name="keywords" content="代码审计,PHP,Dvwa,渗透测试,Xss">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基于DVWA的反射型Xss测试平台Medium等级讲解">
 <meta property="og:url" content="127.0.0.1/2018/05/25/基于DVWA的反射型Xss测试平台Medium等级讲解/index.html">
@@ -97,7 +97,7 @@
 <meta property="og:description" content="这是继上节课[基于DVWA的Xss测试平台Low等级讲解]的中等级">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://static.zybuluo.com/1kbfree/cyqg7gtnfpcxqu1sq0pudr4d/image_1ce8ondhr16098qa13sv103llu940.png">
-<meta property="og:updated_time" content="2018-05-25T08:22:28.976Z">
+<meta property="og:updated_time" content="2018-05-25T14:04:06.781Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于DVWA的反射型Xss测试平台Medium等级讲解">
 <meta name="twitter:description" content="这是继上节课[基于DVWA的Xss测试平台Low等级讲解]的中等级">
@@ -141,9 +141,9 @@
     (function () {
         if ('') {
             if (prompt('请输入文章密码') !== '') {
-                alert('密码错误！');
+                alert('大哥你好，这是内部文件，如果没有密码请不要访问，感谢~');
                 if (history.length === 1) {
-                    location.replace("http://xxxxxxx.xxx"); // 这里替换成你的首页
+                    location.replace("https://flagiamfree.github.io/"); //首页
                 } else {
                     history.back();
                 }
@@ -415,8 +415,8 @@
 
           
             <span class="post-meta-divider">|</span>
-            <span class="page-pv">本章浏览数 <i class="fa fa-file-o"></i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            <span class="page-pv">俺的浏览数 <i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次~
             </span>
           
 
@@ -459,7 +459,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://static.zybuluo.com/1kbfree/cyqg7gtnfpcxqu1sq0pudr4d/image_1ce8ondhr16098qa13sv103llu940.png" rel="gallery_cjhltwdus000a94uio7gl0zk8"
+                 href="http://static.zybuluo.com/1kbfree/cyqg7gtnfpcxqu1sq0pudr4d/image_1ce8ondhr16098qa13sv103llu940.png" rel="gallery_cjhnegshv00087sui88scbbag"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://static.zybuluo.com/1kbfree/cyqg7gtnfpcxqu1sq0pudr4d/image_1ce8ondhr16098qa13sv103llu940.png" itemprop="contentUrl"/>
               </a>
@@ -525,7 +525,7 @@
   
 
   <p><span>发布时间:</span>2018年05月25日 - 10:05</p>
-  <p><span>最后更新:</span>2018年05月25日 - 16:05</p>
+  <p><span>最后更新:</span>2018年05月25日 - 22:05</p>
   <p><span>原始链接:</span><a href="/2018/05/25/基于DVWA的反射型Xss测试平台Medium等级讲解/" title="基于DVWA的反射型Xss测试平台Medium等级讲解">127.0.0.1/2018/05/25/基于DVWA的反射型Xss测试平台Medium等级讲解/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="127.0.0.1/2018/05/25/基于DVWA的反射型Xss测试平台Medium等级讲解/"  aria-label="复制成功！"></i></span>
   </p>
@@ -551,7 +551,7 @@
     
       <div>
         <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-  <div>您是否会因为钱多而感到困惑,害怕自己花不完,别担心我来帮你解决( 点击下面打赏即可解决您的困惑 )。</div>
+  <div>坚持写有质量的原创文章，如果您觉得质量不错的话就点击下面按钮打赏我们把~</div>
   <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
     <span>打赏</span>
   </button>
@@ -607,6 +607,8 @@
             <a href="/tags/Dvwa/" rel="tag"><i class="fa fa-tag"></i> Dvwa</a>
           
             <a href="/tags/渗透测试/" rel="tag"><i class="fa fa-tag"></i> 渗透测试</a>
+          
+            <a href="/tags/Xss/" rel="tag"><i class="fa fa-tag"></i> Xss</a>
           
         </div>
       
@@ -741,7 +743,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -752,7 +754,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -763,7 +765,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -900,7 +902,7 @@ var jiathis_config={
 
 <div class="theme-info">
   <div class="powered-by"></div> 
-  <span class="post-count">博客文章字数共 4.5k 哟~</span>
+  <span class="post-count">博客文章字数共 7.8k 哟~</span>
 </div>
 
 
@@ -913,15 +915,15 @@ var jiathis_config={
 
   
     <span class="site-uv">
-      站点访问数 <i class="fa fa-user"></i>
+      此站已有 <i class="fa fa-user"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-      人
+      人访问
     </span>
   
 
   
     <span class="site-pv">
-      总访问量 <i class="fa fa-eye"></i>
+      此站总访问量 <i class="fa fa-eye"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
       次
     </span>

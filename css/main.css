@@ -1966,7 +1966,7 @@ h6:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #e43454;
+  background: #778662;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3258,6 +3258,36 @@ pre {
 }
 .post:hover {
   box-shadow: 0 0 10px #000;
+}
+.info {
+  transition: 0.5s all;
+}
+.info:hover {
+  color: #00f;
+}
+.primary {
+  transition: 0.5s all;
+}
+.primary:hover {
+  color: #6f42c1;
+}
+.success {
+  transition: 0.5s all;
+}
+.success:hover {
+  color: #5cb85c;
+}
+.danger {
+  transition: 0.5s all;
+}
+.danger:hover {
+  color: #d9534f;
+}
+.warning {
+  transition: 0.5s all;
+}
+.warning:hover {
+  color: #f0ad4e;
 }
 .header-inner {
   transition: 0.5s all;

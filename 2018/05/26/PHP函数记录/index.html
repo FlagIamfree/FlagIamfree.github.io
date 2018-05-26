@@ -1,0 +1,1686 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="代码审计,PHP,原创," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Cai_Team" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="持续更新中,此笔记正确食用方式是用于学习与代码审计~">
+<meta name="keywords" content="代码审计,PHP,原创">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP函数记录">
+<meta property="og:url" content="127.0.0.1/2018/05/26/PHP函数记录/index.html">
+<meta property="og:site_name" content="Cai_Team">
+<meta property="og:description" content="持续更新中,此笔记正确食用方式是用于学习与代码审计~">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://static.zybuluo.com/1kbfree/pswqhytgfahplm0g9nys439y/image_1cee71otlos41qp4gq6j651r979.png">
+<meta property="og:updated_time" content="2018-05-26T12:56:32.592Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PHP函数记录">
+<meta name="twitter:description" content="持续更新中,此笔记正确食用方式是用于学习与代码审计~">
+<meta name="twitter:image" content="http://static.zybuluo.com/1kbfree/pswqhytgfahplm0g9nys439y/image_1cee71otlos41qp4gq6j651r979.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="127.0.0.1/2018/05/26/PHP函数记录/"/>
+
+
+
+
+
+<script>
+    (function () {
+        if ('') {
+            if (prompt('请输入文章密码') !== '') {
+                alert('大哥你好，这是内部文件，如果没有密码请不要访问，感谢~');
+                if (history.length === 1) {
+                    location.replace("https://flagiamfree.github.io/"); //首页
+                } else {
+                    history.back();
+                }
+            }
+        }
+    })();
+</script>
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+    app_id: "8827fd59"
+  });
+  daovoice('update');
+  </script>
+
+  <title>PHP函数记录 | Cai_Team</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Cai_Team</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">十年寒窗如一日，一举成名天下知</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            介绍
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="127.0.0.1/2018/05/26/PHP函数记录/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/cai_font.png"> 
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cai_Team">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">PHP函数记录</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-26T20:12:10+08:00">
+                2018-05-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/代码审计/" itemprop="url" rel="index">
+                    <span itemprop="name">代码审计</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/05/26/PHP函数记录/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/05/26/PHP函数记录/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">俺的浏览数 <i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次~
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,931
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+          
+          
+            <div class="post-gallery-row">
+              <a class="post-gallery-img fancybox"
+                 href="http://static.zybuluo.com/1kbfree/pswqhytgfahplm0g9nys439y/image_1cee71otlos41qp4gq6j651r979.png" rel="gallery_cjhnegsrd002a7suijl8xe1kl"
+                 itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
+                <img src="http://static.zybuluo.com/1kbfree/pswqhytgfahplm0g9nys439y/image_1cee71otlos41qp4gq6j651r979.png" itemprop="contentUrl"/>
+              </a>
+            
+          
+
+          
+          </div>
+        </div>
+      
+
+      
+        <div class="note info"><p>持续更新中,此笔记正确食用方式是用于学习与代码审计~</p></div>
+<a id="more"></a>
+<hr>
+<p>不显示错误信息:<code>error_reporting(0)</code></p>
+<p>文件包含函数:<code>include()、include_once()、require()、require_once()</code></p>
+<p>开启session:<code>session_start()</code></p>
+<p>是否开启了gpc功能:<code>if( !get_magic_quotes_gpc() ){}</code></p>
+<p>过滤函数:<code>addslashes()</code>入敏感的内容会被转义(\)</p>
+<hr>
+<p><strong>等号用处分类：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1、=：赋值，在逻辑运算时也有效；</span><br><span class="line"></span><br><span class="line">2、==：等于运算，但是不比较值的类型；</span><br><span class="line"></span><br><span class="line">3、===：完全等于运算，不仅比较值，而且还比较值的类型，只有两者一致才为真。</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p><strong>chdir用法:</strong></p>
+<p><img src="http://static.zybuluo.com/1kbfree/z9hjzdocsf3qe8tbas1qc0hf/image_1cdp74hqt1rgd9ln1rgv736man9.png" alt="image_1cdp74hqt1rgd9ln1rgv736man9.png-28.3kB"></p>
+<hr>
+<p><strong>mkdir用法:</strong></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    mkdir(<span class="string">'1.iamfree'</span>) <span class="comment">//会在当前目录下创建一个1.iamfree文件夹</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>const用法：</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    <span class="keyword">const</span> name=<span class="string">'iamfree'</span>;</span><br><span class="line">    <span class="keyword">echo</span> name;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">输出:iamfree</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<p><strong>htmlspecialchars()函数：</strong><br><img src="http://static.zybuluo.com/1kbfree/q8yrwithqaykeziaxj3w50aq/image_1cavlibuatcrb7u1qbv6ni1p9.png" alt="image_1cavlibuatcrb7u1qbv6ni1p9.png-17.3kB"></p>
+<h3 id="执行转换"><a href="#执行转换" class="headerlink" title="执行转换:"></a>执行转换:</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">字符</th>
+<th style="text-align:left">替换后</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">&amp; (&amp; 符号)</td>
+<td style="text-align:left"><code>&amp;amp;</code></td>
+</tr>
+<tr>
+<td style="text-align:left">“ (双引号)</td>
+<td style="text-align:left"><code>&amp;quot;</code>，除非设置了 ENT_NOQUOTES</td>
+</tr>
+<tr>
+<td style="text-align:left">‘ (单引号)</td>
+<td style="text-align:left">设置了 ENT_QUOTES 后， &#039; (如果是 ENT_HTML401) ，或者 &apos; (如果是 ENT_XML1、ENT_XHTML 或 ENT_HTML5)。</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt; (小于)</td>
+<td style="text-align:left"><code>&amp;lt</code></td>
+</tr>
+<tr>
+<td style="text-align:left">> (大于)</td>
+<td style="text-align:left"><code>&amp;gt</code></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><strong>extract()函数:</strong><br><img src="http://static.zybuluo.com/1kbfree/bbsz4gdm60bwu3xpa3bb09k2/image_1cb2cblp6lpb19ku1ouu4d81h701t.png" alt="image_1cb2cblp6lpb19ku1ouu4d81h701t.png-32.2kB"></p>
+<hr>
+<p><strong>parse_str()：</strong></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">    parse_str(<span class="string">'name=iamfree'</span>); <span class="comment">//把name变成变量名，iamfree变成变量值</span></span><br><span class="line">    <span class="keyword">echo</span> $name;<span class="comment">//输出iamfree</span></span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>import_request_variables():</strong></p>
+<p><em>此函数把GET、POST、COOKIE的参数注册为变量，一般不建议开启</em></p>
+<blockquote>
+<p>注意,只在 <code>PHP4.1</code>到<code>PHP5.4</code>之间可用</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">    $name = <span class="string">'whoami'</span>;</span><br><span class="line">    import_request_variables(<span class="string">'GP'</span>); <span class="comment">//G表示GET、P表示POST如果有C表示COOKIE；这里的GP表示注册GET和POST请求的参数为变量</span></span><br><span class="line">    <span class="keyword">echo</span> $name;</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>效果：</strong></p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><img src="http://static.zybuluo.com/1kbfree/n09o5bhlvrv1my1f2zqxgf4q/image_1cckvkb6b186c6g11p8ojf4lbd9.png" alt="image_1cckvkb6b186c6g11p8ojf4lbd9.png-54.1kB"></h2><p><strong>array_key_exists()：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array_key_exists ( $key , $array )</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>数组里有键 key 时，array_key_exists() 返回 TRUE。 key 可以是任何能作为数组索引的值。</p>
+</blockquote>
+<p><img src="http://static.zybuluo.com/1kbfree/wkcc7p351cowwqz1k9hjbwy3/image_1cba1lh3okkkg0n1qkp1uuc104v9.png" alt="image_1cba1lh3okkkg0n1qkp1uuc104v9.png-16.1kB"></p>
+<hr>
+<p><strong>str_ireplace过滤sql语句：</strong><br><img src="http://static.zybuluo.com/1kbfree/hmfq9fei2t8khzcusyszh8i3/str_ireplace.png" alt="str_ireplace.png-816.7kB"><br><strong>此函数用法：</strong><br><img src="http://static.zybuluo.com/1kbfree/7yuotvm35lw7w6zzdr1q414y/str_ireplace%E7%94%A8%E6%B3%95.png" alt="str_ireplace用法.png-6.4kB"><br><em>将 whoami? 中的 whoami 被 iamfree 替换，也就是说把whoami?里的whoami替换成iamfree所以结果就是iamfree?</em></p>
+<p><strong>这里其实是可以绕过的，比如：</strong><br><img src="http://static.zybuluo.com/1kbfree/1vaj8guxs3swd43zh3uvkqbb/image_1caugtd8fj54ke9tf112cr1qbl4h.png" alt="image_1caugtd8fj54ke9tf112cr1qbl4h.png-150.2kB"></p>
+<hr>
+<p><strong>变量覆盖:</strong><br><img src="http://static.zybuluo.com/1kbfree/p5uq0jbmj08gy7607w66rm51/image_1cbrhvola1igmjhm15mc1rsqed816.png" alt="image_1cbrhvola1igmjhm15mc1rsqed816.png-33.4kB"><br><img src="http://static.zybuluo.com/1kbfree/wfifd51c43j7d5zdxsg08bd1/image_1cbri0lsa1tuc1erh1d5q1drsdre1j.png" alt="image_1cbri0lsa1tuc1erh1d5q1drsdre1j.png-70.7kB"></p>
+<p><strong>难一点的：</strong></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line">    <span class="keyword">foreach</span> (<span class="keyword">array</span>( <span class="string">'_GET'</span>,<span class="string">'_POST'</span> ) <span class="keyword">as</span> $key =&gt; $value) &#123;</span><br><span class="line">        <span class="keyword">foreach</span> ($$value <span class="keyword">as</span> $_key =&gt; $_value)&#123;</span><br><span class="line">            <span class="keyword">echo</span> $_key.<span class="string">':'</span>.$_value;</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">"&lt;br &gt;"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>执行后的结果：</strong><br><img src="http://static.zybuluo.com/1kbfree/n7f97a459waufv27gbwrmsv0/image_1ccl9ivq22vk1pdat631f7oq8s1g.png" alt="image_1ccl9ivq22vk1pdat631f7oq8s1g.png-32.5kB"></p>
+<hr>
+<p><strong>define()用法:</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line">    define(<span class="string">'t'</span>,time()); <span class="comment">//把time()的返回值定义为常量(t)    </span></span><br><span class="line">    <span class="keyword">echo</span> t;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a><img src="http://static.zybuluo.com/1kbfree/3l030blxz655udwgyqy75sei/image_1ccl95vnr10rv1el118e91bdl155m13.png" alt="image_1ccl95vnr10rv1el118e91bdl155m13.png-73.9kB"></h2><p><strong>三元表达式:</strong></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">    $name = !<span class="keyword">empty</span>($_GET[<span class="string">'name'</span>]) ? $_GET[<span class="string">'name'</span>] : <span class="string">'此人无名'</span>; <span class="comment">//表示如果$_GET['name']不为空的话就返回$_GET['name']如果为空就返回 此人无名。</span></span><br><span class="line">    <span class="keyword">echo</span> $name;</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>还可以有一种判断方法：</strong></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line">    <span class="keyword">echo</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">isset</span>($_GET[<span class="string">'name'</span>]) &amp;&amp; <span class="keyword">exit</span>(<span class="string">'exit'</span>); <span class="comment">//如果isset($_GET['name'])为真也就是name这个参数存在的时候，会执行exit('exit')，相反，不存在的时候不会执行exit('exit')   </span></span><br><span class="line">    <span class="keyword">echo</span> <span class="number">2</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>name参数不存在时：</strong><br><img src="http://static.zybuluo.com/1kbfree/0oayqf6kulmddjdriml2wcsj/image_1ccl8dgoon1s7l1i4d2bh2449.png" alt="image_1ccl8dgoon1s7l1i4d2bh2449.png-46.7kB"></p>
+<p><strong>name参数存在时：</strong><br><img src="http://static.zybuluo.com/1kbfree/viyokepu5q9wjmjpbfil69fi/image_1ccl8eog3koq1oa41g4210elf3sm.png" alt="image_1ccl8eog3koq1oa41g4210elf3sm.png-68.8kB"></p>
+<hr>
+<p><strong>nl2br()函数:</strong><br><img src="http://static.zybuluo.com/1kbfree/ikn2i2mm0kgfze57ygqzlc1g/image_1cbrhga1o1i0t1vnl2611jojbkip.png" alt="image_1cbrhga1o1i0t1vnl2611jojbkip.png-22.5kB"></p>
+<hr>
+<p><strong>eval()函数:</strong></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$string = <span class="string">'cup'</span>;</span><br><span class="line">$name = <span class="string">'coffee'</span>;</span><br><span class="line">$str = <span class="string">'This is a $string with my $name in it.'</span>;</span><br><span class="line"><span class="keyword">echo</span> $str. <span class="string">"\n"</span>;</span><br><span class="line"><span class="keyword">eval</span>(<span class="string">"\$str = \"$str\";"</span>);</span><br><span class="line"><span class="keyword">echo</span> $str. <span class="string">"\n"</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>输出：</strong><br><code>This is a $string with my $name in it.</code><br><code>This is a cup with my coffee in it.</code></p>
+<hr>
+<p><strong>explode()函数:</strong></p>
+<blockquote>
+<p>也就是拆分</p>
+</blockquote>
+<p><img src="http://static.zybuluo.com/1kbfree/tg27cykixmiyflsw0dofm2bw/image_1ca61lt671266hda1loq1om3gr411.png" alt="image_1ca61lt671266hda1loq1om3gr411.png-28.6kB"></p>
+<hr>
+<p><strong>copy()函数:</strong></p>
+<p><code>copy(source,destination)</code><br>参数 |    描述<br>:-:  | :-:<br>source | 必需。规定要复制的文件。<br>destination | 必需。规定复制文件的目的地。</p>
+<p><strong>将文件从 source 拷贝到 destination。如果成功则返回 TRUE，否则返回 FALSE。</strong></p>
+<hr>
+<p><strong>trim()函数:</strong><br>移除字符串两侧的空格等特殊字符<br><img src="http://static.zybuluo.com/1kbfree/kn3q9kwiadvmp2238ix16c7r/image_1capbh1qhm8vhmp1nu212q7100hm.png" alt="移除字符串两侧的空格等特殊字符.png-14.7kB"></p>
+<hr>
+<p><strong>strcasecmp()函数:</strong><br><img src="http://static.zybuluo.com/1kbfree/iaqdvoetw2l610xgofrbqdje/image_1calh2fsf1pjn50b1nh11h0v1v3d9.png" alt="image_1calh2fsf1pjn50b1nh11h0v1v3d9.png-39.5kB"></p>
+<hr>
+<h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式:"></a>正则表达式:</h1><p><strong>preg_match()函数:</strong><br><img src="http://static.zybuluo.com/1kbfree/xo7lxkjibn4xcrha7t4basxn/image_1calhpof417poa9m1982vhh4n113.png" alt="preg_match函数的参数介绍"></p>
+<p><strong>匹配一下<code>i</code>：</strong><br><img src="http://static.zybuluo.com/1kbfree/4d3lofhh58j9i4d4hkm12gsj/image_1cb2e316g1k9mdevmb11v3v15sm2a.png" alt="image_1cb2e316g1k9mdevmb11v3v15sm2a.png-16.9kB"><br><em>这里的<code>//</code>是定界符 ，之需要二处字符一样就可以，比如<code>== -- ?? 等等</code> 但是有些不能做定位符 比如a到z、A到Z、0到9、空格、\</em></p>
+<p><strong>匹配全部英文字母(包括大写)：</strong><br><img src="http://static.zybuluo.com/1kbfree/3n619fqv4ix1af43vwtkffu7/image_1cb2e8ben2u160k1kuktn1n792n.png" alt="image_1cb2e8ben2u160k1kuktn1n792n.png-33kB"></p>
+<p><strong>替换匹配到的内容:</strong><br><img src="http://static.zybuluo.com/1kbfree/9r393wz9lhgio1y8dmamo7pk/image_1cb2ej8kv1l2loph4hd2480l3h.png" alt="image_1cb2ej8kv1l2loph4hd2480l3h.png-20kB"></p>
+<hr>
+<p><strong>define()函数：</strong><br><img src="http://static.zybuluo.com/1kbfree/0sm19cmcccdtny7e32qjs4ud/image_1cau24b5jgimn6h6ge7sd8u19.png" alt="image_1cau24b5jgimn6h6ge7sd8u19.png-19.7kB"><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">define(name,value,case_insensitive)</span><br></pre></td></tr></table></figure></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">描叙</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">name</td>
+<td style="text-align:center">必需。规定常量的名称。</td>
+</tr>
+<tr>
+<td style="text-align:center">value</td>
+<td style="text-align:center">必需。规定常量的值。</td>
+</tr>
+<tr>
+<td style="text-align:center">case_insensitive</td>
+<td style="text-align:center">可选。规定常量的名称是否对大小写敏感。</td>
+</tr>
+</tbody>
+</table>
+<p><em>若设置为 true，则对变量名大小写不敏感。默认是 false（大小写敏感）。</em></p>
+<hr>
+<p><strong>dirname()函数：</strong><br><img src="http://static.zybuluo.com/1kbfree/mxnhnvrlstywezjh66otbbck/image_1cau2i80e2ag1rp5a721pak1ku4m.png" alt="image_1cau2i80e2ag1rp5a721pak1ku4m.png-39.5kB"><br><code>dirname(path)</code><br>参数|描述<br>:–:|:–:<br>path|必需。规定要检查的路径。</p>
+<p><em>该函数返回去掉文件名后的目录名</em></p>
+<hr>
+<p><strong>iconv()函数：</strong><br><img src="http://static.zybuluo.com/1kbfree/o51s3916gtn2hfrfzr1xn3yy/image_1cau44qdgb61h0u119k11ok1rda1g.png" alt="image_1cau44qdgb61h0u119k11ok1rda1g.png-60.5kB"><br><code>iconv ( in_charset , out_charset , str )</code><br>将字符串 str 从 in_charset 转换编码到 out_charset。 </p>
+<p><strong>intval()函数:</strong><br><img src="http://static.zybuluo.com/1kbfree/odelzzq42smp1ujet5mx99os/image_1calj80va17dali6obj1bsj1371n.png" alt="image_1calj80va17dali6obj1bsj1371n.png-70.2kB"><br><em>还可以当防止SQL注入:</em><br><img src="http://static.zybuluo.com/1kbfree/me7ctcznhnh9vjhsgj1sx80v/image_1cartbh4v1thh1egn1iga1fcinu1g.png" alt="image_1cartbh4v1thh1egn1iga1fcinu1g.png-14.6kB"></p>
+<hr>
+<p><strong>reset()函数:</strong><br><img src="http://static.zybuluo.com/1kbfree/xefi1xpy95wf4er90jqv8nci/image_1camn387gtjs1pj6imq18fmoap.png" alt="image_1camn387gtjs1pj6imq18fmoap.png-57.2kB"></p>
+<hr>
+<p><strong><code>$$</code>变量覆盖:</strong><br><img src="http://static.zybuluo.com/1kbfree/iu6dbthijovu3ek690s9ml8k/image_1campm57rug6ul5e76u4h1ij216.png" alt="image_1campm57rug6ul5e76u4h1ij216.png-36.5kB"></p>
+<p><strong>还有一个很有趣的：</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">    $g = <span class="string">'_GET'</span>;</span><br><span class="line">    $g = $$g; <span class="comment">//这个时候$$g的第二个$与$g的值拼接了变成了$_GET，第一个$变成了$g，所以$g=$_GET</span></span><br><span class="line">    <span class="keyword">echo</span> $g[<span class="string">'name'</span>];</span><br><span class="line">    </span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="http://static.zybuluo.com/1kbfree/b9lobeeywliqdiruv21fk0x9/image_1cckvtnv0fkgv9volmk581ue5m.png" alt="image_1cckvtnv0fkgv9volmk581ue5m.png-62.9kB"></p>
+<hr>
+<p><strong>isset()函数:检测变量是否已设置并且非 NULL</strong><br><strong>unset()函数:释放给定的变量</strong></p>
+<hr>
+<p><strong>parse_ini_file()  解析一个配置文件。</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array parse_ini_file ( string $filename [, bool $process_sections = false [, int $scanner_mode = INI_SCANNER_NORMAL ]] )</span><br></pre></td></tr></table></figure></p>
+<p>载入一个由 filename 指定的 ini 文件，并将其中的设置作为一个联合数组返回。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">用法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">filename</td>
+<td style="text-align:center">要解析的 ini 文件的文件名。</td>
+</tr>
+<tr>
+<td style="text-align:center">process_sections</td>
+<td style="text-align:center">如果将最后的 process_sections 参数设为 TRUE，将得到一个多维数组，包括了配置文件中每一节的名称和设置。process_sections 的默认值是 FALSE。</td>
+</tr>
+<tr>
+<td style="text-align:center">scanner_mode</td>
+<td style="text-align:center">Can either be INI_SCANNER_NORMAL (default) or INI_SCANNER_RAW. If INI_SCANNER_RAW is supplied, then option values will not be parsed.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>返回值： 成功时以关联数组 array 返回设置，失败时返回 FALSE。</p>
+</blockquote>
+<hr>
+<p><strong>urldecode()函数，可能会造成urldecode二次注入：</strong><br><img src="http://static.zybuluo.com/1kbfree/vckacpis6uv1zy6cq7x6z4ef/image_1cao633k6105ecv99s4pre14129.png" alt="image_1cao633k6105ecv99s4pre14129.png-32.1kB"></p>
+<hr>
+<p><strong>$_FILES用法:</strong><br><img src="http://static.zybuluo.com/1kbfree/5xn30q6ctgadfuuk8s2jhrda/image_1cb241vvp1ls511el1umg44v1oqi9.png" alt="image_1cb241vvp1ls511el1umg44v1oqi9.png-42.7kB"></p>
+<p><img src="http://static.zybuluo.com/1kbfree/p6mqk381schtf7hjo84aimmx/image_1cb242979174ttbvod71k31e97m.png" alt="image_1cb242979174ttbvod71k31e97m.png-43.3kB"></p>
+<p><img src="http://static.zybuluo.com/1kbfree/4zvsf8i84xbn8gqb9v51rzj4/image_1cb2494dpm70155kdea1i1217um13.png" alt="image_1cb2494dpm70155kdea1i1217um13.png-117.7kB"></p>
+<hr>
+<p><strong>is_numeric()函数：</strong></p>
+<blockquote>
+<p>判断是否为数字，是返回1，不是返回空</p>
+</blockquote>
+<p><img src="http://static.zybuluo.com/1kbfree/a425da6hg4dejq3orru2x19m/image_1cao6u6q0cd76121e244i910gm.png" alt="image_1cao6u6q0cd76121e244i910gm.png-24.7kB"></p>
+<hr>
+<p><strong>dvwa的sql注入的impossible等级源码(dvwa的impossible不存在sql注入)：</strong><br><img src="http://static.zybuluo.com/1kbfree/oz8rvt3lijvznmq5htw60vwg/image_1cao7j7051cek133f1oku1ek51vc13.png" alt="image_1cao7j7051cek133f1oku1ek51vc13.png-47.7kB"><br><em>当然  我看不懂这几行:</em><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$data = $db-&gt;prepare( <span class="string">'SELECT first_name, last_name FROM users WHERE user_id = (:id) LIMIT 1;'</span> );</span><br><span class="line">$data-&gt;bindParam( <span class="string">':id'</span>, $id, PDO::PARAM_INT );</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p><strong>substr()函数:</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$rest = substr(<span class="string">"abcdef"</span>, <span class="number">-1</span>);    <span class="comment">// 返回 "f"</span></span><br><span class="line">$rest = substr(<span class="string">"abcdef"</span>, <span class="number">-2</span>);    <span class="comment">// 返回 "ef"</span></span><br><span class="line">$rest = substr(<span class="string">"abcdef"</span>, <span class="number">-3</span>, <span class="number">1</span>); <span class="comment">// 返回 "d"</span></span><br><span class="line"></span><br><span class="line">$rest = substr(<span class="string">"abcdef"</span>, <span class="number">0</span>, <span class="number">-1</span>);  <span class="comment">// 返回 "abcde"</span></span><br><span class="line">$rest = substr(<span class="string">"abcdef"</span>, <span class="number">2</span>, <span class="number">-1</span>);  <span class="comment">// 返回 "cde"</span></span><br><span class="line">$rest = substr(<span class="string">"abcdef"</span>, <span class="number">4</span>, <span class="number">-4</span>);  <span class="comment">// 返回 ""</span></span><br><span class="line">$rest = substr(<span class="string">"abcdef"</span>, <span class="number">-3</span>, <span class="number">-1</span>); <span class="comment">// 返回 "de"</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<p><strong>strrpos()函数:</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$foo = <span class="string">"0123456789a123456789b123456789c"</span>;</span><br><span class="line"></span><br><span class="line">var_dump(strrpos($foo, <span class="string">'7'</span>, <span class="number">-5</span>));  <span class="comment">// 从尾部第 5 个位置开始查找</span></span><br><span class="line">                                   <span class="comment">// 结果: int(17)</span></span><br><span class="line"></span><br><span class="line">var_dump(strrpos($foo, <span class="string">'7'</span>, <span class="number">20</span>));  <span class="comment">// 从第 20 个位置开始查找</span></span><br><span class="line">                                   <span class="comment">// 结果: int(27)</span></span><br><span class="line"></span><br><span class="line">var_dump(strrpos($foo, <span class="string">'7'</span>, <span class="number">28</span>));  <span class="comment">// 结果: bool(false)</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<p><strong>extract()函数：</strong><br><img src="http://static.zybuluo.com/1kbfree/w6zu2eq6hu95plscwo6eipwo/image_1capb8b1l16th19ectna124m6sp9.png" alt="image_1capb8b1l16th19ectna124m6sp9.png-46.6kB"></p>
+<hr>
+<p><strong>常见语法：</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="keyword">empty</span>($a)) $a = <span class="string">'hello world'</span>; <span class="comment">//如果$a为空，那么它的值为hello world</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$s = <span class="string">'sys'</span>.<span class="string">'tem'</span>;</span><br><span class="line">$s(<span class="string">'whoami'</span>); <span class="comment">//返回desktop-a0iqkh2\iamfree</span></span><br><span class="line"><span class="comment">/*这里就是执行了whoami的命令*/</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>匿名函数：</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$C_F = create_function(<span class="string">'$name'</span>,<span class="string">'return $name;'</span>); <span class="comment">//$name的位置是传递什么参数，第二个参数是函数里执行什么代码</span></span><br><span class="line"><span class="keyword">echo</span> $C_F(<span class="string">'iamfree'</span>); <span class="comment">//输出iamfree</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<p><strong>回调函数：</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Func</span><span class="params">($name)</span></span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"hello $name"</span>;</span><br><span class="line">&#125;</span><br><span class="line">call_user_func(<span class="string">'Func'</span>,<span class="string">'iamfree'</span>); </span><br><span class="line"><span class="comment">/*输出:hello iamfree*/</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">call_user_func(&apos;system&apos;,&apos;whoami&apos;);</span><br><span class="line">/*输出：desktop-a0iqkh2\iamfree*/</span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>命令执行函数：</strong></p>
+<ul>
+<li>exec() — 执行一个外部程序</li>
+<li>passthru() — 执行外部程序并且显示原始输出</li>
+<li>proc_open() — 执行一个命令，并且打开用来输入/输出的文件指针。</li>
+<li>shell_exec() &amp; <code></code> — 通过 shell 环境执行命令，并且将完整的输出以字符串的方式返回。</li>
+<li>system() — 执行外部程序，并且显示输出</li>
+<li>popen() — 通过 popen() 的参数传递一条命令，并对 popen() 所打开的文件进行执行。</li>
+</ul>
+<p><img src="http://static.zybuluo.com/1kbfree/a7jyan6kwd7dig28zvx5zzmc/image_1carr8bt51nu8inj1ovq1b3nai79.png" alt="image_1carr8bt51nu8inj1ovq1b3nai79.png-42.6kB"></p>
+<hr>
+<p><strong>文件操作函数：</strong></p>
+<ul>
+<li>copy — 拷贝文件</li>
+<li>file_get_contents — 将整个文件读入一个字符串</li>
+<li>file_put_contents — 将一个字符串写入文件</li>
+<li>file — 把整个文件读入一个数组中</li>
+<li>fopen — 打开文件或者 URL</li>
+<li>move_uploaded_file — 将上传的文件移动到新位置</li>
+<li>readfile — 输出文件</li>
+<li>rename — 重命名一个文件或目录</li>
+<li>rmdir — 删除目录</li>
+<li>unlink &amp; delete — 删除文件</li>
+</ul>
+<blockquote>
+<p>任意文件读取、写入、删除往往是上面几个函数受到了控制（当然还有其他的函数）。<br>不同的函数在不同的场景有不同的作用和不同的利用手法。<br>读取：可以读取配置等文件，拿到key<br>写入：可以写入shell代码相关的内容<br>删除：可以删除.lock文件而可以重新安装覆盖</p>
+</blockquote>
+<p><img src="http://static.zybuluo.com/1kbfree/ivg4xj91uyloaum2nyx2fsj2/image_1carrl00k1f4isqn1kthuu9o4rm.png" alt="image_1carrl00k1f4isqn1kthuu9o4rm.png-389.2kB"></p>
+<hr>
+<h2 id="特殊函数"><a href="#特殊函数" class="headerlink" title="特殊函数"></a>特殊函数</h2><h3 id="信息泄漏"><a href="#信息泄漏" class="headerlink" title="信息泄漏"></a>信息泄漏</h3><p><code>bool phpinfo ([ int $what = INFO_ALL ] )</code><br>输出 PHP 当前状态的大量信息，包含了PHP编译选项、启用的扩展、PHP版本、服务器信息和环境变量（如果编译为一个模块的话）、PHP环境变量、操作系统版本信息、path变量、配置选项的本地值和主值、HTTP头和PHP授权信息(License)。</p>
+<h3 id="软连接-读取文件内容"><a href="#软连接-读取文件内容" class="headerlink" title="软连接-读取文件内容"></a>软连接-读取文件内容</h3><p><code>bool symlink ( string $target , string $link )</code><br><code>symlink()</code> 对于已有的 target 建立一个名为 link 的符号连接。<br><code>string readlink ( string $path )</code><br><code>readlink()</code> 和同名的 C 函数做同样的事，返回符号连接的内容。</p>
+<h3 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h3><p><code>string getenv ( string $varname )</code><br><strong>获取一个环境变量的值。</strong><br><code>bool putenv ( string $setting )</code><br><strong>添加 setting 到服务器环境变量。 环境变量仅存活于当前请求期间。</strong> 在请求结束时环境会恢复到初始状态。</p>
+<h3 id="加载扩展"><a href="#加载扩展" class="headerlink" title="加载扩展"></a>加载扩展</h3><p><code>bool dl ( string $library )</code><br>载入指定参数 library 的 PHP 扩展。</p>
+<p><strong>配置相关</strong><br><code>string ini_get ( string $varname )</code></p>
+<p><strong>成功时返回配置选项的值。</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">string ini_set ( string $varname , string $newvalue )</span><br><span class="line">string ini_alter ( string $varname , string $newvalue )</span><br></pre></td></tr></table></figure></p>
+<p>设置指定配置选项的值。这个选项会在脚本运行时保持新的值，并在脚本结束时恢复。<br><code>void ini_restore ( string $varname )</code><br>恢复指定的配置选项到它的原始值。</p>
+<p><strong>数字判断</strong><br><code>bool is_numeric ( mixed $var )</code><br>如果 var 是数字和数字字符串则返回 TRUE，否则返回 FALSE。<br>仅用is_numeric判断而不用intval转换就有可能插入16进制的字符串到数据库，进而可能导致sql二次注入。</p>
+<p><strong>数组相关</strong><br><code>bool in_array ( mixed $needle , array $haystack [, bool $strict = FALSE ] )</code><br>在 haystack 中搜索 needle，如果没有设置 strict 则使用宽松的比较。<br>该函数有一个特性，比较之前会进行自动类型转换。<br><code>in_array($str,$arr)判断$str是否在$arr数组里</code><br><img src="http://static.zybuluo.com/1kbfree/jx7080p95vigv0hnpfkgnu8u/image_1cartm29n1seoieq1o52b2qbn72d.png" alt="image_1cartm29n1seoieq1o52b2qbn72d.png-28.9kB"></p>
+<h3 id="变量覆盖"><a href="#变量覆盖" class="headerlink" title="变量覆盖"></a>变量覆盖</h3><p><strong>如果 str 是 URL 传递入的查询字符串（query string），则将它解析为变量并设置到当前作用域：</strong><br><code>void parse_str ( string $str [, array &amp;$arr ] )</code><br><strong>本函数用来将变量从数组中导入到当前的符号表中。检查每个键名看是否可以作为一个合法的变量名，同时也检查和符号表中已有的变量名的冲突：</strong><br><code>int extract ( array &amp;$var_array [, int $extract_type = EXTR_OVERWRITE [, string $prefix = NULL ]] )</code></p>
+<p><code>bool mb_parse_str ( string $encoded_string [, array &amp;$result ] )</code><br>解析 <code>GET/POST/COOKIE</code> 数据并设置全局变量。 由于 PHP 不提供原始 POST/COOKIE 数据，目前它仅能够<br>用于 GET 数据。 它解析了 URL 编码过的数据，检测其编码，并转换编码为内部编码，然后设置其值为 array<br>的 result 或者全局变量。<br><code>bool import_request_variables ( string $types [, string $prefix ] )</code><br>将 <code>GET／POST／Cookie</code> 变量导入到全局作用域中。如果你禁止了 <code>register_globals</code>，但又想用到一些全局变<br>量，那么此函数就很有用。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$str = <span class="string">"first=value&amp;arr[]=foo+bar&amp;arr[]=baz"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 推荐用法</span></span><br><span class="line">parse_str($str, $output);</span><br><span class="line"><span class="keyword">echo</span> $output[<span class="string">'first'</span>];  <span class="comment">// value</span></span><br><span class="line"><span class="keyword">echo</span> $output[<span class="string">'arr'</span>][<span class="number">0</span>]; <span class="comment">// foo bar</span></span><br><span class="line"><span class="keyword">echo</span> $output[<span class="string">'arr'</span>][<span class="number">41</span>]; <span class="comment">// baz</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 不建议这么用</span></span><br><span class="line">parse_str($str);</span><br><span class="line"><span class="keyword">echo</span> $first;  <span class="comment">// value</span></span><br><span class="line"><span class="keyword">echo</span> $arr[<span class="number">0</span>]; <span class="comment">// foo bar</span></span><br><span class="line"><span class="keyword">echo</span> $arr[<span class="number">1</span>]; <span class="comment">// baz</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="列目录"><a href="#列目录" class="headerlink" title="列目录"></a>列目录</h3><p><code>array glob ( string $pattern [, int $flags = 0 ] )</code><br>glob() 函数依照 libc glob() 函数使用的规则寻找所有与 pattern 匹配的文件路径，类似于一般shell所用的规则一样。不进行缩写扩展或参数替代。<br><img src="http://static.zybuluo.com/1kbfree/osbwswf3zlroqoo14rq9jjfj/image_1caru9aiu1a5v1qr2p7m1pjlpjq2q.png" alt="image_1caru9aiu1a5v1qr2p7m1pjlpjq2q.png-46.9kB"><br><code>var_dump(glob(&#39;c*.php&#39;)); //列出c开头的PHP文件</code></p>
+<h3 id="无参数获取信息"><a href="#无参数获取信息" class="headerlink" title="无参数获取信息"></a>无参数获取信息</h3><p><strong>返回一个包含所有已定义变量列表的多维数组，这些变量包括环境变量、服务器变量和用户定义的变量:</strong></p>
+<p><code>array get_defined_vars ( void )</code><br><strong>返回当前所有已定义的常量名和值。 这包含 define() 函数所创建的，也包含了所有扩展所创建的:</strong><br><code>array get_defined_constants ([ bool $categorize = false ] )</code><br><strong>返回一个包含所有已定义函数列表的多维数组:</strong><br><code>array get_defined_functions ( void )</code><br><strong>返回所有被 include、 include_once、 require 和 require_once:</strong><br><code>array get_included_files ( void )</code></p>
+<p><img src="http://static.zybuluo.com/1kbfree/v8vegj7d7ahhxafqer3gdx7s/image_1carv1gbf9am1c0rnic1gs9156f37.png" alt="image_1carv1gbf9am1c0rnic1gs9156f37.png-218.1kB"></p>
+<hr>
+<p><strong>rand()函数:</strong><br><img src="http://static.zybuluo.com/1kbfree/uv0q2objv84c5sm4z37sk41e/image_1carsup0fqrg1uipj1q1oeb1okv13.png" alt="image_1carsup0fqrg1uipj1q1oeb1okv13.png-29.6kB"></p>
+<hr>
+<p><strong>$_REQUEST用法：</strong><br><img src="http://static.zybuluo.com/1kbfree/oce7sp8x0ykgb7ju4x6shxhl/image_1cb26fq2i1upk16alpd18eb8pg1g.png" alt="image_1cb26fq2i1upk16alpd18eb8pg1g.png-30kB"></p>
+<hr>
+<p><strong>file_exists()函数：</strong><br>检查文件或目录是否存在<br><img src="http://static.zybuluo.com/1kbfree/5g83d66qgky6x3w7ws87h8oh/image_1cauetnlg17n874k1qqf11suk537.png" alt="image_1cauetnlg17n874k1qqf11suk537.png-34.8kB"></p>
+<hr>
+<p><strong>exit用法：</strong><br><img src="http://static.zybuluo.com/1kbfree/2dqkjyv4nuqlkmjkianj3b6j/image_1caufp0at1lt18k71uqkhg51eab3k.png" alt="image_1caufp0at1lt18k71uqkhg51eab3k.png-181.2kB"><br><em>多处用在<code>install.php</code>里，因为成功安装一次之后就能再一次运行安装了，除非将exit删除了。</em></p>
+<blockquote class="blockquote-center"><p>十年寒窗无人问，一举成名天下知<br>                            – Cai_Team</p>
+</blockquote>
+      
+    </div>
+    
+    
+    
+
+    
+
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/05/26/PHP函数记录/">PHP函数记录</a></p>
+
+  
+
+      <p><span>文章作者:</span>作者很懒,名都不留</p>
+      <p><span>作者QQ:</span>作者名都不留，还想要QQ？</p>
+
+      
+  
+
+  <p><span>发布时间:</span>2018年05月26日 - 20:05</p>
+  <p><span>最后更新:</span>2018年05月26日 - 20:05</p>
+  <p><span>原始链接:</span><a href="/2018/05/26/PHP函数记录/" title="PHP函数记录">127.0.0.1/2018/05/26/PHP函数记录/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="127.0.0.1/2018/05/26/PHP函数记录/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span>暂时请不要转载,感谢！！！</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+	});
+    });  
+</script>
+
+      
+    </div>
+    
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持写有质量的原创文章，如果您觉得质量不错的话就点击下面按钮打赏我们把~</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/mylogo.png" alt=" 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/mylogo.png" alt=" 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <div>
+      
+        <div> 
+
+	 
+		<div style="text-align:center;color: #C5B9B9;font-size:14px;">
+			---------------本文结束<i class="fa fa-angellist"></i>感谢您的阅读，喜欢我们的话就加入我们吧~---------------
+		</div> 
+	 
+
+</div>
+
+      
+    </div>
+    
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/代码审计/" rel="tag"><i class="fa fa-tag"></i> 代码审计</a>
+          
+            <a href="/tags/PHP/" rel="tag"><i class="fa fa-tag"></i> PHP</a>
+          
+            <a href="/tags/原创/" rel="tag"><i class="fa fa-tag"></i> 原创</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/25/Dvwa中xss的impossible等级是如何防御的/" rel="next" title="Dvwa中xss的impossible等级是如何防御的">
+                <i class="fa fa-chevron-left"></i> Dvwa中xss的impossible等级是如何防御的
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/cai_font.png"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description">一支有梦想的技术团队</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/yourname" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.qq.com" target="_blank" title="QQ">
+                      
+                        <i class="fa fa-fw fa-qq"></i>QQ</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.weixin.com" target="_blank" title="微信">
+                      
+                        <i class="fa fa-fw fa-weixin"></i>微信</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.baidu.com" target="_blank" title="QQ群">
+                      
+                        <i class="fa fa-fw fa-qq"></i>QQ群</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://baidu.com/" title="百度" target="_blank">百度</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://baidu.com/" title="QQ" target="_blank">QQ</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://baidu.com/" title="微博" target="_blank">微博</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#执行转换"><span class="nav-number">1.</span> <span class="nav-text">执行转换:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number"></span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#-1"><span class="nav-number"></span> <span class="nav-text"></span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#正则表达式"><span class="nav-number"></span> <span class="nav-text">正则表达式:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#特殊函数"><span class="nav-number"></span> <span class="nav-text">特殊函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#信息泄漏"><span class="nav-number">1.</span> <span class="nav-text">信息泄漏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软连接-读取文件内容"><span class="nav-number">2.</span> <span class="nav-text">软连接-读取文件内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#环境变量"><span class="nav-number">3.</span> <span class="nav-text">环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加载扩展"><span class="nav-number">4.</span> <span class="nav-text">加载扩展</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量覆盖"><span class="nav-number">5.</span> <span class="nav-text">变量覆盖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列目录"><span class="nav-number">6.</span> <span class="nav-text">列目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#无参数获取信息"><span class="nav-number">7.</span> <span class="nav-text">无参数获取信息</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"></span>
+
+  
+</div>
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div> 
+  <span class="post-count"><strong>QQ群 : xxxxxxxxxxxxx</strong></span>
+  <span class="post-meta-divider">|</span>
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div> 
+  <span class="post-count">We are is <i>Cai_Team</i>.</span>
+</div>
+
+<br>
+
+<div class="theme-info">
+  <div class="powered-by"></div> 
+  <span class="post-count">博客文章字数共 7.8k 哟~</span>
+</div>
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      此站已有 <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人访问
+    </span>
+  
+
+  
+    <span class="site-pv">
+      此站总访问量 <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: '4o0M8wbn5KRpOElHEHQ9xvrm-gzGzoHsz',
+        appKey: 'GXbplAnGtcPsivqGS3OgATet',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
