@@ -1,9 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[计算机是如何访问网站的]]></title>
+    <url>%2F2018%2F05%2F27%2F%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%98%AF%E5%A6%82%E4%BD%95%E8%AE%BF%E9%97%AE%E7%BD%91%E7%AB%99%E7%9A%84%2F</url>
+    <content type="text"><![CDATA[我们都知道，计算机访问网站是通过域名( www.xxx.xxx )来访问一个网站的，其实并不是，下面我来讲解一下 计算机是如何通过域名来访问一个网站的其实在很久以前中，是用 IP 来直接访问网站的，但是因为 IP 的数字过长，又不好记，所以现在都改用 www.xxx.xxx 的形式访问网站了，也就是域名，我们先来看看用 IP 来访问百度: 我们先打开CMD，输入命令ping www.baidu.com:可以看到百度的 IP 地址是183.232.231.172，我们用浏览器访问一下 可以看到这2个是一样的，那么下面就来说说原理 原理什么是DNS域名解析服务，简单的说网络的地址是数字组成的，例如百度的服务器地址是183.232.231.172，我们的电脑通过这个地址访问百度，但是这个数字记忆起来相当麻烦，于是就有了www.baidu.com这个更直观的表示方法，DNS就是连接这两者的服务。 也就是说，当我们每次访问www.baidu.com的时候，它就会去找Dns服务器，下面我来做一个对话,也就是DNS域名解析过程： 算了我不说了，直接看图吧~(把这里的www.163.com看成是www.baidu.com，把那个1.1.1.1看成183.232.231.172)![image_1cefsiau26771tmn9t911471pnb13.png-571.3kB]3 接着可以看这个文章: https://blog.csdn.net/cloudox_/article/details/69669035 (我感觉我讲的肯定没他好，我不擅长表达这些概念上的知识，哈哈哈，其实是为了找借口溜~v~) 也就是说，当我们每次访问www.baidu.com的时候，它就会去找Dns服务器，下面我来做一个对话,也就是DNS域名解析过程： 十年寒窗无人问，一举成名天下知 – Cai_Team]]></content>
+      <categories>
+        <category>计算机网络</category>
+      </categories>
+      <tags>
+        <tag>计算机网络</tag>
+        <tag>Dns</tag>
+        <tag>必修课</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Nmap使用笔记]]></title>
     <url>%2F2018%2F05%2F26%2FNmap%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%2F</url>
     <content type="text"><![CDATA[渗透的本质是信息搜集，而信息搜集整理为后续的情报跟进提供了强大的保证。 从上面那句话中，可见信息收集是多么的重要，因此，Nmap成为渗透中不可少的神器 Nmap在网络扫描中常见作用: 查看存活的主机 扫描目标主机开放端口 鉴定安全过滤机制 识别目标主机的操作系统 查看目标主机的服务banner 利用脚本扫描漏洞 十年寒窗无人问，一举成名天下知 – Cai_Team]]></content>
+      <tags>
+        <tag>信息收集</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[PHP函数记录]]></title>
