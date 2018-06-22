@@ -1746,7 +1746,7 @@ h3:hover {
   transition: 0.5s all;
 }
 .post-body strong:hover {
-  text-decoration: underline;
+  color: #555;
 }
 .post-body h4,
 h5,
@@ -1966,7 +1966,7 @@ h6:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #05ffff;
+  background: #f2900d;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3239,9 +3239,6 @@ code {
   margin: 2px;
   transition: 0.5s all;
 }
-code:hover {
-  color: #8085f6;
-}
 .highlight,
 pre {
   margin: 5px 0;
@@ -3259,9 +3256,11 @@ pre {
 .post:hover {
   box-shadow: 0 0 10px #000;
 }
+ss,
 .info {
   transition: 0.5s all;
 }
+ss:hover,
 .info:hover {
   color: #00f;
 }
@@ -3308,7 +3307,7 @@ p a img:hover {
   border: #909090 1px solid;
   background: #fff;
   color: #333;
-  box-shadow: -1px 1px 10px 4px #909090;
+  box-shadow: -1px 1px 10px 2px #909090;
 }
 :active,
 * {
@@ -3320,4 +3319,18 @@ p a img:hover {
 ol li:hover,
 ul li:hover {
   color: #000;
+}
+.post-body h1,
+h2,
+h3 {
+  text-align: center;
+  word-break: break-word;
+  font-weight: 400;
+  border-radius: 0.1em;
+  line-height: 1em;
+  padding-bottom: 1em;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  border: 2px solid #999;
+  border-bottom: 1px solid;
 }

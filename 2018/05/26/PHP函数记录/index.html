@@ -97,7 +97,7 @@
 <meta property="og:description" content="持续更新中,此笔记正确食用方式是用于学习与代码审计~">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://static.zybuluo.com/1kbfree/pswqhytgfahplm0g9nys439y/image_1cee71otlos41qp4gq6j651r979.png">
-<meta property="og:updated_time" content="2018-05-26T13:45:26.017Z">
+<meta property="og:updated_time" content="2018-06-04T14:56:03.657Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PHP函数记录">
 <meta name="twitter:description" content="持续更新中,此笔记正确食用方式是用于学习与代码审计~">
@@ -111,7 +111,7 @@
     root: '/',
     scheme: 'Gemini',
     version: '5.1.4',
-    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -181,7 +181,7 @@
     
   
 
-  <div class="container sidebar-position-right page-post-detail">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -442,7 +442,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,931
+                  3,091
                 </span>
               
 
@@ -470,7 +470,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://static.zybuluo.com/1kbfree/pswqhytgfahplm0g9nys439y/image_1cee71otlos41qp4gq6j651r979.png" rel="gallery_cjhobevbk002ltgui80umccwh"
+                 href="http://static.zybuluo.com/1kbfree/pswqhytgfahplm0g9nys439y/image_1cee71otlos41qp4gq6j651r979.png" rel="gallery_cjipq6luj006nhguegy5wec7c"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://static.zybuluo.com/1kbfree/pswqhytgfahplm0g9nys439y/image_1cee71otlos41qp4gq6j651r979.png" itemprop="contentUrl"/>
               </a>
@@ -502,7 +502,39 @@
 <hr>
 <p><strong>const用法：</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    <span class="keyword">const</span> name=<span class="string">'iamfree'</span>;</span><br><span class="line">    <span class="keyword">echo</span> name;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">输出:iamfree</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
 <hr>
-<p><strong>htmlspecialchars()函数：</strong><br><img src="http://static.zybuluo.com/1kbfree/q8yrwithqaykeziaxj3w50aq/image_1cavlibuatcrb7u1qbv6ni1p9.png" alt="image_1cavlibuatcrb7u1qbv6ni1p9.png-17.3kB"></p>
+<p><strong>htmlspecialchars()函数：</strong><br><img src="http://static.zybuluo.com/1kbfree/v6c48k8uhhan8wid021wdjdv/image_1cf5k429h93b1t2dls83t6db919.png" alt="image_1cavlibuatcrb7u1qbv6ni1p9.png-17.3kB"></p>
+<hr>
+<p><strong>readfile()用法：</strong></p>
+<blockquote>
+<p>定义和用法</p>
+</blockquote>
+<p><code>readfile()</code> 函数输出一个文件。<br>该函数读入一个文件并写入到输出缓冲。<br>若成功，则返回从文件中读入的内容与字节数。若失败，则返回 false。您可以通过 <code>@readfile()</code> 形式调用该函数，来隐藏错误信息。</p>
+<p><code>readfile( filename,include_path,context )</code></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">filename</td>
+<td style="text-align:center">必需。规定要读取的文件。</td>
+</tr>
+<tr>
+<td style="text-align:center">include_path</td>
+<td style="text-align:center">可选。如果也想在include_path中搜索文件，可以使用该参数并将其设为 true。</td>
+</tr>
+<tr>
+<td style="text-align:center">context</td>
+<td style="text-align:center">可选。规定文件句柄的环境。Context 是可以修改流的行为的一套选项。</td>
+</tr>
+</tbody>
+</table>
+<p><strong><br>代码</strong>:<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> readfile( <span class="string">'cai_team.txt'</span> );</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://static.zybuluo.com/1kbfree/v6c48k8uhhan8wid021wdjdv/image_1cf5k429h93b1t2dls83t6db919.png" alt="image_1cf5k429h93b1t2dls83t6db919.png-42.2kB"></p>
+<hr>
 <h3 id="执行转换"><a href="#执行转换" class="headerlink" title="执行转换:"></a>执行转换:</h3><table>
 <thead>
 <tr>
@@ -772,7 +804,7 @@
   
 
   <p><span>发布时间:</span>2018年05月26日 - 20:05</p>
-  <p><span>最后更新:</span>2018年05月26日 - 21:05</p>
+  <p><span>最后更新:</span>2018年06月04日 - 22:06</p>
   <p><span>原始链接:</span><a href="/2018/05/26/PHP函数记录/" title="PHP函数记录">127.0.0.1/2018/05/26/PHP函数记录/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="127.0.0.1/2018/05/26/PHP函数记录/"  aria-label="复制成功！"></i></span>
   </p>
@@ -798,7 +830,7 @@
     
       <div>
         <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-  <div>坚持写有质量的原创文章，如果您觉得质量不错的话就点击下面按钮打赏我们把~</div>
+  <div>坚持写有质量的原创\转载文章，如果您觉得质量不错的话就点击下面按钮打赏我们把~</div>
   <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
     <span>打赏</span>
   </button>
@@ -806,14 +838,14 @@
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/images/mylogo.png" alt=" 微信支付"/>
+        <img id="wechat_qr" src="/images/wx.jpg" alt=" 微信支付"/>
         <p>微信支付</p>
       </div>
     
 
     
       <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="/images/mylogo.png" alt=" 支付宝"/>
+        <img id="alipay_qr" src="/images/zfb.jpg" alt=" 支付宝"/>
         <p>支付宝</p>
       </div>
     
@@ -986,7 +1018,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -997,7 +1029,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1008,7 +1040,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">35</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1145,7 +1177,7 @@ var jiathis_config={
 
 <div class="theme-info">
   <div class="powered-by"></div> 
-  <span class="post-count">博客文章字数共 9.0k 哟~</span>
+  <span class="post-count">博客文章字数共 16.1k 哟~</span>
 </div>
 
 
@@ -1214,8 +1246,6 @@ var jiathis_config={
   
 
 
-  
-
 
 
 
@@ -1254,11 +1284,6 @@ var jiathis_config={
   
   
     <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
   
 
 

