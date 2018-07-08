@@ -6,10 +6,33 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="127.0.0.1/"/>
-  <updated>2018-07-05T10:11:04.252Z</updated>
+  <updated>2018-07-08T13:03:32.922Z</updated>
   <id>127.0.0.1/</id>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>漏洞挖掘思路总结[续]</title>
+    <link href="127.0.0.1/2018/07/08/%E6%BC%8F%E6%B4%9E%E6%8C%96%E6%8E%98%E6%80%9D%E8%B7%AF%E6%80%BB%E7%BB%93-%E7%BB%AD/"/>
+    <id>127.0.0.1/2018/07/08/漏洞挖掘思路总结-续/</id>
+    <published>2018-07-08T12:52:17.000Z</published>
+    <updated>2018-07-08T13:03:32.922Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote class="blockquote-center"><p>如果你有更好的思路可以找我说一下，感激不尽~<br>后续将继续补充(前提是有思路分享给我)，还需要大佬们的多多支持~</p></blockquote><a id="more"></a><p>经过一个月的SRC挖掘，总结那么几个思路：</p><h3 id="SSRF"><a href="#SSRF" class="headerlink" title="SSRF"></a>SSRF</h3><p>首先，比如在调用图片处，调用远程文件（修改为要访问的URL）处，或者一些IP查询的，如图</p><p><img src="http://static.zybuluo.com/1kbfree/pah66v9b293kuy2gz5xu77g4/image_1chnh3u3kvsmc6710kr1l3i1nqn19.png" alt="image_1chnh3u3kvsmc6710kr1l3i1nqn19.png-102.3kB"></p><p>上图就是百度某站点去请求输入框里面的内容，也就是<code>bbs.ixsec.org/baidu.php</code>，然后服务端就会去请求这个URL，并且将数据返回到输出的地方。</p><h3 id="Csrf"><a href="#Csrf" class="headerlink" title="Csrf"></a>Csrf</h3><p>Csrf多处存在于 修改 增加 删除 等操作中都可以尝试使用跨站请求伪造。</p><h3 id="Xss"><a href="#Xss" class="headerlink" title="Xss"></a>Xss</h3><p>1、搜索框里输入<code>&lt;img src=x onerror=alert(1)&gt;</code>，查看是否能弹窗。</p><p>2、比如某个页面评论处插入了<code>&lt;img src=x&gt;</code>被实体编码的话，假设当前的网站有一个引用功能，那么我们就可以引用一下这个评论，如果在引用页面没有实体化编码的话，那么就会存在二次Xss漏洞攻击。</p><p>3、比如某些网站在评论后会显示 IP 或者 来源（电脑、手机、苹果之类的），如果是可控的话我们可以修改为恶意的<code>JS</code>代码，因为很少开发者会把这些地方选择实体化编码。</p><p>4、总结就是有框就插，没实体输出的话就干，没实体输出的话就选择去绕过~</p><h3 id="Sql注入"><a href="#Sql注入" class="headerlink" title="Sql注入"></a>Sql注入</h3><p>我也不太会，不写了</p><h3 id="越权漏洞"><a href="#越权漏洞" class="headerlink" title="越权漏洞"></a>越权漏洞</h3><p>1、普遍创建<code>2</code>个账号，然后将 2 个账号中统一操作的数据包复制下来，慢慢的进行分析，查看是否有身份标识是可控的。</p><p>2、某些网站的ID是非常的长的，但是如果是有规则的话还是可以分析出来的，如下案例：</p><p>iamfree账号的ID：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2018666iamfreeabcbcaabcbca66612</span><br></pre></td></tr></table></figure><p>hack账户的ID：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2018666hackabcbcaabcbca66676</span><br></pre></td></tr></table></figure><p>提取下来分析，这个案例很简单，有眼睛都看得出来只有中间的和最后面的不同，而中间不同处是用户的名称，而后面二位不同的话是可以爆破的，毕竟才二位。</p><h3 id="任意用户操作（如注册，重置等）"><a href="#任意用户操作（如注册，重置等）" class="headerlink" title="任意用户操作（如注册，重置等）"></a>任意用户操作（如注册，重置等）</h3><blockquote><p>此漏洞一般都是处于<strong>忘记密码处和注册处</strong></p></blockquote><h4 id="手机号码找回"><a href="#手机号码找回" class="headerlink" title="手机号码找回"></a>手机号码找回</h4><ol><li><p>输入520xxx后网站会对520xxx发送一条验证码，此时可以查看一下数据包中或者返回的数据包中是否存在此验证码，</p></li><li><p>输入正确的手机号码和验证码，然后抓包查看返回值，然后替换到想任意重置的用户的数据返回包中，查看是否能够成功的绕过从而重置密码</p></li><li><p>如果验证码是4位的，且有效时间过长是可以选择爆破的。</p></li><li><p>自己加入一下数据，假设<code>www.a.com</code>在修改用户数据的时候会传递一个值（<code>user_name</code>），然后我们在忘记密码处输入正确的手机号码和验证码，并且再重置成功的最后一步参数添加<code>user_name=admin</code>，如果这里是有接受<code>user_name</code>的值的话并且处理的话，你就可以重置<code>admin</code>用户的账号密码了。</p></li><li><p>查看每一步操作，比如<strong>第一步</strong>是验证手机号码是否正确，<strong>第二步</strong>是填写新密码，那么我们在<strong>第一步</strong>输入正确的手机号码（<code>1511...</code>）-&gt;点击获取验证码-&gt;输入正确的验证码，然后到达<strong>第二步</strong>的时候填写新的密码然后抓包（放到<code>Repeater</code>模块里）。然后我们再回到第一步，输入<code>17520...</code>的手机号码-&gt;点击获取验证码（不用输入验证码，因为你也获取不到其他用户的验证码），然后我们在<code>Repeater</code>模块中点击<code>1511...</code>用户输入新密码的那个数据包的<code>GO</code>，如果可以重置就表示没有判断第一步就可以执行第二步了，但是这里有一点是注意的，如果手机号码和验证码存在第二步中，那么这个方法就不会有效。</p></li><li><p>见过最多的是找回密码的token是base64编码的，而解码后的明文根据其规则修改就可以成为别人用户找回密码的凭证了。</p></li></ol><h4 id="邮箱账号找回"><a href="#邮箱账号找回" class="headerlink" title="邮箱账号找回"></a>邮箱账号找回</h4><ol><li><p>HOST头伪造：输入正确的邮箱账号，但是修改 HOST（也就是发送的域名） ，比如修改为<code>www.iamfree.com</code>（如果这里没有过滤的话，邮箱里发送的内容就会是<code>www.iamfree.com/xxx重置密码链接xxx</code>），然后<code>www.iamfree.com</code>网站的功能就是存储每个访问的请求，那么我们就可以获取到重置密码的请求，从而来重置用户的账号，但是如果用户过了链接重置的有效期才点击的话，这个漏洞就会很难利用了。</p></li><li><p>其余同手机号码找回漏洞原理差不多。</p></li></ol><h4 id="注册用户处"><a href="#注册用户处" class="headerlink" title="注册用户处"></a>注册用户处</h4><ol><li>这里的话也和手机找回密码处逻辑差不多，但是不同的是任意用户注册的话手机号码是存在的，而任意用户注册的话是手机号码不存在，并且可以不用输入正确的手机号码验证码就可绕过。</li></ol><h3 id="命令注入"><a href="#命令注入" class="headerlink" title="命令注入"></a>命令注入</h3><p>没挖过</p><h3 id="代码执行"><a href="#代码执行" class="headerlink" title="代码执行"></a>代码执行</h3><p>没挖过</p><h3 id="验证码绕过"><a href="#验证码绕过" class="headerlink" title="验证码绕过"></a>验证码绕过</h3><h4 id="图形类验证码绕过"><a href="#图形类验证码绕过" class="headerlink" title="图形类验证码绕过"></a>图形类验证码绕过</h4><ol><li><p>验证码刷新之后，而历史刷新的验证码还是可以继续使用。</p></li><li><p>验证码使用过后不刷新，时效性不过期，可以一直复用。</p></li><li><p>很多验证码的显示很简单，容易被机器识别。</p></li></ol><h4 id="短信类验证码绕过"><a href="#短信类验证码绕过" class="headerlink" title="短信类验证码绕过"></a>短信类验证码绕过</h4><ol><li><p><strong>验证码过于简易&amp;接口未限制</strong>：有些手机短信验证码都为 4-8位 纯数字的验证码，在接口没有任何限制的情况下是可以直接爆破的</p></li><li><p><strong>验证码发送复用&amp;时效性过长&amp;接口未限制</strong>：位数验证码时效性为5分钟，但是在这里同一手机号发送的验证码都是一样的，所以可以在4分钟的时候重新发送一次验证码这样验证码就又有效了，因为验证码一直在被复用，所以可以爆破。</p></li><li><p><strong>万能验证码</strong>：这是很多大企业的诟病，在未上线前为了方便测试加了<code>888888</code>、<code>000000</code>这样的万能验证码但是上线后没去删除测试的3内容导致被恶意利用。</p></li></ol><h3 id="短信-语音验证码重放"><a href="#短信-语音验证码重放" class="headerlink" title="短信/语音验证码重放"></a>短信/语音验证码重放</h3><blockquote><p>无论是发送短信还是语音验证码来做验证，都是需要手机号的，而发送验证码实际上是需要成本的，需要跟运营商或者是第三方验证码平台进行合作，多数验证码为0.01元一条，当然也有更便宜的，所以这边的问题也会影响到一个企业的资产方面。</p></blockquote><ol><li><p>厂商对验证码发送这一块并没有进行限制时间发送，可造成短信轰炸</p></li><li><p>很多厂商会对手机号进行限制，如果60秒内发送过就不会发送，但是程序员在设计代码层的逻辑时会出现很多奇葩的问题，例如其为了方便用户体验，正常的代码层的流程为：去除用户手误输入的空格以及一些特殊符号 -&gt; 验证手机号是否发送过验证码。</p><p> 某些程序员会这样设计流程： 验证手机号是否发送过验证码（发送过则不放行 没发送过则进入下一步） -&gt; 去除用户手误输入的空格以及一些特殊符号 -&gt; 发送手机号验证码</p></li></ol><ol start="3"><li><strong>手机号可遍历发送</strong>：验证码发送会影响到企业资产，那么发送验证码限制就不能仅仅针对于单一手机号的限制，例如我可以载入一堆手机号的字典，然后直接遍历发送验证码，这也是危害之一。</li></ol><h3 id="上传漏洞"><a href="#上传漏洞" class="headerlink" title="上传漏洞"></a>上传漏洞</h3><ol><li><p>查看是否是<code>IIS6.0</code>等搭建的，因为如果是这些服务器搭建的话我们是可以通过解析漏洞或者00截断来上传我们想要上传的文件</p></li><li><p>如果只是前端判断上传的文件后缀名的话，我们可以用<code>Burp</code>来绕过</p></li><li><p>如果是只判断了HTTP/HTTPS的请求包中的<code>Content-type</code>我们就只需要修改为合法的就可以上传了。</p></li><li><p>更多（待续）</p></li></ol><h3 id="未授权访问"><a href="#未授权访问" class="headerlink" title="未授权访问"></a>未授权访问</h3><p>比如一个后台，是需要正确的管理员密码才能登陆（废话），那么未授权访问就是说不需要用户名和密码即可登陆后台。</p><ol><li>比如你输入账号密码后服务端会判断账号密码是否正确，如果登陆成功，照常访问，如果登陆失败的话就会用前段的跳转强制让你回到首页，那么我们可以抓包的时候修改返回值，如果返回值是html代码的话，找到跳转的链接，将其删除，如果是状态码这些，将类似的<code>Error</code>修改为<code>Success</code>，总之看情况的。</li></ol><h3 id="支付漏洞"><a href="#支付漏洞" class="headerlink" title="支付漏洞"></a>支付漏洞</h3><blockquote><p>基本上大站是不存在这个漏洞的，除非个把程序员想要去祭天</p></blockquote><ol><li><p>比如购买iamfree这个产品的时候，需要99999999999元，那么我们在点击购买的时候，尝试修改99999999999元为1元后放包，查看是否能购买成功</p></li><li><p>比如在购买iamfree的时候，都会弹出一个是否购买成功然后选项是购买成功，另一个选项是购买失败，那么我们什么都不要点击，因为这样子的肯定是有空多长时间重新请求的，我们就可以打开代理，并且开启抓包模式，等又发起请求的时候，我们可以修改请求包中的返回值为正确购买的（多修改试试）</p></li><li><p>如果商品的价格是不能改的话我们可以试试这个思路：一般购买商品的话是存在优惠券的，比如我购买iamfree的时候需要200元，而优惠券就是满200优惠10元的，那么可以-&gt;选择这个优惠卷-&gt;抓包，查看数据包里是否有可以的参数的值为10为199，那么这个时候如果没有验证优惠券的价格的话就会变成1元钱（200-199=1，我只是为了声明，并没有怀疑你们的智商= ~~ =）就可以购买了。</p></li><li><p>如果以上都不成功的话还是别放弃，查看一下网站是否存在退款功能，比如我购买了10元的产品，那么还没发货的时候我们可以点击退款，但是退款中，数据包中包含那个10，那么我们可以尝试一下把10修改为1000，然后查看一下自己的钱是否有变多~</p></li><li><p>还是退款功能，我们抓取数据包后，放到<code>Repeater</code>模块中，一直点GO，虽然我也不知道原理，但是记得有看文章看到过，反正如果添加了你的余额就可以了。</p></li><li><p>修改商品数量</p></li><li><p><strong>sign值可逆：</strong> sign多数为对比确认金额的一段内容，很多都是md5加密的，这时候你要做好自己的分析明文到底是什么，然后去碰撞，例如可能是md5(订单号+金额)这样的的组合，然后修改金额重新生成sign就可以绕过金额固定的限制了。</p></li></ol><h3 id="通用操作绕过"><a href="#通用操作绕过" class="headerlink" title="通用操作绕过"></a>通用操作绕过</h3><ol><li>假设某个步骤1的<code>URL</code>为<code>http://www.iamfree.com/do1</code>，这时候可以尝试修改下链接为<code>/do2</code>等类似的<code>URL</code>的来测试是否能绕过第一步来进行第二步的操作。</li></ol><h3 id="条件竞争-HTTP并发"><a href="#条件竞争-HTTP并发" class="headerlink" title="条件竞争(HTTP并发)"></a>条件竞争(HTTP并发)</h3><ol><li>在签到、转账、兑换、购买等场景是最容易出现这样的问题。比如当你点击签到的时候，抓包，然后放到<code>Repeater</code>模块里，一直点击<code>GO</code>，如果程序员没有做严格的过滤的话，我们点击的<code>签到、转账、兑换、购买</code>的次数会随着<code>GO</code>的次数增加，而且不会消耗另外的东西。</li></ol><blockquote class="blockquote-center"><p>十年寒窗无人问，一举成名天下知<br>                            – 0DafSafe</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;p&gt;如果你有更好的思路可以找我说一下，感激不尽~&lt;br&gt;后续将继续补充(前提是有思路分享给我)，还需要大佬们的多多支持~&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Web攻防" scheme="127.0.0.1/categories/Web%E6%94%BB%E9%98%B2/"/>
+    
+    
+      <category term="Web漏洞挖掘思路" scheme="127.0.0.1/tags/Web%E6%BC%8F%E6%B4%9E%E6%8C%96%E6%8E%98%E6%80%9D%E8%B7%AF/"/>
+    
+  </entry>
   
   <entry>
     <title>about_me</title>
@@ -542,35 +565,6 @@
       <category term="Cms漏洞挖掘" scheme="127.0.0.1/tags/Cms%E6%BC%8F%E6%B4%9E%E6%8C%96%E6%8E%98/"/>
     
       <category term="白盒审计" scheme="127.0.0.1/tags/%E7%99%BD%E7%9B%92%E5%AE%A1%E8%AE%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>OSI七层模型</title>
-    <link href="127.0.0.1/2018/05/27/OSI%E4%B8%83%E5%B1%82%E6%A8%A1%E5%9E%8B/"/>
-    <id>127.0.0.1/2018/05/27/OSI七层模型/</id>
-    <published>2018-05-27T09:58:26.000Z</published>
-    <updated>2018-05-27T10:02:08.000Z</updated>
-    
-    <content type="html"><![CDATA[<a id="more"></a><blockquote class="blockquote-center"><p>十年寒窗无人问，一举成名天下知<br>                            – Cai_Team</p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;p&gt;十年寒窗无人问，一举成名天下知&lt;br&gt;                            – Cai_Team&lt;/p&gt;
-&lt;/blockquote&gt;
-      
-    
-    </summary>
-    
-      <category term="思科认证" scheme="127.0.0.1/categories/%E6%80%9D%E7%A7%91%E8%AE%A4%E8%AF%81/"/>
-    
-    
-      <category term="OSI七成模型" scheme="127.0.0.1/tags/OSI%E4%B8%83%E6%88%90%E6%A8%A1%E5%9E%8B/"/>
-    
-      <category term="网络设备" scheme="127.0.0.1/tags/%E7%BD%91%E7%BB%9C%E8%AE%BE%E5%A4%87/"/>
     
   </entry>
   
